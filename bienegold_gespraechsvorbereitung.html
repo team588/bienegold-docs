@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BieneGold | Gesprächsvorbereitung — Kundenanruf</title>
+<style>
+  :root {
+    --bg:      #0f1115;
+    --surf:    #1a1d24;
+    --surf2:   #23272f;
+    --text:    #e8e9ec;
+    --muted:   #7a8090;
+    --border:  rgba(232,233,236,0.08);
+    --gold:    #d4a843;
+    --gold2:   #e8c566;
+    --green:   #4ade80;
+    --red:     #f87171;
+    --blue:    #60a5fa;
+    --orange:  #fb923c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; background: var(--bg); color: var(--text); }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; padding: 48px 24px; }
+
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* Header */
+  .doc-header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+  .doc-header .label { font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .doc-header h1 { font-size: 2rem; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+  .doc-header .subtitle { color: var(--muted); font-size: .95rem; }
+  .doc-header .meta { margin-top: 16px; display: flex; gap: 24px; flex-wrap: wrap; }
+  .doc-header .meta span { font-family: 'Courier New', monospace; font-size: 11px; color: var(--muted); }
+  .doc-header .meta span b { color: var(--text); }
+
+  /* Sections */
+  .section { margin-bottom: 48px; }
+  .section-title {
+    font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 20px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  }
+  .section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+  .section .desc { color: var(--muted); font-size: .9rem; margin-bottom: 24px; }
+
+  /* Cards */
+  .card {
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+  .card.gold-border { border-color: rgba(212,168,67,0.35); }
+  .card.green-border { border-color: rgba(74,222,128,0.25); }
+  .card.red-border   { border-color: rgba(248,113,113,0.25); }
+  .card.blue-border  { border-color: rgba(96,165,250,0.25); }
+  .card.orange-border { border-color: rgba(251,146,60,0.3); }
+
+  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+  .card-sub   { font-size: .8rem; color: var(--muted); margin-bottom: 12px; font-family: 'Courier New', monospace; letter-spacing: .04em; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 10px; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .tl-item { position: relative; margin-bottom: 28px; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -25px; top: 6px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--surf2); border: 2px solid var(--gold);
+  }
+  .tl-item.confirmed::before { background: var(--green); border-color: var(--green); }
+  .tl-date {
+    font-family: 'Courier New', monospace; font-size: 11px;
+    color: var(--gold); margin-bottom: 4px; letter-spacing: .06em;
+  }
+  .tl-who { font-size: .75rem; color: var(--muted); margin-bottom: 8px; }
+  .tl-title { font-weight: 700; font-size: .95rem; margin-bottom: 6px; }
+  .tl-body { font-size: .875rem; color: var(--muted); }
+  .tl-body ul { padding-left: 16px; }
+  .tl-body li { margin-bottom: 3px; }
+
+  /* Comparison table */
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .comp-col-title {
+    font-family: 'Courier New', monospace; font-size: 11px;
+    letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px;
+    padding: 8px 12px; border-radius: 6px; text-align: center;
+  }
+  .comp-col-title.client { background: rgba(212,168,67,.12); color: var(--gold); }
+  .comp-col-title.us     { background: rgba(96,165,250,.12); color: var(--blue); }
+  .comp-item { font-size: .875rem; padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; background: var(--surf2); }
+
+  /* Accept/Reject table */
+  .verdict-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+  .verdict-table th {
+    text-align: left; padding: 10px 16px; font-family: 'Courier New', monospace;
+    font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); border-bottom: 1px solid var(--border); font-weight: normal;
+  }
+  .verdict-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .verdict-table tr:last-child td { border-bottom: none; }
+  .verdict-table .topic { font-weight: 600; color: var(--text); }
+  .verdict-table .detail { font-size: .8rem; color: var(--muted); margin-top: 3px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 10px; border-radius: 20px; font-size: .75rem;
+    font-family: 'Courier New', monospace; letter-spacing: .04em; white-space: nowrap;
+  }
+  .badge.ok      { background: rgba(74,222,128,.12); color: var(--green); }
+  .badge.no      { background: rgba(248,113,113,.12); color: var(--red); }
+  .badge.corrected { background: rgba(251,146,60,.12); color: var(--orange); }
+  .badge.open    { background: rgba(96,165,250,.12); color: var(--blue); }
+
+  /* Fixed state */
+  .fixed-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .fixed-item { background: var(--surf); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+  .fixed-item .fi-label { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .fixed-item .fi-value { font-size: .9rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .fixed-item .fi-detail { font-size: .8rem; color: var(--muted); }
+
+  /* Open questions */
+  .open-q { counter-reset: q; }
+  .open-q .q-item {
+    display: flex; gap: 16px; padding: 14px 20px;
+    background: var(--surf); border: 1px solid var(--border);
+    border-radius: 10px; margin-bottom: 10px;
+  }
+  .open-q .q-num {
+    font-family: 'Courier New', monospace; font-size: 1.2rem; font-weight: 700;
+    color: var(--gold); min-width: 28px;
+  }
+  .open-q .q-text { font-size: .9rem; }
+  .open-q .q-text .q-title { font-weight: 600; margin-bottom: 3px; }
+  .open-q .q-text .q-why { font-size: .8rem; color: var(--muted); }
+
+  /* Finale Architektur */
+  .arch-block { background: var(--surf); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+  .arch-block h3 { font-size: 1rem; font-weight: 700; color: var(--gold); margin-bottom: 12px; }
+  .arch-block ul { padding-left: 18px; font-size: .875rem; }
+  .arch-block ul li { margin-bottom: 5px; color: var(--muted); }
+  .arch-block ul li b { color: var(--text); }
+  .arch-block .phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
+  .arch-block .phase {
+    background: var(--surf2); border-radius: 8px; padding: 10px 12px;
+    font-size: .8rem; text-align: center;
+  }
+  .arch-block .phase .p-num { font-weight: 700; color: var(--gold); font-size: 1rem; }
+  .arch-block .phase .p-name { color: var(--muted); font-size: .75rem; margin-top: 3px; }
+
+  .funnel-flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .funnel-step { background: var(--surf2); border-radius: 8px; padding: 8px 14px; font-size: .82rem; white-space: nowrap; }
+  .funnel-arrow { color: var(--gold); font-size: 1rem; }
+
+  .dvl { font-size: .72rem; font-family: 'Courier New', monospace; color: var(--green); margin-left: 6px; }
+  .dvl-ai { color: var(--orange); }
+
+  /* Print */
+  @media print {
+    body { background: #fff; color: #111; padding: 24px; }
+    :root {
+      --bg: #fff; --surf: #f5f5f7; --surf2: #ebebef; --text: #111;
+      --muted: #666; --border: #ddd; --gold: #b8860b; --green: #2d7a2d;
+      --red: #c0392b; --blue: #2271b3; --orange: #c05010;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="label">BieneGold 2026 WebSeite — Gesprächsvorbereitung</div>
+    <h1>Vorbereitung Kundenanruf</h1>
+    <div class="subtitle">Was vorgeschlagen wurde, was akzeptiert / abgelehnt wurde, was fixiert ist. Offene Fragen für das Gespräch.</div>
+    <div class="meta">
+      <span><b>Datum:</b> 10.04.2026</span>
+      <span><b>Kunde:</b> Denis Ivanov / BieneGold GmbH</span>
+      <span><b>Projekt:</b> BieneGold 2026 WebSeite (Deal #1905)</span>
+      <span><b>Bearbeiter:</b> Alexander Wirt / 2 Penguins</span>
+    </div>
+  </div>
+
+  <!-- 1. TIMELINE -->
+  <div class="section">
+    <div class="section-title">01 — Chronologie</div>
+    <h2>Was wann passiert ist</h2>
+    <p class="desc">Vollständiger Verlauf vom Kick-off bis heute.</p>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-date">06.03.2026</div>
+        <div class="tl-who">Denis Ivanov + Alexander Wirt + Anna Schmidt · Google Meet Kick-off</div>
+        <div class="tl-title">Kick-off: Denis stellt sein Unternehmen und Vision vor</div>
+        <div class="tl-body">
+          <ul>
+            <li>9 Geschäftsbereiche: Badsanierung, Spanndecken, Wandverkleidungen, Innenausbau, Akustik, Licht, SmartHome, Infrarot, SmartCom</li>
+            <li>Technisch: WordPress + WooCommerce, Odoo = Source of Truth für Katalog</li>
+            <li>GmbH seit 2012, Berlin + Brandenburg, nur Generalunternehmer (keine eigenen Meisterbriefe)</li>
+            <li>Problem: Aktuelle Website score 22/100 — vollständiger Neuaufbau notwendig</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">17.03.2026</div>
+        <div class="tl-who">Denis Ivanov · per Email + Google Drive</div>
+        <div class="tl-title">Denis sendet erste Unterlagen: Материалы, Konzept, WhatsApp-Protokoll</div>
+        <div class="tl-body">
+          <ul>
+            <li><b>Сайт Начало.docx:</b> Materialpartner (Fibo, CERAMIN, Epoxidharz, Basotect), Konkurrenten, SEO-Keywords</li>
+            <li><b>WhatsApp-Переписка:</b> 7-Phasen-System, Phase-1-Pakete mit Preisen (Basic 390€ / Komfort 790€ / All-In 1.290€ netto), Festpreis-Garantie-Konzept, FAQ 14 Fragen</li>
+            <li>Dropbox-Link für Fotos: <code>BieneGold_Bad_und_WC_Material_und_Beispiele</code></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">18.03.2026</div>
+        <div class="tl-who">Denis Ivanov · Email "Re: Сайт" (Activity #39931)</div>
+        <div class="tl-title">Denis beantwortet unsere 7 Fragen — Kernmechanik und USP definiert</div>
+        <div class="tl-body">
+          <ul>
+            <li>Zielgruppe Badsanierung: B2C, 40–80 Jahre, Angst vor Kostenexplosion + Kontrollverlust</li>
+            <li>Kernmechanik: Website → Konfigurator → PDF-KV (±30%, ~15 Min.) → Follow-up → Phase 1</li>
+            <li><b>USP vom Kunden selbst formuliert:</b> „Planungssicherheit statt Baustellen-Chaos."</li>
+            <li>Phase 1 muss wie eine „Versicherung" wirken, nicht wie extra Gebühr</li>
+            <li>Website-Design: Klare Phasen-Grafiken, Ruhe, Struktur, Technologie ausstrahlen</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">21.03.2026</div>
+        <div class="tl-who">Denis Ivanov · Dokument-Attachment + WhatsApp</div>
+        <div class="tl-title">Denis bestätigt alle 7 Fragen schriftlich + klärt Adresse</div>
+        <div class="tl-body">
+          <ul>
+            <li>Bestätigt: Haupt-USP, Phase-1-Framing, Konfigurator als PFLICHT, Odoo-Integration als PFLICHT</li>
+            <li>Bestätigt: Nur schriftlich (E-Mail/Formular/WhatsApp), Mo–Fr 09–17, kein Telefon</li>
+            <li>Bestätigt: Keine Pakete auf Website — nur Phasen zeigen</li>
+            <li>Adresse geklärt: <b>Lutherplatz 5, 13585 Berlin</b> (Impressum + Rechnungen)</li>
+            <li>SmartHome: Wassersensoren, Floor Heating, Licht-Szenen — idealerweise in Phase 3 (Rohinstallation)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">21.–22.03.2026</div>
+        <div class="tl-who">2 Penguins · Weißraum-Analyse (KI-gestützt, Dreifach-Kritik)</div>
+        <div class="tl-title">Wir: Strategische Positionierungsanalyse + 20-Slide Präsentation</div>
+        <div class="tl-body">
+          <ul>
+            <li>Weißraum v2.2 HYBRID (Konstantin-Methode): ANALYST + CREATIVE + Dreifach-Kritik</li>
+            <li>Empfehlung: Option B+ — „Bad- und Wohnraum-Modernisierer mit System"</li>
+            <li>Festpreis-Funnel als White Space #1 (23/25 Punkte) — <b>⚠️ später vom Kunden gestrichen</b></li>
+            <li>3 Kreativkonzepte: K1 „Null Überraschungen" (4.55) · K2 „Räume ohne Bruchstellen" (4.40) · K3 „15 Min/15 Jahre" (4.40)</li>
+            <li>Dreifach-Kritik: Craft Agent + Perplexity + Gemini → 80% Übereinstimmung</li>
+            <li>20-Slide HTML-Präsentation erstellt und an Denis gesendet</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item confirmed">
+        <div class="tl-date">25.03.2026</div>
+        <div class="tl-who">Denis Ivanov · Email "Re: Сайт" (Activity #40204) — Feedback auf Präsentation</div>
+        <div class="tl-title">Denis gibt Feedback: 3 konkrete Korrekturen ✅</div>
+        <div class="tl-body">
+          <ul>
+            <li><b style="color:#f87171;">GESTRICHEN:</b> Festpreisgarantie — „zu komplex als Versprechen, weglassen"</li>
+            <li><b style="color:#fb923c;">KORRIGIERT:</b> Funnel — Telefonat zuerst, dann KV + 2 Begleitschreiben + 3 Phase-1-Angebote per Email</li>
+            <li><b style="color:#fb923c;">KORRIGIERT:</b> Spanndecken-Material = <b>Vinyl</b> (nicht Textil)</li>
+            <li>Denis erwähnt 4 Beispiel-Dateien (Begleitschreiben) — in Bitrix24 sichern</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item confirmed">
+        <div class="tl-date">26.03.2026</div>
+        <div class="tl-who">Denis Ivanov · 2 × Email "Re: Сайт" (Activity #40261, #40262)</div>
+        <div class="tl-title">Denis präzisiert: 8 Phasen (statt 7) + Phase-1-Paketstruktur ✅</div>
+        <div class="tl-body">
+          <ul>
+            <li><b>8-Phasen-System offiziell:</b> Phase 5 (Vorbereitung) und Phase 6 (Beschichtung) wurden getrennt</li>
+            <li>Phase 1 in 3 Paketen: Basic / Komfort-Gold / All-in — Preise noch nicht fixiert (TBD)</li>
+            <li>Pakete nur intern — nicht auf der Website zeigen</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">10.04.2026</div>
+        <div class="tl-who">2 Penguins · Aktuelle Session</div>
+        <div class="tl-title">Alle Emails verarbeitet, Wiki-Wissensbasis aufgebaut, PCM aktualisiert</div>
+        <div class="tl-body">
+          <ul>
+            <li>2p-wiki init + ingest: 14 Wiki-Seiten, alle Denis-Daten strukturiert</li>
+            <li>HTML-Präsentation korrigiert (Festpreis, 7→8 Phasen, Vinyl)</li>
+            <li>Pipeline entsperrt → nächster Schritt: 2p-entities → 2p-strategist</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. DENIS vs. WIR -->
+  <div class="section">
+    <div class="section-title">02 — Gegenüberstellung</div>
+    <h2>Denis' Vorschläge vs. Unsere Vorschläge</h2>
+    <p class="desc">Was der Kunde originär eingebracht hat — was wir analysiert und vorgeschlagen haben.</p>
+
+    <div class="comp-grid">
+      <div>
+        <div class="comp-col-title client">✅ CLIENT — Denis hat eingebracht</div>
+        <div class="comp-item"><b>USP „Planungssicherheit statt Baustellen-Chaos"</b> — selbst formuliert (18.03)</div>
+        <div class="comp-item"><b>Phase 1 = Versicherung</b> — nicht extra Gebühr (18.03)</div>
+        <div class="comp-item"><b>Konfigurator / Quiz als PFLICHT</b> — PDF-KV ±30% in ~15 Min. (18.03)</div>
+        <div class="comp-item"><b>8-Phasen-System</b> — selbst korrigiert von 7 auf 8 (26.03)</div>
+        <div class="comp-item"><b>Nur schriftlich</b> — Framing: Transparenz-Feature (21.03)</div>
+        <div class="comp-item"><b>Keine Pakete auf Website</b> — nur Phasen zeigen (21.03)</div>
+        <div class="comp-item"><b>Case Study-Format</b> — Ausgangslage → Phase 1 → Lösung → Ergebnis (21.03)</div>
+        <div class="comp-item"><b>Odoo = Source of Truth</b> — Katalog-Sync mit WooCommerce (06.03)</div>
+        <div class="comp-item"><b>Spanndecken = Vinyl</b> — Korrektur (25.03)</div>
+        <div class="comp-item"><b>Phase-1-Pakete: Basic / Komfort-Gold / All-in</b> — Struktur (26.03), Preise TBD</div>
+        <div class="comp-item"><b>Funnel: Telefonat zuerst</b> → KV → 2 Briefe + 3 Angebote per Email (25.03)</div>
+        <div class="comp-item"><b>FAQ 14 Fragen, 5 Kategorien</b> — fertig für Website, Schema.org (17.03)</div>
+      </div>
+      <div>
+        <div class="comp-col-title us">⚠️ AI — Wir haben vorgeschlagen</div>
+        <div class="comp-item"><b>Option B+ Positionierung</b> — „Bad- und Wohnraum-Modernisierer mit System" (22.03)</div>
+        <div class="comp-item"><b>Zwei-Stufen-Architektur</b> — Standardprodukte (Online) + Projektbasiert (Beratung) (22.03)</div>
+        <div class="comp-item"><b>K1 „Null Überraschungen"</b> — Homepage-Konzept, Score 4.55/5 (22.03)</div>
+        <div class="comp-item"><b>K2 „Räume ohne Bruchstellen"</b> — Spanndecken-Bereich, Score 4.40/5 (22.03)</div>
+        <div class="comp-item"><b>K3 „15 Min/15 Jahre"</b> — Ads/Funnel-Konzept, Score 4.40/5 (22.03)</div>
+        <div class="comp-item"><b>Festpreis-Funnel als WS#1</b> — 23/25 Punkte — <span style="color:#f87171;">❌ vom Kunden gestrichen</span></div>
+        <div class="comp-item"><b>White Space: Alles-aus-einer-Hand-Kombination</b> — 24/25 Punkte (22.03)</div>
+        <div class="comp-item"><b>White Space: „Gesundes Bad"</b> — CERAMIN/Fibo-Segment (22.03)</div>
+        <div class="comp-item"><b>White Space: „Smart &amp; Silent Office" B2B</b> — Akustik-Spanndecke (22.03)</div>
+        <div class="comp-item"><b>Relevant Truth</b> — „Stress durch Unvorhersehbarkeit, nicht Baustelle" (22.03)</div>
+        <div class="comp-item"><b>4 Korrekturen</b> — Hybrid-Kommunikation, Callback vor Phase 1, Quiz-MVP, Kundensprache (22.03)</div>
+        <div class="comp-item"><b>Hybrid-Kommunikation</b> — Callback als Brücke für 50+ (empfohlen, noch offen)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. ACCEPT / REJECT -->
+  <div class="section">
+    <div class="section-title">03 — Entscheidungsmatrix</div>
+    <h2>Angenommen · Korrigiert · Abgelehnt · Offen</h2>
+    <p class="desc">Statusübersicht aller diskutierten Punkte. Basis für das Gespräch mit Denis.</p>
+
+    <table class="verdict-table">
+      <thead>
+        <tr>
+          <th style="width:35%">Thema</th>
+          <th style="width:15%">Status</th>
+          <th>Was gilt</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>
+            <div class="topic">USP „Planungssicherheit statt Baustellen-Chaos"</div>
+            <div class="detail">Denis' eigene Formulierung</div>
+          </td>
+          <td><span class="badge ok">✓ Bestätigt</span></td>
+          <td style="font-size:.85rem;">Haupt-USP. Wird auf Homepage, Badsanierung und Funnel eingesetzt. Kreativkonzept K1 „Null Überraschungen" baut darauf auf.</td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic">8-Phasen-System Badsanierung</div>
+            <div class="detail">Denis hat von 7 auf 8 korrigiert (26.03)</div>
+          </td>
+          <td><span class="badge ok">✓ Bestätigt</span></td>
+          <td style="font-size:.85rem;">
+            <b>Offizielle Phasen:</b><br>
+            1. Angebot &amp; Vertrag · 2. Einkauf/Lieferung/Lagerung · 3. Abdeckung/Demontage/Entsorgung · 4. Leitungen Wasser &amp; Strom · 5. Vorbereitung/Spachteln/Trockenbau · 6. Beschichtung &amp; Verkleidung · 7. Endmontage · 8. Abnahme &amp; Übergabe
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic">Phase 1 = „Versicherung"-Framing</div>
+            <div class="detail">Nicht extra Gebühr — schützt vor Chaos</div>
+          </td>
+          <td><span class="badge ok">✓ Bestätigt</span></td>
+          <td style="font-size:.85rem;">Phase 1 ist das zentrale Produkt im Funnel. Wird als Versicherung gegen Kostenexplosion, Kontrollverlust und Überraschungen positioniert.</td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic">Phase-1-Paketstruktur: Basic / Komfort-Gold / All-in</div>
+            <div class="detail">Nur intern — nicht auf Website (26.03)</div>
+          </td>
+          <td><span class="badge ok">✓ Struktur bestätigt</span></td>
+          <td style="font-size:.85rem;"><b>Preise noch offen (TBD)</b> — frühere WhatsApp-Angaben (390 / 790 / 1.290 € netto) nicht offiziell per Email bestätigt. <span style="color:#60a5fa;">→ Im Gespräch klären</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic">Festpreis-Garantie als USP</div>
+            <div class="detail">War in unserer Präsentation als WS#1 (23/25 Pkt.)</div>
+          </td>
+          <td><span class="badge no">✗ Gestrichen</span></td>
+          <td style="font-size:.85rem;">Denis (25.03): „zu komplex als Versprechen, weglassen." Festpreisgarantie erscheint NICHT auf der Website. Stattdessen: verbindliche Planung nach Phase 1.</td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic">Sales-Funnel-Logik</div>
+            <div class="detail">Unsere Version: Quiz → PDF → Follow-up → Phase 1</div>
+          </td>
+          <td><span class="badge corrected">~ Korrigiert</span></td>
+          <td style="font-size:.85rem;">
+            Denis (25.03): Korrekte Reihenfolge:<br>
+            <b>Telefonat (Erstberatung) → KV erstellen → 2 Begleitschreiben + 3 Phase-1-Angebote per Email versenden → Phase 1 buchen</b><br>
+            <span style="color:var(--muted);">Note: Automation gewünscht, aber „Menschen kaufen von Menschen" — nicht zu viel automatisieren.</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic">Spanndecken-Material</div>
+            <div class="detail">In unserer Präsentation: Textil (Slide 9)</div>
+          </td>
+          <td><span class="badge corrected">~ Korrigiert</span></td>
+          <td style="font-size:.85rem;">Denis (25.03): BieneGold verwendet <b>Vinyl</b>, nicht Textil. In Präsentation und allen Artefakten korrigiert. <i>(Gewebewand/Spannwand = Textil — das bleibt korrekt. Nur Spanndecken = Vinyl.)</i></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic">Option B+ Positionierung</div>
+            <div class="detail">„Bad- und Wohnraum-Modernisierer mit System"</div>
+          </td>
+          <td><span class="badge ok">✓ Implizit bestätigt</span></td>
+          <td style="font-size:.85rem;">Denis hat die Präsentation positiv aufgenommen und nur konkrete Punkte korrigiert. Die Grundausrichtung B+ gilt als akzeptiert. Kein explizites Nein.</td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic">Kreativkonzepte K1/K2/K3</div>
+            <div class="detail">Null Überraschungen · Räume ohne Bruchstellen · 15 Min/15 Jahre</div>
+          </td>
+          <td><span class="badge open">? Noch offen</span></td>
+          <td style="font-size:.85rem;">Denis hat diese nicht explizit kommentiert. Kein Nein, kein explizites Ja. <span style="color:#60a5fa;">→ Im Gespräch kurz vorstellen und Feedback einholen.</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic">Hybrid-Kommunikation (Callback für 50+)</div>
+            <div class="detail">Unsere Empfehlung: telefonischer Callback vor Phase 1</div>
+          </td>
+          <td><span class="badge open">? Noch offen</span></td>
+          <td style="font-size:.85rem;">Denis: „Nur schriftlich" ist die offizielle Linie. Unser Callback-Vorschlag wurde nicht kommentiert. <span style="color:#60a5fa;">→ Im Gespräch klären, ob Callback erlaubt ist.</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic">Keine Pakete auf Website</div>
+            <div class="detail">Nur 8 Phasen zeigen, Pakete nur intern</div>
+          </td>
+          <td><span class="badge ok">✓ Bestätigt</span></td>
+          <td style="font-size:.85rem;">Klar: Pakete (Basic/Komfort-Gold/All-in) erscheinen NICHT auf der Website. Auf der Website: 8-Phasen-System als visueller Flow/Grafik.</td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic">Konfigurator / Quiz als PFLICHT-Feature</div>
+            <div class="detail">Nutzer → Parameter → PDF-KV ±30% in ~15 Min.</div>
+          </td>
+          <td><span class="badge ok">✓ Bestätigt</span></td>
+          <td style="font-size:.85rem;">Kernfeature. PDF enthält: Preisspanne, Erklärung, Zusammenfassung, nächster Schritt Phase 1. Odoo-Integration: 1-Klick PDF + Follow-up durch Manager.</td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="topic">White Spaces WS#2, WS#5, WS#6</div>
+            <div class="detail">Alles-aus-einer-Hand · Gesundes Bad · Smart &amp; Silent Office</div>
+          </td>
+          <td><span class="badge ok">✓ In Pipeline</span></td>
+          <td style="font-size:.85rem;">Diese White Spaces wurden nicht korrigiert und gelten als Teil der strategischen Richtung. Werden in Entities und Copywriting berücksichtigt.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 4. FIXIERTER STAND -->
+  <div class="section">
+    <div class="section-title">04 — Fixierter Stand (Stand 10.04.2026)</div>
+    <h2>Finale Struktur, Architektur, Konzept</h2>
+    <p class="desc">Alles, was als bestätigt gilt und als Grundlage für die nächsten Pipeline-Schritte dient.</p>
+
+    <div class="arch-block">
+      <h3>Positionierung</h3>
+      <ul>
+        <li><b>Reframing:</b> „Bad- und Wohnraum-Modernisierer mit System" — kein klassischer Handwerker, kein Systemintegrator</li>
+        <li><b>Haupt-USP:</b> „Planungssicherheit statt Baustellen-Chaos." <span class="dvl">✅ CLIENT</span></li>
+        <li><b>Relevant Truth:</b> Stress entsteht nicht durch die Baustelle, sondern durch Unvorhersehbarkeit <span class="dvl dvl-ai">⚠️ AI</span></li>
+        <li><b>Kreativkonzept K1:</b> „Null Überraschungen" — Homepage + Badsanierung <span class="dvl dvl-ai">⚠️ AI, Feedback noch offen</span></li>
+        <li><b>Kreativkonzept K2:</b> „Räume ohne Bruchstellen" — Spanndecken + Design-Segment <span class="dvl dvl-ai">⚠️ AI, Feedback noch offen</span></li>
+        <li><b>Kreativkonzept K3:</b> „15 Min/15 Jahre" — Google Ads + Konfigurator <span class="dvl dvl-ai">⚠️ AI, Feedback noch offen</span></li>
+      </ul>
+    </div>
+
+    <div class="arch-block">
+      <h3>8-Phasen-System Badsanierung (Pflicht als Grafik/Flow auf Website)</h3>
+      <div class="phases">
+        <div class="phase"><div class="p-num">1</div><div class="p-name">Angebot &amp; Vertrag</div></div>
+        <div class="phase"><div class="p-num">2</div><div class="p-name">Einkauf / Lieferung / Lagerung</div></div>
+        <div class="phase"><div class="p-num">3</div><div class="p-name">Abdeckung / Demontage / Entsorgung</div></div>
+        <div class="phase"><div class="p-num">4</div><div class="p-name">Leitungen Wasser &amp; Strom</div></div>
+        <div class="phase"><div class="p-num">5</div><div class="p-name">Vorbereitung / Spachteln / Trockenbau</div></div>
+        <div class="phase"><div class="p-num">6</div><div class="p-name">Beschichtung &amp; Verkleidung</div></div>
+        <div class="phase"><div class="p-num">7</div><div class="p-name">Endmontage der Elemente</div></div>
+        <div class="phase"><div class="p-num">8</div><div class="p-name">Abnahme &amp; Übergabe</div></div>
+      </div>
+    </div>
+
+    <div class="arch-block">
+      <h3>Sales-Funnel (korrigiert 25.03.2026)</h3>
+      <div class="funnel-flow">
+        <div class="funnel-step">📞 Telefonat<br><span style="font-size:.75rem;color:var(--muted);">Erstberatung</span></div>
+        <div class="funnel-arrow">→</div>
+        <div class="funnel-step">📄 KV erstellen<br><span style="font-size:.75rem;color:var(--muted);">±30% Spanne</span></div>
+        <div class="funnel-arrow">→</div>
+        <div class="funnel-step">📧 2 Begleitschreiben<br><span style="font-size:.75rem;color:var(--muted);">+ 3 Phase-1-Angebote per Email</span></div>
+        <div class="funnel-arrow">→</div>
+        <div class="funnel-step">✅ Phase 1 buchen<br><span style="font-size:.75rem;color:var(--muted);">Basic / Komfort-Gold / All-in</span></div>
+        <div class="funnel-arrow">→</div>
+        <div class="funnel-step">🏗️ Ausführung<br><span style="font-size:.75rem;color:var(--muted);">Phase 2–8</span></div>
+      </div>
+      <div style="margin-top:12px;font-size:.8rem;color:var(--muted);">⚠️ Website-Konfigurator generiert PDF-KV automatisch — aber finaler Funnel beginnt mit Telefonat (kein rein automatischer Abschluss).</div>
+    </div>
+
+    <div class="fixed-grid">
+      <div class="fixed-item">
+        <div class="fi-label">Phase-1-Paketstruktur</div>
+        <div class="fi-value">Basic · Komfort-Gold · All-in</div>
+        <div class="fi-detail">Nur intern. Preise TBD (Stand 26.03). Frühere WhatsApp-Daten: 390 / 790 / 1.290 € netto — nicht offiziell bestätigt.</div>
+      </div>
+      <div class="fixed-item">
+        <div class="fi-label">Spanndecken-Material</div>
+        <div class="fi-value">Vinyl (nicht Textil)</div>
+        <div class="fi-detail">Gewebewand / Spannwand = Textil (korrekt). Nur Spanndecken = Vinyl.</div>
+      </div>
+      <div class="fixed-item">
+        <div class="fi-label">Kommunikation auf Website</div>
+        <div class="fi-value">Nur schriftlich</div>
+        <div class="fi-detail">E-Mail, Formular, WhatsApp. Framing: „Wir dokumentieren jeden Schritt schriftlich zu Ihrer Sicherheit." Mo–Fr 09–17.</div>
+      </div>
+      <div class="fixed-item">
+        <div class="fi-label">Adresse (Impressum)</div>
+        <div class="fi-value">Lutherplatz 5, 13585 Berlin</div>
+        <div class="fi-detail">Bestätigt 21.03.2026. Büro: Spandauer Damm 52, 14... Berlin (PLZ unvollständig — FLAG-02).</div>
+      </div>
+      <div class="fixed-item">
+        <div class="fi-label">Technischer Stack</div>
+        <div class="fi-value">WordPress + WooCommerce + Odoo</div>
+        <div class="fi-detail">Odoo = Source of Truth für Katalog. Odoo-Formulare auf Website. 1-Klick PDF-Versand aus Odoo.</div>
+      </div>
+      <div class="fixed-item">
+        <div class="fi-label">Festpreisgarantie</div>
+        <div class="fi-value" style="color:var(--red);">Gestrichen ✗</div>
+        <div class="fi-detail">Erscheint NICHT auf Website. Ersatz: „verbindliche Planung nach Phase 1" — ohne Versprechen eines Festpreises.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. OFFENE FRAGEN -->
+  <div class="section">
+    <div class="section-title">05 — Offene Fragen für den Anruf</div>
+    <h2>Was im Gespräch zu klären ist</h2>
+    <p class="desc">Priorisierte Liste. Wichtigstes zuerst.</p>
+
+    <div class="open-q">
+
+      <div class="q-item">
+        <div class="q-num">1</div>
+        <div class="q-text">
+          <div class="q-title">Phase-1-Preise final bestätigen</div>
+          <div class="q-why">Basic / Komfort-Gold / All-in — Preise aus WhatsApp (390 / 790 / 1.290 € netto) sind NICHT offiziell per Email bestätigt. Denis schrieb am 26.03: „Preis ist noch nicht fest." → Sind diese Preise jetzt final?</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">2</div>
+        <div class="q-text">
+          <div class="q-title">Phase-1-Paketinhalt bestätigen</div>
+          <div class="q-why">Was ist im Basic / Komfort-Gold / All-in jeweils enthalten? Denis erwähnte „3 Angebote" aber keine genaue Leistungsbeschreibung per Email. Für Website-Copywriting und Entities-Registry benötigt.</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">3</div>
+        <div class="q-text">
+          <div class="q-title">Kreativkonzepte K1/K2/K3 — Feedback von Denis</div>
+          <div class="q-why">Denis hat die 3 Kreativkonzepte in seiner Email nicht kommentiert: K1 „Null Überraschungen" (Homepage), K2 „Räume ohne Bruchstellen" (Spanndecken), K3 „15 Min/15 Jahre" (Ads). Stimmt er zu oder gibt es Änderungen?</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">4</div>
+        <div class="q-text">
+          <div class="q-title">Callback vor Phase 1 — erlaubt oder nicht?</div>
+          <div class="q-why">Unsere Empfehlung: kurzer telefonischer Callback bevor Kunde Phase 1 bucht (Vertrauen aufbauen für 50+). Denis sagt „nur schriftlich" — ist ein Callback als Ausnahme möglich oder grundsätzlich ausgeschlossen?</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">5</div>
+        <div class="q-text">
+          <div class="q-title">Google Presence — welche Strategie?</div>
+          <div class="q-why">Denis: 3 verschiedene Adressen erscheinen in Google-Suche. Google My Business muss bereinigt werden. Haben wir Zugang zu GMB? Wer ist verantwortlich — Denis, Anja, Nikita?</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">6</div>
+        <div class="q-text">
+          <div class="q-title">PLZ Büro Spandauer Damm 52</div>
+          <div class="q-why">Denis schrieb „Spandauer Damm 52, 14... Berlin" — PLZ wurde abgeschnitten. Benötigt für Kontaktseite und Google My Business.</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">7</div>
+        <div class="q-text">
+          <div class="q-title">4 Beispiel-Dateien (Begleitschreiben) aus Email 25.03</div>
+          <div class="q-why">Denis erwähnte „снизу 4 файла как пример и сопроводительные письма" — Muster der Begleitschreiben zu Phase 1. Diese Dateien sind wichtig für Funnel-Texte und E-Mail-Templates. Wo sind sie / können wir sie haben?</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">8</div>
+        <div class="q-text">
+          <div class="q-title">SmartCom — Details</div>
+          <div class="q-why">SmartCom ist als Geschäftsbereich erwähnt, aber keine Details vorhanden. Was genau bietet BieneGold unter „SmartCom" an? Benötigt für Website-Struktur und Entities.</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">9</div>
+        <div class="q-text">
+          <div class="q-title">Analytics-Zugänge (Google Analytics, Search Console, Google Ads, IONOS)</div>
+          <div class="q-why">Denis bestätigte: Zugänge bei Anja und Nikita (intern). Können wir diese für die Website-Analyse bekommen? Wann und von wem?</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">10</div>
+        <div class="q-text">
+          <div class="q-title">Odoo-Synchronisation — Verantwortlicher</div>
+          <div class="q-why">Denis muss mit dem Odoo-Verantwortlichen intern klären, wie die Synchronisation zwischen Odoo und WooCommerce technisch aussieht. Was ist der aktuelle Stand?</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="border-top: 1px solid var(--border); padding-top: 24px; margin-top: 16px; display:flex; justify-content:space-between; align-items:center;">
+    <div style="font-family:'Courier New',monospace;font-size:11px;color:var(--muted);">
+      BieneGold 2026 WebSeite · PCM Stand 10.04.2026 · DVL-Attributierung: ✅ CLIENT / ⚠️ AI
+    </div>
+    <div style="font-family:'Courier New',monospace;font-size:11px;color:var(--muted);">
+      Nächster Schritt nach Anruf: 2p-entities → 2p-strategist Phase 1
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
