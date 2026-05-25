@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BieneGold 2026 — Executive Brief Strategic Blueprint</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --bg-card: #1a1d24;
+    --bg-elevated: #232730;
+    --text: #e8e9ec;
+    --text-dim: #9aa0aa;
+    --text-muted: #6b7080;
+    --gold: #d4a843;
+    --gold-bright: #f0c463;
+    --gold-bg: rgba(212,168,67,0.12);
+    --border: rgba(232,233,236,0.08);
+    --border-active: rgba(212,168,67,0.4);
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--text); margin: 0;
+    line-height: 1.55; font-size: 16px;
+  }
+  .topnav {
+    position: sticky; top: 0;
+    background: rgba(15,17,21,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Courier New', monospace; font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .topnav a { color: var(--gold); text-decoration: none; }
+  .topnav a:hover { text-decoration: underline; }
+  .page { max-width: 980px; margin: 0 auto; padding: 32px 24px 80px; }
+  .label {
+    font-family: 'Courier New', monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 2.2rem; font-weight: 700; color: var(--gold);
+    margin: 8px 0 12px; line-height: 1.15;
+  }
+  h2 {
+    font-size: 1.5rem; font-weight: 700; color: var(--gold);
+    margin: 56px 0 16px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.1rem; font-weight: 600; color: var(--text); margin: 24px 0 10px; }
+  p { margin: 10px 0; }
+  .hero {
+    background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg) 100%);
+    border-radius: 12px; padding: 36px 32px; margin-bottom: 32px;
+    border: 1px solid var(--border);
+  }
+  .reading-time {
+    display: inline-block; padding: 4px 12px; background: var(--gold-bg);
+    color: var(--gold); border-radius: 4px; font-size: 0.8rem;
+    font-family: 'Courier New', monospace; margin-bottom: 16px;
+  }
+  .kernaussage {
+    background: var(--gold-bg); border-left: 4px solid var(--gold);
+    padding: 24px 28px; border-radius: 6px; margin: 24px 0;
+    font-size: 1.15rem; line-height: 1.6;
+    font-weight: 500;
+  }
+  .kernaussage strong { color: var(--gold); }
+  .decisions-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px; margin: 24px 0;
+  }
+  .decision-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 18px 20px;
+    transition: border-color 0.15s;
+  }
+  .decision-card:hover { border-color: var(--border-active); }
+  .decision-num {
+    font-family: 'Courier New', monospace; font-size: 0.78rem;
+    color: var(--gold); letter-spacing: 0.05em; margin-bottom: 4px;
+  }
+  .decision-title { font-weight: 700; font-size: 1rem; color: var(--text); margin-bottom: 6px; }
+  .decision-desc { font-size: 0.88rem; color: var(--text-dim); line-height: 1.5; }
+  .personas-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px; margin: 20px 0;
+  }
+  .persona {
+    background: var(--bg-card); border-radius: 10px;
+    padding: 20px 22px; border: 1px solid var(--border);
+  }
+  .persona-name { color: var(--gold); font-weight: 700; font-size: 1.05rem; margin-bottom: 4px; }
+  .persona-meta { color: var(--text-muted); font-size: 0.82rem; font-family: 'Courier New', monospace; margin-bottom: 10px; }
+  .persona-prop { display: flex; align-items: flex-start; gap: 8px; margin: 6px 0; font-size: 0.88rem; }
+  .persona-prop-label { color: var(--text-muted); min-width: 75px; flex-shrink: 0; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .persona-prop-val { color: var(--text); line-height: 1.45; }
+  .sitemap {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px; margin: 20px 0;
+  }
+  @media (max-width: 720px) { .sitemap { grid-template-columns: repeat(2, 1fr); } }
+  .lp-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 16px; text-align: center;
+    transition: all 0.15s;
+  }
+  .lp-card:hover { border-color: var(--border-active); transform: translateY(-2px); }
+  .lp-card.priority { background: var(--gold-bg); border-color: var(--gold); }
+  .lp-name { font-weight: 700; color: var(--text); font-size: 0.95rem; margin-bottom: 4px; }
+  .lp-card.priority .lp-name { color: var(--gold); }
+  .lp-desc { font-size: 0.78rem; color: var(--text-dim); line-height: 1.35; }
+  table {
+    width: 100%; border-collapse: collapse; margin: 16px 0;
+    background: var(--bg-card); border-radius: 6px; overflow: hidden;
+    font-size: 0.92em;
+  }
+  th { background: var(--bg-elevated); color: var(--gold); text-align: left; padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border); }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .kpi-table td:nth-child(1) { font-weight: 600; }
+  .kpi-table td:nth-child(2), .kpi-table td:nth-child(3) { color: var(--gold); font-family: 'Courier New', monospace; }
+  .cta-block {
+    margin-top: 48px; padding: 32px 28px; background: var(--bg-card);
+    border-radius: 12px; border: 2px solid var(--gold);
+    text-align: center;
+  }
+  .cta-title { font-size: 1.4rem; color: var(--gold); font-weight: 700; margin-bottom: 12px; }
+  .cta-text { color: var(--text-dim); margin-bottom: 20px; font-size: 0.95rem; }
+  .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    padding: 12px 24px; border-radius: 6px; font-weight: 700;
+    text-decoration: none; transition: background 0.15s; display: inline-block;
+    font-size: 0.95rem;
+  }
+  .btn-primary { background: var(--gold); color: var(--bg); }
+  .btn-primary:hover { background: var(--gold-bright); }
+  .btn-secondary { background: var(--bg-elevated); color: var(--gold); border: 1px solid var(--gold); }
+  .btn-secondary:hover { background: var(--gold-bg); }
+  footer {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border);
+    color: var(--text-muted); font-size: 0.78rem;
+    font-family: 'Courier New', monospace; text-align: center;
+  }
+  @media (max-width: 720px) {
+    .page { padding: 20px 16px 60px; }
+    h1 { font-size: 1.7rem; }
+    h2 { font-size: 1.2rem; }
+    .hero { padding: 24px 20px; }
+    .cta-block { padding: 24px 18px; }
+    .decisions-grid, .personas-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Projektdokumente</a>
+  <span>BieneGold GmbH · 2 Penguins</span>
+</nav>
+<div class="page">
+
+<div class="hero">
+  <div class="label">BieneGold 2026 WebSeite · Phase 2.3 Strategic Blueprint · Executive Brief</div>
+  <h1>Strategie für die neue Website — auf 2 Seiten</h1>
+  <span class="reading-time">⏱ ~5-7 Minuten</span>
+  <p style="color: var(--text-dim); font-size: 1.02rem; margin-top: 8px;">Wir haben Ihre Antworten vom 22.05. konsolidiert und eine vollständige Strategie für alle 8 Landing-Pages entwickelt. Dieser Brief fasst die wichtigsten Entscheidungen zusammen — ohne lange Begründungen. Bei Interesse an der Detail-Tiefe: Link zum vollständigen Blueprint am Ende.</p>
+</div>
+
+<h2>Die strategische Kernaussage</h2>
+
+<div class="kernaussage">
+  <strong>BieneGold = Generalunternehmer mit System.</strong> Acht Leistungsbereiche werden gleichwertig auf der Website sichtbar — alle vereint durch dasselbe Methodik-Versprechen: „Planungssicherheit statt Baustellen-Chaos." Wir <em>koordinieren</em> — nicht „alles selbst ausgeführt". Markenneutralität wird als Beratungs-Differenzierung kommuniziert.
+</div>
+
+<h2>7 Hauptentscheidungen für die Website</h2>
+
+<div class="decisions-grid">
+  <div class="decision-card">
+    <div class="decision-num">ENTSCHEIDUNG 1</div>
+    <div class="decision-title">USP-Stack mit 5 Elementen</div>
+    <div class="decision-desc">Planungssicherheit · Planungs-Konzept (Pakete) · 8-Phasen-System · Kunden-Kabinett · Generalunternehmer-Koordination.</div>
+  </div>
+  <div class="decision-card">
+    <div class="decision-num">ENTSCHEIDUNG 2</div>
+    <div class="decision-title">8 LPs gleichwertig + Cross-Reference-Matrix</div>
+    <div class="decision-desc">Keine Hub+Spoke. Cross-Selling via expliziter Verweise (z.B. IR-Folie unter Spanndecken — Ihr Bonus-Tipp vom 22.05.).</div>
+  </div>
+  <div class="decision-card">
+    <div class="decision-num">ENTSCHEIDUNG 3</div>
+    <div class="decision-title">Bad: 3-Schritte außen + 8-Phasen intern</div>
+    <div class="decision-desc">Pakete sichtbar (Basic 390 € / Komfort 790 € / All-In 1.590 €). Hersteller-Whitelist erlaubt (Geberit, V&B, etc.).</div>
+  </div>
+  <div class="decision-card">
+    <div class="decision-num">ENTSCHEIDUNG 4</div>
+    <div class="decision-title">Markenneutralität in 4 Bereichen</div>
+    <div class="decision-desc">Akustik, Lichtkonzepte, SmartHome, Infrarot — markenoffen formuliert. Als Beratungs-Differenzierung gegen Hersteller-loyale Wettbewerber.</div>
+  </div>
+  <div class="decision-card">
+    <div class="decision-num">ENTSCHEIDUNG 5</div>
+    <div class="decision-title">Spanndecken: ⭐ 15J/7J-Garantie prominent</div>
+    <div class="decision-desc">Kein Wettbewerber kommuniziert konkrete Garantie-Jahre — Header-USP. Plus: IR-Folie-unter-Spanndecken als neuer Cross-Sell-Hook.</div>
+  </div>
+  <div class="decision-card">
+    <div class="decision-num">ENTSCHEIDUNG 6</div>
+    <div class="decision-title">Funnel: Anfrage → 5-10 Min Rückruf → KV → Phase 1</div>
+    <div class="decision-desc">Hybrid-Kommunikation (Telefon + Email + WhatsApp + Formular). Kein Konfigurator-Quiz. Kunden-Kabinett für Projekt-Transparenz.</div>
+  </div>
+  <div class="decision-card">
+    <div class="decision-num">ENTSCHEIDUNG 7</div>
+    <div class="decision-title">Tonalität: ehrlich-aufklärend (Stiftung-Warentest-Stil)</div>
+    <div class="decision-desc">Keine „Festpreisgarantie", kein „Meisterbetrieb"-Claim, keine Knappheits-Aussagen, keine unbelegten Statistiken.</div>
+  </div>
+</div>
+
+<h2>Persona-Profile (Working Hypothesis — bitte bestätigen)</h2>
+
+<p style="color: var(--text-dim); font-size: 0.92rem;">Diese 3 Personen-Typen sind die Grundlage für die Texte und visuelle Sprache der Website. Phase 3 Copywriting schreibt für sie — falls Ihre echte Kundschaft anders aussieht, korrigieren wir vor Texte-Start.</p>
+
+<div class="personas-grid">
+  <div class="persona">
+    <div class="persona-name">Sabine, die Modernisierungs-Pragmatikerin</div>
+    <div class="persona-meta">52 J · Doppelhaus Charlottenburg · Bad 28 J alt</div>
+    <div class="persona-prop"><span class="persona-prop-label">Trigger</span><span class="persona-prop-val">„Will EINMAL richtig sanieren, nicht mehr flicken."</span></div>
+    <div class="persona-prop"><span class="persona-prop-label">Pain</span><span class="persona-prop-val">Kosten-Eskalation, Termin-Risiko, Sanitär-Vokabular</span></div>
+    <div class="persona-prop"><span class="persona-prop-label">LP</span><span class="persona-prop-val">/badsanierung/ Komplett-Sanierung</span></div>
+  </div>
+  <div class="persona">
+    <div class="persona-name">Markus, der Wohnraum-Modernisierer</div>
+    <div class="persona-meta">42 J · Loft Mitte · Tech-affin</div>
+    <div class="persona-prop"><span class="persona-prop-label">Trigger</span><span class="persona-prop-val">„Akustik + Spanndecke + SmartHome — womit anfangen?"</span></div>
+    <div class="persona-prop"><span class="persona-prop-label">Pain</span><span class="persona-prop-val">Marken-Wirrwarr KNX/Loxone/Hue · 5 Hersteller anrufen?</span></div>
+    <div class="persona-prop"><span class="persona-prop-label">LP</span><span class="persona-prop-val">Wechselnd über 8 LPs + Cross-Refs</span></div>
+  </div>
+  <div class="persona">
+    <div class="persona-name">Heinz & Renate, die Senioren-Komplettsanierer</div>
+    <div class="persona-meta">71+68 J · Reihenhaus Steglitz-Zehlendorf</div>
+    <div class="persona-prop"><span class="persona-prop-label">Trigger</span><span class="persona-prop-val">„Barrierefrei machen + im Haus alt werden"</span></div>
+    <div class="persona-prop"><span class="persona-prop-label">Pain</span><span class="persona-prop-val">Mehrere Gewerke koordinieren · Hörbeeinträchtigung</span></div>
+    <div class="persona-prop"><span class="persona-prop-label">LP</span><span class="persona-prop-val">Bad + Cross-Refs SmartHome + Innenausbau</span></div>
+  </div>
+</div>
+
+<h2>Sitemap — 8 Landing-Pages</h2>
+
+<p style="color: var(--text-dim); font-size: 0.92rem;">Jede der 8 Leistungskategorien bekommt eine eigene LP. Keine Unterseiten. SEO-Ratgeber separat in /ratgeber/.</p>
+
+<div class="sitemap">
+  <div class="lp-card priority"><div class="lp-name">Badsanierung</div><div class="lp-desc">Komplett + Oberflächen · Pakete</div></div>
+  <div class="lp-card"><div class="lp-name">Spanndecken</div><div class="lp-desc">Vinyl · ⭐ 15J/7J Garantie</div></div>
+  <div class="lp-card"><div class="lp-name">Wandverkleidungen</div><div class="lp-desc">Gewebewand-Spezialist</div></div>
+  <div class="lp-card"><div class="lp-name">Innenausbau</div><div class="lp-desc">Generalunternehmer-Achse</div></div>
+  <div class="lp-card"><div class="lp-name">Akustik</div><div class="lp-desc">Stoff-Lösungen, Decken+Wände</div></div>
+  <div class="lp-card"><div class="lp-name">Lichtkonzepte</div><div class="lp-desc">Standard bis Premium</div></div>
+  <div class="lp-card"><div class="lp-name">SmartHome</div><div class="lp-desc">Markenneutral, Bauphasen-Integration</div></div>
+  <div class="lp-card"><div class="lp-name">Infrarot</div><div class="lp-desc">Ehrlich-aufklärend · IR-Folie-Hook</div></div>
+</div>
+
+<h2>Erfolgs-KPI (Working Hypothesis Q4 2026)</h2>
+
+<p style="color: var(--text-dim); font-size: 0.92rem;">Quartalsweise Review eingebaut — Ziele werden nach realen Daten angepasst.</p>
+
+<table class="kpi-table">
+  <thead>
+    <tr><th>KPI</th><th>Baseline (heute)</th><th>Ziel Q4 2026</th><th>Ziel Q2 2027</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Anfragen-Volumen / Monat (alle LPs)</td><td>~0 strukturiert</td><td>30-50</td><td>50-80</td></tr>
+    <tr><td>Anfrage-Verteilung Bad / Spanndecken / Andere</td><td>n/a</td><td>50-60 % / 20-25 % / 15-25 %</td><td>konstant</td></tr>
+    <tr><td>Form-Conversion-Rate Bad-LP</td><td>n/a (kein Form)</td><td>1,5-2,5 %</td><td>2-3 %</td></tr>
+    <tr><td>Organischer Traffic Bad-LP</td><td>0 (Greenfield)</td><td>800-1.500 / Mo</td><td>2.000-4.000 / Mo</td></tr>
+    <tr><td>PageSpeed Mobile Score</td><td>~30 / 100</td><td>&gt; 80</td><td>&gt; 85</td></tr>
+    <tr><td>GMaps-Reviews-Volumen</td><td>111 ⭐ 4,8</td><td>130-150</td><td>160-180</td></tr>
+  </tbody>
+</table>
+
+<h2>Was als nächstes ansteht</h2>
+
+<table>
+  <thead><tr><th>Schritt</th><th>Wann</th><th>Wer</th></tr></thead>
+  <tbody>
+    <tr><td>Strategie-Bestätigung (10 kurze Fragen)</td><td>Diese Woche</td><td>Sie (Denis)</td></tr>
+    <tr><td>30-Min-SmartHome-Call (Marken-Finalisierung)</td><td>Mi/Do/Fr 27-29.05</td><td>Sie + 2P</td></tr>
+    <tr><td>Phase 2.4 — Interne Spezifikation</td><td>Ende dieser Woche / Anfang nächste</td><td>2P</td></tr>
+    <tr><td>Phase 3 — Texte schreiben (8 Landing-Pages)</td><td>Juni</td><td>2P + Ihre Review</td></tr>
+    <tr><td>Phase 4 — Technische Umsetzung</td><td>Ab Juli</td><td>TBD (NextJS / externe Devs)</td></tr>
+  </tbody>
+</table>
+
+<h2>Was wir noch von Ihnen brauchen</h2>
+
+<ul>
+  <li><strong>10-Fragen-Bestätigung</strong> (Reading-Time 3 Min) — via Approval-Checkliste → Link unten</li>
+  <li><strong>SmartHome-Call-Slot</strong> bestätigen — über Checkliste oder per Email</li>
+  <li><strong>8-Phasen-System Detail</strong> — 1 Telefon-Interview ~45 Min ODER schriftliche Tabelle ~30 Min</li>
+  <li><strong>Kunden-Kabinett (Odoo-Portal)</strong> Status — URL + Branding-Check bestätigen vor Phase 3</li>
+  <li><strong>Foto-Material</strong> (Vorher/Nachher) — bereits verfügbar via Dropbox-Link</li>
+</ul>
+
+<div class="cta-block">
+  <div class="cta-title">Strategie bestätigen — in 3 Minuten</div>
+  <div class="cta-text">10 kurze Yes/No-Fragen mit А/Б-Optionen + Freitext für Anmerkungen. Am Ende öffnet sich Ihr E-Mail-Programm mit den Antworten als fertige Nachricht.</div>
+  <div class="cta-buttons">
+    <a href="bienegold_blueprint_approval_checklist.html" class="btn btn-primary">→ Strategie-Checkliste starten</a>
+    <a href="bienegold_strategic_blueprint_mode3.html" class="btn btn-secondary">Detail-Blueprint ansehen</a>
+  </div>
+</div>
+
+<footer>
+  BieneGold 2026 WebSeite · Executive Brief Strategic Blueprint MODE3 · 2 Penguins Workspace · 25.05.2026 · Vollständiges Blueprint Score 8,7/10 nach Devil's Advocate Kritik
+</footer>
+
+</div>
+</body>
+</html>

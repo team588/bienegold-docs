@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BieneGold 2026 — Strategie-Bestätigung in 3 Minuten</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --bg-card: #1a1d24;
+    --bg-elevated: #232730;
+    --bg-active: rgba(212,168,67,0.08);
+    --text: #e8e9ec;
+    --text-dim: #9aa0aa;
+    --text-muted: #6b7080;
+    --gold: #d4a843;
+    --gold-bright: #f0c463;
+    --gold-bg: rgba(212,168,67,0.12);
+    --border: rgba(232,233,236,0.08);
+    --border-active: rgba(212,168,67,0.5);
+    --success: #4ade80;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--text); margin: 0;
+    line-height: 1.5; font-size: 16px;
+  }
+  .topnav {
+    position: sticky; top: 0;
+    background: rgba(15,17,21,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Courier New', monospace; font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .topnav a { color: var(--gold); text-decoration: none; }
+  .topnav a:hover { text-decoration: underline; }
+  .page { max-width: 820px; margin: 0 auto; padding: 32px 24px 80px; }
+  .label {
+    font-family: 'Courier New', monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 2rem; font-weight: 700; color: var(--gold);
+    margin: 8px 0 12px; line-height: 1.2;
+  }
+  .lead {
+    font-size: 1.05rem; color: var(--text-dim);
+    margin-bottom: 32px; line-height: 1.6;
+  }
+  .hero {
+    background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg) 100%);
+    border-radius: 12px; padding: 32px 28px; margin-bottom: 40px;
+    border: 1px solid var(--border);
+  }
+  .reading-time {
+    display: inline-block; padding: 4px 12px; background: var(--gold-bg);
+    color: var(--gold); border-radius: 4px; font-size: 0.8rem;
+    font-family: 'Courier New', monospace; margin-bottom: 20px;
+  }
+  .question {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 24px 28px; margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .question:focus-within { border-color: var(--border-active); }
+  .question-num {
+    font-family: 'Courier New', monospace; font-size: 0.85rem;
+    color: var(--gold); margin-bottom: 8px; letter-spacing: 0.05em;
+  }
+  .question-text {
+    font-size: 1.1rem; font-weight: 600; color: var(--text);
+    margin-bottom: 6px;
+  }
+  .question-context {
+    font-size: 0.9rem; color: var(--text-dim);
+    margin-bottom: 16px; line-height: 1.5;
+  }
+  .option {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 14px; border: 1px solid var(--border);
+    border-radius: 6px; margin-bottom: 8px;
+    cursor: pointer; transition: all 0.15s;
+    background: transparent;
+  }
+  .option:hover { background: var(--bg-elevated); border-color: var(--border-active); }
+  .option input[type="radio"], .option input[type="checkbox"] {
+    margin-top: 3px; accent-color: var(--gold);
+    width: 18px; height: 18px; cursor: pointer;
+  }
+  .option-label {
+    flex: 1; font-size: 0.95rem; color: var(--text);
+    cursor: pointer;
+  }
+  .option-label strong { color: var(--gold); }
+  .option-label .small { display: block; font-size: 0.82rem; color: var(--text-dim); margin-top: 4px; }
+  .option:has(input:checked) {
+    background: var(--bg-active); border-color: var(--gold);
+  }
+  textarea {
+    width: 100%; min-height: 60px;
+    background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: 6px; padding: 10px 14px;
+    color: var(--text); font-family: inherit; font-size: 0.92rem;
+    resize: vertical; margin-top: 8px;
+  }
+  textarea:focus { outline: none; border-color: var(--gold); }
+  .submit-area {
+    margin-top: 40px; padding: 28px; background: var(--bg-card);
+    border-radius: 12px; border: 2px solid var(--gold);
+    text-align: center;
+  }
+  .submit-btn {
+    display: inline-block; padding: 14px 32px;
+    background: var(--gold); color: var(--bg); font-weight: 700;
+    border: none; border-radius: 6px; font-size: 1.05rem;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.15s;
+    font-family: inherit;
+  }
+  .submit-btn:hover { background: var(--gold-bright); }
+  .help { font-size: 0.85rem; color: var(--text-dim); margin-top: 14px; }
+  .links {
+    margin-top: 32px; padding: 20px 24px; background: var(--bg-card);
+    border-radius: 8px; border: 1px solid var(--border);
+  }
+  .links h3 { font-size: 1rem; color: var(--gold); margin: 0 0 12px; }
+  .links a { display: block; color: var(--text); text-decoration: none; padding: 8px 0; font-size: 0.93rem; }
+  .links a:hover { color: var(--gold); }
+  .links .arrow { color: var(--gold); margin-right: 6px; }
+  footer {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border);
+    color: var(--text-muted); font-size: 0.78rem;
+    font-family: 'Courier New', monospace; text-align: center;
+  }
+  @media (max-width: 720px) {
+    .page { padding: 20px 16px 60px; }
+    .topnav { padding: 12px 16px; font-size: 10px; }
+    h1 { font-size: 1.5rem; }
+    .hero { padding: 24px 20px; }
+    .question { padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Projektdokumente</a>
+  <span>BieneGold GmbH · 2 Penguins</span>
+</nav>
+<div class="page">
+
+<div class="hero">
+  <div class="label">BieneGold 2026 WebSeite · Phase 2.3 Strategie-Bestätigung</div>
+  <h1>Strategie in 3 Minuten bestätigen</h1>
+  <span class="reading-time">⏱ ~3 Minuten</span>
+  <p class="lead">Lieber Denis, wir haben Ihre Antworten vom 22.05. in unsere Strategie integriert und brauchen für die finale Umsetzungs-Phase 10 kurze Bestätigungen von Ihnen. <strong>Bitte markieren Sie jeweils eine Option pro Frage</strong> — bei Unsicherheit ist das Freitext-Feld da. Am Ende der Seite öffnet sich Ihr E-Mail-Programm mit Ihren Antworten als fertige Nachricht zum Senden.</p>
+</div>
+
+<form id="approval-form">
+
+<div class="question">
+  <div class="question-num">FRAGE 1 / 10 — Positionierung</div>
+  <div class="question-text">Master-Positionierung: „BieneGold = Generalunternehmer mit System"</div>
+  <div class="question-context">Wir koordinieren — nicht „alles selbst ausgeführt". 8 Leistungen gleichwertig auf der Website sichtbar.</div>
+  <label class="option"><input type="radio" name="q1" value="A"> <span class="option-label"><strong>A.</strong> Bestätigt — so kommunizieren</span></label>
+  <label class="option"><input type="radio" name="q1" value="B"> <span class="option-label"><strong>B.</strong> Eine Bereich-Priorisierung bitte (z.B. Bad als Schwerpunkt)</span></label>
+  <label class="option"><input type="radio" name="q1" value="other"> <span class="option-label"><strong>Andere Antwort:</strong></span></label>
+  <textarea name="q1_other" placeholder="Optional: Anmerkung zu Frage 1"></textarea>
+</div>
+
+<div class="question">
+  <div class="question-num">FRAGE 2 / 10 — Marketing-Budget-Logik</div>
+  <div class="question-text">Unsere Empfehlung: Bad bekommt 60-70 % Marketing-Budget (Greenfield), Spanndecken 10-15 % (Heritage-Erhalt), restliche 6 Bereiche teilen sich 15-25 %</div>
+  <div class="question-context">Sichtbarkeit auf der Website bleibt gleichwertig — nur die externe Marketing-Investition wird priorisiert.</div>
+  <label class="option"><input type="radio" name="q2" value="A"> <span class="option-label"><strong>A.</strong> Passt — Bad-Schwerpunkt im Marketing</span></label>
+  <label class="option"><input type="radio" name="q2" value="B"> <span class="option-label"><strong>B.</strong> Eher gleichmäßig auf alle Bereiche</span></label>
+  <label class="option"><input type="radio" name="q2" value="C"> <span class="option-label"><strong>C.</strong> Anderer Schwerpunkt (z.B. Spanndecken-Verteidigung, Innenausbau-Wachstum)</span></label>
+  <textarea name="q2_other" placeholder="Optional: Anmerkung zu Frage 2"></textarea>
+</div>
+
+<div class="question">
+  <div class="question-num">FRAGE 3 / 10 — Personas</div>
+  <div class="question-text">Wir arbeiten mit 3 Persona-Profilen: Sabine (Bad-Pragmatikerin 52 J.) · Markus (Wohnraum-Modernisierer 42 J.) · Heinz & Renate (Senioren-Komplettsanierer 71+68 J.)</div>
+  <div class="question-context">Diese Hypothesen sind die Grundlage für die Texte der Website. Sehen Sie Ihre tatsächlichen Kunden darin wieder?</div>
+  <label class="option"><input type="radio" name="q3" value="A"> <span class="option-label"><strong>A.</strong> Trifft zu — alle 3 passen zu meiner Kundschaft</span></label>
+  <label class="option"><input type="radio" name="q3" value="B"> <span class="option-label"><strong>B.</strong> 1-2 passen, 1 fehlt oder unpassend</span></label>
+  <label class="option"><input type="radio" name="q3" value="C"> <span class="option-label"><strong>C.</strong> Bitte um Beispiele aus meiner echten Kundschaft (5-7 anonymisierte Profile aus dem Bestand)</span></label>
+  <textarea name="q3_other" placeholder="Optional: Welche Persona fehlt / wie würden Sie sie beschreiben?"></textarea>
+</div>
+
+<div class="question">
+  <div class="question-num">FRAGE 4 / 10 — Closing-Triade</div>
+  <div class="question-text">Wir empfehlen als Closing-Aussage auf jeder Seite: „EIN ANSPRECHPARTNER. EIN SYSTEM. EIN ERGEBNIS."</div>
+  <div class="question-context">Diese Triade stammt aus dem Anna-Pitch (Mai). Bestätigt von Ihnen oder andere Wortwahl?</div>
+  <label class="option"><input type="radio" name="q4" value="A"> <span class="option-label"><strong>A.</strong> Bestätigt — so verwenden</span></label>
+  <label class="option"><input type="radio" name="q4" value="B"> <span class="option-label"><strong>B.</strong> Andere Formulierung — siehe Freitext</span></label>
+  <label class="option"><input type="radio" name="q4" value="C"> <span class="option-label"><strong>C.</strong> Keine Closing-Triade — nur regulärer CTA</span></label>
+  <textarea name="q4_other" placeholder="Optional: Eigene Closing-Triade-Vorschlag"></textarea>
+</div>
+
+<div class="question">
+  <div class="question-num">FRAGE 5 / 10 — Erfolgs-KPI (Zielsetzung Q4 2026)</div>
+  <div class="question-text">Wir schlagen 30-50 Anfragen / Monat als Ziel-Volumen aller 8 Landingpages vor (Bad: 50-60 %)</div>
+  <div class="question-context">Inkl. PageSpeed 30 → &gt;80, GMaps-Reviews 111 → 130-150. Quartalsweise Review eingebaut.</div>
+  <label class="option"><input type="radio" name="q5" value="A"> <span class="option-label"><strong>A.</strong> Realistisch — als Ziel verbindlich nehmen</span></label>
+  <label class="option"><input type="radio" name="q5" value="B"> <span class="option-label"><strong>B.</strong> Zu ambitioniert — lieber konservativer (z.B. 15-25 / Mo)</span></label>
+  <label class="option"><input type="radio" name="q5" value="C"> <span class="option-label"><strong>C.</strong> Eher höher (z.B. 60-80 / Mo) — wir investieren mehr in Marketing</span></label>
+  <textarea name="q5_other" placeholder="Optional: Eigenes Ziel-Volumen"></textarea>
+</div>
+
+<div class="question">
+  <div class="question-num">FRAGE 6 / 10 — Kunden-Kabinett (Odoo-Portal)</div>
+  <div class="question-text">Wir setzen das Odoo-Portal als Tech-Differenzierung prominent auf der Website ein (Button in der Hauptnavigation + eigener Block auf der Startseite)</div>
+  <div class="question-context">Aktion vor Phase 3: Portal-URL bestätigen, BieneGold-Branding prüfen, Permissions für Klient-Sicht freischalten.</div>
+  <label class="option"><input type="radio" name="q6" value="A"> <span class="option-label"><strong>A.</strong> Ja, Portal ist verfügbar (URL siehe Freitext)</span></label>
+  <label class="option"><input type="radio" name="q6" value="B"> <span class="option-label"><strong>B.</strong> Portal existiert, aber muss noch konfiguriert werden — Aktion vor Phase 3 OK</span></label>
+  <label class="option"><input type="radio" name="q6" value="C"> <span class="option-label"><strong>C.</strong> Portal noch nicht startklar — bitte Kunden-Kabinett-Button vorerst deaktivieren / als Phase-4-Item markieren</span></label>
+  <textarea name="q6_other" placeholder="Optional: Portal-URL oder Anmerkung"></textarea>
+</div>
+
+<div class="question">
+  <div class="question-num">FRAGE 7 / 10 — 8-Phasen-System Inhalt</div>
+  <div class="question-text">Wir möchten den Inhalt jeder einzelnen Phase (Phase 1 - Phase 8) mit Ihnen detaillieren — wahrscheinlich 1 kurzes Telefonat oder schriftlich</div>
+  <div class="question-context">Aktuell ist nur die Skelett-Struktur klar. Phase 3 (Texte) startet sonst mit Hypothesen.</div>
+  <label class="option"><input type="radio" name="q7" value="A"> <span class="option-label"><strong>A.</strong> Telefon-Interview ~45 min vereinbaren — Sie erklären die 8 Phasen aus Ihrer operativen Sicht</span></label>
+  <label class="option"><input type="radio" name="q7" value="B"> <span class="option-label"><strong>B.</strong> Lieber schriftlich — wir senden eine Tabelle, die Sie ausfüllen (~30 min Aufwand)</span></label>
+  <label class="option"><input type="radio" name="q7" value="C"> <span class="option-label"><strong>C.</strong> Wir schreiben aus Hypothesen und Sie bestätigen / korrigieren in der Review-Phase</span></label>
+  <textarea name="q7_other" placeholder="Optional"></textarea>
+</div>
+
+<div class="question">
+  <div class="question-num">FRAGE 8 / 10 — SmartHome-Call (Marken-Wahl)</div>
+  <div class="question-text">Sie haben uns einen 30-Min-Call angeboten zur Finalisierung der SmartHome-Marken-Wahl. Wann passt es?</div>
+  <div class="question-context">Wir bringen vorbereitete Marken-Liste mit (KNX / Loxone / Hue / Gira / Busch-Jaeger / Bosch / Tado / Eve / Somfy + andere) — Sie entscheiden, welche prominent kommunizierbar sind.</div>
+  <label class="option"><input type="radio" name="q8" value="MI 27.05 10:00"> <span class="option-label"><strong>Mittwoch 27.05.</strong> 10:00 Uhr</span></label>
+  <label class="option"><input type="radio" name="q8" value="DO 28.05 14:00"> <span class="option-label"><strong>Donnerstag 28.05.</strong> 14:00 Uhr</span></label>
+  <label class="option"><input type="radio" name="q8" value="FR 29.05 11:00"> <span class="option-label"><strong>Freitag 29.05.</strong> 11:00 Uhr</span></label>
+  <label class="option"><input type="radio" name="q8" value="other"> <span class="option-label"><strong>Anderer Slot:</strong> bitte 2-3 Vorschläge senden</span></label>
+  <textarea name="q8_other" placeholder="Optional: Wunsch-Slot oder Verfügbarkeit"></textarea>
+</div>
+
+<div class="question">
+  <div class="question-num">FRAGE 9 / 10 — Phase-2.4 Timeline</div>
+  <div class="question-text">Wir planen die interne Spezifikation (Phase 2.4) ab Anfang nächster Woche (~2-3 h Erstellung), Content-Phase startet danach</div>
+  <div class="question-context">Wenn Sie zur Strategie noch grundlegende Änderungswünsche haben, ist das jetzt der Moment.</div>
+  <label class="option"><input type="radio" name="q9" value="A"> <span class="option-label"><strong>A.</strong> Strategie passt — Phase 2.4 kann starten</span></label>
+  <label class="option"><input type="radio" name="q9" value="B"> <span class="option-label"><strong>B.</strong> Ich brauche bis Ende der Woche zur Detail-Review (siehe Detail-Blueprint)</span></label>
+  <label class="option"><input type="radio" name="q9" value="C"> <span class="option-label"><strong>C.</strong> Grundlegende Änderungen — bitte einen Termin (Telefon)</span></label>
+  <textarea name="q9_other" placeholder="Optional: Anmerkung zur Timeline"></textarea>
+</div>
+
+<div class="question">
+  <div class="question-num">FRAGE 10 / 10 — Sonstiges</div>
+  <div class="question-text">Gibt es weitere Punkte aus Ihrer Sicht, die wir berücksichtigen sollten?</div>
+  <div class="question-context">Frei: Wünsche, Bedenken, Hinweise zu Ihrer Branche / Ihrem Markt, die wir übersehen könnten.</div>
+  <textarea name="q10" placeholder="Optional: Freie Anmerkungen, Bedenken, Wünsche..." style="min-height: 100px;"></textarea>
+</div>
+
+</form>
+
+<div class="submit-area">
+  <button class="submit-btn" type="button" onclick="sendForm()">📧 Antworten per E-Mail an 2 Penguins senden</button>
+  <div class="help">Beim Klick öffnet sich Ihr E-Mail-Programm mit Ihren Antworten als fertige Nachricht.<br>Sie können sie noch überprüfen und dann mit „Senden" verschicken.</div>
+</div>
+
+<div class="links">
+  <h3>📚 Detail-Informationen (falls Sie tiefer einsteigen wollen)</h3>
+  <a href="bienegold_blueprint_executive_brief.html"><span class="arrow">→</span> Executive Brief (Reading-Time 5-7 min) — Mittlere Detail-Tiefe mit Sitemap, Personas, KPI visualisiert</a>
+  <a href="bienegold_strategic_blueprint_mode3.html"><span class="arrow">→</span> Vollständiges Strategic Blueprint (1.700 Zeilen, 12 Sections) — Komplette Strategie mit allen Begründungen</a>
+</div>
+
+<footer>
+  BieneGold 2026 WebSeite · Strategie-Bestätigung · 2 Penguins Workspace · 25.05.2026
+</footer>
+
+</div>
+
+<script>
+function sendForm() {
+  const form = document.getElementById('approval-form');
+  const data = new FormData(form);
+  const subject = 'BieneGold Strategie-Bestätigung — Antworten Denis Ivanov';
+
+  const questions = {
+    q1: 'Frage 1 — Positionierung „Generalunternehmer mit System"',
+    q2: 'Frage 2 — Marketing-Budget-Logik (Bad 60-70 %)',
+    q3: 'Frage 3 — Personas (Sabine / Markus / Heinz & Renate)',
+    q4: 'Frage 4 — Closing-Triade „EIN ANSPRECHPARTNER. EIN SYSTEM. EIN ERGEBNIS."',
+    q5: 'Frage 5 — Erfolgs-KPI (30-50 Anfragen / Mo Ziel Q4 2026)',
+    q6: 'Frage 6 — Kunden-Kabinett (Odoo-Portal)',
+    q7: 'Frage 7 — 8-Phasen-System Inhalt (Telefon / schriftlich / Hypothese)',
+    q8: 'Frage 8 — SmartHome-Call-Slot',
+    q9: 'Frage 9 — Phase-2.4 Timeline',
+    q10: 'Frage 10 — Sonstige Anmerkungen'
+  };
+
+  let body = 'Lieber Alexander, lieber Hermann,\n\n';
+  body += 'meine Antworten zur Strategie-Bestätigung BieneGold 2026:\n\n';
+  body += '═══════════════════════════════════════════\n\n';
+
+  for (let i = 1; i <= 10; i++) {
+    const key = 'q' + i;
+    const answer = data.get(key) || '';
+    const other = data.get(key + '_other') || '';
+
+    body += questions[key] + '\n';
+    if (i === 10) {
+      body += (answer || '(keine Antwort)') + '\n\n';
+    } else {
+      body += 'Antwort: ' + (answer || '(noch nicht gewählt)') + '\n';
+      if (other.trim()) body += 'Anmerkung: ' + other.trim() + '\n';
+      body += '\n';
+    }
+  }
+
+  body += '═══════════════════════════════════════════\n\n';
+  body += 'Beste Grüße,\nDenis Ivanov\nBieneGold GmbH';
+
+  const mailto = 'mailto:team@2penguins.eu?cc=den@bienegold.de&subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  window.location.href = mailto;
+}
+</script>
+</body>
+</html>
