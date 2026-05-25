@@ -19,7 +19,11 @@
     --border: rgba(232,233,236,0.08);
     --border-active: rgba(212,168,67,0.5);
     --success: #4ade80;
+    --success-bg: rgba(74, 222, 128, 0.1);
     --warning: #fbbf24;
+    --warning-bg: rgba(251, 191, 36, 0.08);
+    --error: #f87171;
+    --error-bg: rgba(248, 113, 113, 0.1);
     --modal-overlay: rgba(0,0,0,0.7);
   }
   :root[data-theme="light"] {
@@ -36,7 +40,11 @@
     --border: rgba(0,0,0,0.1);
     --border-active: rgba(180,135,40,0.5);
     --success: #16a34a;
+    --success-bg: rgba(22, 163, 74, 0.08);
     --warning: #d97706;
+    --warning-bg: rgba(217, 119, 6, 0.08);
+    --error: #dc2626;
+    --error-bg: rgba(220, 38, 38, 0.08);
     --modal-overlay: rgba(0,0,0,0.5);
   }
   * { box-sizing: border-box; }
@@ -79,7 +87,7 @@
   }
   .lead {
     font-size: 1.05rem; color: var(--text-dim);
-    margin-bottom: 24px; line-height: 1.6;
+    margin-bottom: 14px; line-height: 1.6;
   }
   .hero {
     background: var(--bg-card);
@@ -89,21 +97,32 @@
   :root[data-theme="dark"] .hero {
     background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg) 100%);
   }
-  .reading-time {
-    display: inline-block; padding: 4px 12px; background: var(--gold-bg);
-    color: var(--gold); border-radius: 4px; font-size: 0.8rem;
-    font-family: 'Courier New', monospace; margin-bottom: 16px;
+  .info-strip {
+    display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0 4px;
+  }
+  .info-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 11px; background: var(--gold-bg);
+    color: var(--gold); border-radius: 4px; font-size: 0.78rem;
+    font-family: 'Courier New', monospace;
+  }
+  .info-badge.muted {
+    background: var(--bg-elevated); color: var(--text-dim);
+    border: 1px solid var(--border);
   }
   .restore-banner {
     display: none;
-    background: rgba(75, 222, 128, 0.1); border: 1px solid var(--success);
+    background: var(--success-bg); border: 1px solid var(--success);
     border-radius: 8px; padding: 14px 18px; margin-bottom: 24px;
     font-size: 0.95rem; color: var(--text);
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    align-items: center; justify-content: space-between; gap: 12px;
   }
   .restore-banner.show { display: flex; }
+  .restore-banner.sent { background: var(--gold-bg); border-color: var(--gold); }
   .restore-banner-msg { flex: 1; }
   .restore-banner-msg strong { color: var(--success); }
+  .restore-banner.sent .restore-banner-msg strong { color: var(--gold); }
+  .restore-banner-msg .qualifier { display: block; font-size: 0.85rem; color: var(--text-dim); margin-top: 4px; }
   .restore-clear {
     background: transparent; border: 1px solid var(--border);
     color: var(--text-muted); padding: 4px 10px; border-radius: 4px;
@@ -177,24 +196,27 @@
     resize: vertical; margin-top: 8px;
   }
   textarea:focus { outline: none; border-color: var(--gold); }
+  .honeypot { display: none !important; }
   .save-indicator {
     position: fixed; bottom: 24px; right: 24px;
-    background: var(--bg-card); border: 1px solid var(--success);
-    color: var(--success); padding: 8px 14px; border-radius: 20px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    color: var(--text-dim); padding: 8px 14px; border-radius: 20px;
     font-size: 0.85rem; font-family: 'Courier New', monospace;
     opacity: 0; transition: opacity 0.3s;
     z-index: 50;
   }
   .save-indicator.show { opacity: 1; }
-  .submit-area {
+  .send-zone {
     margin-top: 32px; padding: 28px; background: var(--bg-card);
     border-radius: 12px; border: 2px solid var(--gold);
     text-align: center;
   }
-  .submit-area h2 {
-    margin: 0 0 14px; color: var(--gold); font-size: 1.3rem;
+  .send-zone h2 {
+    margin: 0 0 8px; color: var(--gold); font-size: 1.3rem;
   }
-  .submit-btn {
+  .send-zone-sub { color: var(--text-dim); margin-bottom: 18px; font-size: 0.93rem; }
+  .send-zone-sub strong { color: var(--text); }
+  .send-btn {
     display: inline-block; padding: 14px 32px;
     background: var(--gold); color: var(--bg); font-weight: 700;
     border: none; border-radius: 6px; font-size: 1.05rem;
@@ -202,10 +224,21 @@
     transition: background 0.15s;
     font-family: inherit;
   }
-  .submit-btn:hover { background: var(--gold-bright); }
-  .help { font-size: 0.85rem; color: var(--text-dim); margin-top: 14px; }
+  .send-btn:hover { background: var(--gold-bright); }
+  .send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .submitted-banner {
+    display: none;
+    background: var(--gold-bg); border: 2px solid var(--gold);
+    border-radius: 8px; padding: 18px 22px; margin-bottom: 20px;
+  }
+  .submitted-banner.show { display: block; }
+  .submitted-banner h3 {
+    margin: 0 0 6px; color: var(--gold); font-size: 1.05rem;
+  }
+  .submitted-banner-text { color: var(--text); font-size: 0.92rem; line-height: 1.5; }
+  .submitted-banner-text small { color: var(--text-dim); display: block; margin-top: 6px; }
   .fallback-block {
-    margin-top: 32px; padding: 20px 24px; background: var(--bg-card);
+    margin-top: 20px; padding: 18px 22px; background: var(--bg-card);
     border-radius: 10px; border: 1px dashed var(--warning);
   }
   .fallback-block h3 {
@@ -257,7 +290,7 @@
   }
   .modal-close:hover { color: var(--text); }
   .modal-step {
-    margin: 16px 0; padding: 14px 18px;
+    margin: 12px 0; padding: 14px 18px;
     background: var(--bg-elevated); border-radius: 6px;
     font-size: 0.92rem; color: var(--text-dim);
   }
@@ -271,20 +304,47 @@
     margin: 12px 0;
   }
   .modal-buttons {
-    display: flex; gap: 12px; flex-wrap: wrap;
-    margin-top: 20px; justify-content: flex-end;
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-top: 18px;
   }
   .modal-btn {
-    padding: 10px 20px; border-radius: 6px; font-weight: 600;
-    border: 1px solid var(--gold); cursor: pointer; font-family: inherit;
+    padding: 11px 20px; border-radius: 6px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
     font-size: 0.92rem; transition: all 0.15s;
+    display: inline-flex; align-items: center; gap: 6px;
   }
-  .modal-btn-primary { background: var(--gold); color: var(--bg); border: none; }
+  .modal-btn-primary {
+    background: var(--gold); color: var(--bg); border: none;
+    flex: 1; justify-content: center; min-width: 200px;
+  }
   .modal-btn-primary:hover { background: var(--gold-bright); }
-  .modal-btn-secondary { background: transparent; color: var(--gold); }
+  .modal-btn-primary:disabled { opacity: 0.6; cursor: wait; }
+  .modal-btn-secondary {
+    background: transparent; color: var(--gold);
+    border: 1px solid var(--gold);
+  }
   .modal-btn-secondary:hover { background: var(--gold-bg); }
-  .modal-btn-tertiary { background: var(--bg-elevated); color: var(--text); border: 1px solid var(--border); }
+  .modal-btn-tertiary {
+    background: var(--bg-elevated); color: var(--text);
+    border: 1px solid var(--border);
+  }
   .modal-btn-tertiary:hover { border-color: var(--border-active); }
+  .submit-status {
+    margin-top: 14px; padding: 12px 16px; border-radius: 6px;
+    font-size: 0.92rem; display: none;
+  }
+  .submit-status.show { display: block; }
+  .submit-status.success { background: var(--success-bg); border: 1px solid var(--success); color: var(--text); }
+  .submit-status.error { background: var(--error-bg); border: 1px solid var(--error); color: var(--text); }
+  .submit-status.loading { background: var(--gold-bg); border: 1px solid var(--gold); color: var(--text); }
+  .submit-status strong { display: block; margin-bottom: 4px; }
+  .spinner {
+    display: inline-block; width: 14px; height: 14px;
+    border: 2px solid var(--gold); border-top-color: transparent;
+    border-radius: 50%; animation: spin 0.8s linear infinite;
+    vertical-align: middle; margin-right: 8px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
   .copy-success {
     color: var(--success); font-size: 0.85rem; font-weight: 600;
     margin-top: 8px; opacity: 0; transition: opacity 0.3s;
@@ -299,6 +359,8 @@
     .question { padding: 18px 20px; }
     .modal { padding: 20px 18px; }
     .contact-row { flex-direction: column; }
+    .modal-buttons { flex-direction: column; }
+    .modal-btn-primary { min-width: 0; }
   }
 </style>
 </head>
@@ -312,23 +374,39 @@
 </nav>
 <div class="page">
 
+<!-- Restore banner: either "wiederhergestellt (noch nicht gesendet)" or "Sie haben bereits gesendet am ..." -->
 <div class="restore-banner" id="restore-banner">
   <div class="restore-banner-msg">
-    <strong>✓ Ihre vorherigen Antworten wurden wiederhergestellt</strong> · zuletzt gespeichert <span id="restored-time">—</span>
+    <strong id="restore-title">✓ Ihre vorherigen Antworten wurden aus Ihrem Browser geladen</strong>
+    <span class="qualifier" id="restore-qualifier">Zuletzt gemerkt: <span id="restored-time">—</span> · Noch NICHT an 2 Penguins gesendet.</span>
   </div>
-  <button class="restore-clear" onclick="clearSavedState()">Alle zurücksetzen</button>
+  <button class="restore-clear" onclick="clearSavedState()">Zurücksetzen</button>
+</div>
+
+<!-- Submitted banner: shown if user already sent successfully -->
+<div class="submitted-banner" id="submitted-banner">
+  <h3>📤 Sie haben Ihre Antworten bereits gesendet</h3>
+  <div class="submitted-banner-text">
+    Gesendet am <strong><span id="sent-time">—</span></strong>. Wir melden uns binnen 24h.
+    <small>Sie können unten weiterbearbeiten und erneut senden — wir nutzen dann die neueste Version.</small>
+  </div>
 </div>
 
 <div class="hero">
   <div class="label">BieneGold 2026 WebSeite · Phase 2.3 Strategie-Bestätigung</div>
   <h1>Lieber Denis — Strategie bestätigen in 3 Minuten</h1>
-  <span class="reading-time">⏱ ~3 Minuten · 💾 Antworten werden automatisch gespeichert</span>
-  <p class="lead">Wir haben Ihre Antworten vom 22.05. in die Strategie für die neue BieneGold-Website integriert und brauchen für die nächste Umsetzungs-Phase 10 kurze Bestätigungen von Ihnen. <strong>Sie können jederzeit pausieren — Ihre Antworten werden lokal in Ihrem Browser gespeichert und beim nächsten Öffnen wiederhergestellt.</strong> Am Ende der Seite zeigen wir Ihnen eine Vorschau Ihrer Antworten, dann können Sie sie per Email senden oder den Text kopieren.</p>
+  <div class="info-strip">
+    <span class="info-badge">⏱ ~3 Minuten</span>
+    <span class="info-badge muted">💾 Lokal gemerkt (in Ihrem Browser)</span>
+    <span class="info-badge muted">📤 An uns: nach Klick „Senden"</span>
+  </div>
+  <p class="lead" style="margin-top: 18px;">Wir haben Ihre Antworten vom 22.05. in die Strategie für die neue BieneGold-Website integriert und brauchen für die nächste Umsetzungs-Phase 10 kurze Bestätigungen von Ihnen.</p>
+  <p class="lead" style="font-size: 0.93rem;"><strong>So funktioniert es:</strong> Während Sie ausfüllen, werden Ihre Antworten <strong>in Ihrem Browser zwischengespeichert</strong> (Sie können jederzeit pausieren und später weiter machen). Erst wenn Sie unten auf <strong>„Antworten senden"</strong> klicken, werden sie tatsächlich an uns übertragen.</p>
 </div>
 
 <div class="contact-block">
   <h3>Ihre Kontaktdaten</h3>
-  <div class="contact-block-sub">Damit wir Ihre Antworten zuordnen können — auch wenn Sie sie aus einem anderen Email-Konto senden.</div>
+  <div class="contact-block-sub">Damit wir Ihre Antworten zuordnen können.</div>
   <div class="contact-row">
     <div>
       <label class="field-label" for="contact-name">Ihr Name</label>
@@ -341,7 +419,10 @@
   </div>
 </div>
 
-<form id="approval-form">
+<form id="approval-form" autocomplete="on">
+
+<!-- FormSubmit honeypot (anti-spam) -->
+<input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off">
 
 <div class="question" data-q="q1">
   <div class="question-num">FRAGE 1 / 10 — Positionierung</div>
@@ -444,19 +525,16 @@
 
 </form>
 
-<div class="submit-area">
-  <h2>Antworten absenden</h2>
-  <button class="submit-btn" type="button" onclick="showPreview()">📋 Vorschau & Absenden</button>
-  <div class="help">Sie sehen zuerst eine Vorschau Ihrer Antworten. Dann können Sie sie per Email senden, kopieren oder ausdrucken.</div>
+<div class="send-zone">
+  <h2>📤 Antworten an 2 Penguins senden</h2>
+  <div class="send-zone-sub">Mit einem Klick werden Ihre Antworten <strong>direkt an unsere Inbox</strong> übermittelt — kein Email-Programm nötig. Sie sehen vorher eine Vorschau und können den Versand bestätigen.</div>
+  <button class="send-btn" type="button" onclick="showPreview()" id="preview-btn">📋 Vorschau & Senden</button>
 </div>
 
 <div class="fallback-block">
-  <h3>⚠ Falls etwas nicht funktioniert</h3>
+  <h3>⚠ Falls die direkte Übermittlung nicht funktioniert</h3>
   <div class="fallback-block-text">
-    Sollte der Email-Versand bei Ihnen nicht funktionieren (z.B. weil kein Email-Programm konfiguriert ist), können Sie die Antworten auch direkt an uns senden:<br><br>
-    <strong>Per Email:</strong> <a href="mailto:team@2penguins.eu">team@2penguins.eu</a><br>
-    <strong>Per Telefon:</strong> Alexander Wirt (2 Penguins) — Kontaktdaten in unserer Email vom 26.05.<br><br>
-    Die Vorschau-Funktion zeigt Ihnen Ihre Antworten formatiert — Sie können sie <strong>einfach kopieren und in eine neue Email einfügen</strong>.
+    In der Vorschau finden Sie auch <strong>„Text kopieren"</strong> und <strong>„Drucken"</strong> als Alternativen. Oder schreiben Sie direkt eine E-Mail an <a href="mailto:team@2penguins.eu">team@2penguins.eu</a> mit Ihren Antworten.
   </div>
 </div>
 
@@ -472,8 +550,8 @@
 
 </div>
 
-<!-- Save indicator -->
-<div class="save-indicator" id="save-indicator">💾 Gespeichert</div>
+<!-- Save indicator (toast) -->
+<div class="save-indicator" id="save-indicator">💾 Lokal gemerkt</div>
 
 <!-- Modal -->
 <div class="modal-overlay" id="preview-modal">
@@ -484,26 +562,26 @@
     </div>
 
     <div class="modal-step">
-      <strong>3 Wege zum Versand</strong> — wählen Sie die für Sie einfachste Option. Inhalt ist überall identisch.
+      Prüfen Sie Ihre Antworten unten. Klick auf <strong>„Direkt senden"</strong> übermittelt sie sicher an unsere Inbox. Falls Sie eine Alternative bevorzugen, nutzen Sie <strong>„Kopieren"</strong> oder <strong>„Drucken"</strong>.
     </div>
 
     <div class="modal-preview" id="email-preview">Vorschau wird geladen...</div>
-    <div class="copy-success" id="copy-success">✓ In Zwischenablage kopiert! Jetzt in einer neuen Email an team@2penguins.eu einfügen.</div>
+
+    <div class="submit-status" id="submit-status"></div>
 
     <div class="modal-buttons">
+      <button class="modal-btn modal-btn-primary" onclick="sendDirect()" id="send-direct-btn">📤 Direkt an 2 Penguins senden</button>
+      <button class="modal-btn modal-btn-secondary" onclick="copyToClipboard()">📋 Kopieren</button>
       <button class="modal-btn modal-btn-tertiary" onclick="printPreview()">🖨 Drucken</button>
-      <button class="modal-btn modal-btn-secondary" onclick="copyToClipboard()">📋 Text kopieren</button>
-      <button class="modal-btn modal-btn-primary" onclick="sendViaMailto()">📧 Email-Programm öffnen</button>
     </div>
 
-    <div class="modal-step" style="margin-top: 20px;">
-      <strong>Empfehlung:</strong> Wenn Sie unsicher sind welche Option, klicken Sie zuerst <strong>„Email-Programm öffnen"</strong>. Falls sich nichts öffnet (z.B. bei T-Online-/GMX-Webmail), nutzen Sie <strong>„Text kopieren"</strong> und fügen Sie den Text in eine neue Email an <strong>team@2penguins.eu</strong> ein.
-    </div>
+    <div class="copy-success" id="copy-success">✓ In Zwischenablage kopiert! Jetzt in eine neue Email an team@2penguins.eu einfügen.</div>
   </div>
 </div>
 
 <script>
-const STORAGE_KEY = 'bienegold_approval_v1';
+const STORAGE_KEY = 'bienegold_approval_v2';
+const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/team@2penguins.eu';
 const FORM_FIELDS = ['contact_name', 'contact_email'];
 for (let i = 1; i <= 10; i++) {
   FORM_FIELDS.push('q' + i);
@@ -530,38 +608,47 @@ function toggleTheme() {
   const next = current === 'dark' ? 'light' : 'dark';
   root.setAttribute('data-theme', next);
   document.getElementById('theme-toggle').textContent = next === 'dark' ? '☀ Hell' : '🌙 Dunkel';
-  localStorage.setItem('bienegold_theme', next);
+  try { localStorage.setItem('bienegold_theme', next); } catch(e) {}
 }
 
-// Restore theme on load
 (function() {
-  const saved = localStorage.getItem('bienegold_theme');
-  if (saved === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
-    document.getElementById('theme-toggle').textContent = '🌙 Dunkel';
-  }
+  try {
+    const saved = localStorage.getItem('bienegold_theme');
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e) {}
 })();
 
 // === STATE PERSISTENCE ===
-function saveState() {
-  const state = { saved_at: new Date().toISOString() };
-  FORM_FIELDS.forEach(name => {
-    const el = document.querySelector('[name="' + name + '"]:checked') || document.querySelector('[name="' + name + '"]');
-    if (!el) return;
-    if (el.type === 'radio') {
-      const checked = document.querySelector('[name="' + name + '"]:checked');
-      if (checked) state[name] = checked.value;
-    } else {
-      state[name] = el.value;
+function saveState(skipIndicator) {
+  try {
+    const existing = localStorage.getItem(STORAGE_KEY);
+    let sentAt = null;
+    if (existing) {
+      try { sentAt = JSON.parse(existing).sent_at || null; } catch(e) {}
     }
-  });
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  showSaveIndicator();
-  updateAnsweredVisuals();
+    const state = { saved_at: new Date().toISOString(), sent_at: sentAt };
+    FORM_FIELDS.forEach(name => {
+      const checked = document.querySelector('[name="' + name + '"]:checked');
+      if (checked) {
+        state[name] = checked.value;
+      } else {
+        const el = document.querySelector('[name="' + name + '"]');
+        if (el && el.tagName !== 'INPUT' || (el && el.type !== 'radio')) {
+          if (el && el.value) state[name] = el.value;
+        }
+      }
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    if (!skipIndicator) showSaveIndicator();
+    updateAnsweredVisuals();
+  } catch(e) { console.warn('localStorage save failed:', e); }
 }
 
 function restoreState() {
-  const raw = localStorage.getItem(STORAGE_KEY);
+  let raw = null;
+  try { raw = localStorage.getItem(STORAGE_KEY); } catch(e) { return; }
   if (!raw) return;
   try {
     const state = JSON.parse(raw);
@@ -577,24 +664,48 @@ function restoreState() {
         }
       });
     });
-    if (state.saved_at) {
-      const banner = document.getElementById('restore-banner');
+    // Show banner depending on whether already sent
+    const banner = document.getElementById('restore-banner');
+    const sentBanner = document.getElementById('submitted-banner');
+    if (state.sent_at) {
+      const ts = new Date(state.sent_at);
+      const formatted = ts.toLocaleDateString('de-DE') + ' um ' + ts.toLocaleTimeString('de-DE', {hour: '2-digit', minute: '2-digit'});
+      document.getElementById('sent-time').textContent = formatted;
+      sentBanner.classList.add('show');
+    } else if (state.saved_at) {
       const ts = new Date(state.saved_at);
       const formatted = ts.toLocaleDateString('de-DE') + ' um ' + ts.toLocaleTimeString('de-DE', {hour: '2-digit', minute: '2-digit'});
       document.getElementById('restored-time').textContent = formatted;
       banner.classList.add('show');
     }
     updateAnsweredVisuals();
-  } catch(e) { console.error('Restore failed:', e); }
+  } catch(e) { console.warn('Restore failed:', e); }
+}
+
+function markAsSent() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const state = JSON.parse(raw);
+    state.sent_at = new Date().toISOString();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    // Hide restore-banner, show submitted-banner
+    document.getElementById('restore-banner').classList.remove('show');
+    const ts = new Date(state.sent_at);
+    document.getElementById('sent-time').textContent =
+      ts.toLocaleDateString('de-DE') + ' um ' + ts.toLocaleTimeString('de-DE', {hour: '2-digit', minute: '2-digit'});
+    document.getElementById('submitted-banner').classList.add('show');
+  } catch(e) {}
 }
 
 function clearSavedState() {
-  if (!confirm('Wirklich alle Antworten zurücksetzen?')) return;
-  localStorage.removeItem(STORAGE_KEY);
+  if (!confirm('Wirklich alle Antworten zurücksetzen?\n\nIhre lokal gespeicherten Antworten werden gelöscht. Bereits gesendete Antworten an 2 Penguins bleiben bei uns.')) return;
+  try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
   document.getElementById('approval-form').reset();
   document.getElementById('contact-name').value = 'Denis Ivanov';
   document.getElementById('contact-email').value = 'den@bienegold.de';
   document.getElementById('restore-banner').classList.remove('show');
+  document.getElementById('submitted-banner').classList.remove('show');
   updateAnsweredVisuals();
 }
 
@@ -611,13 +722,9 @@ function updateAnsweredVisuals() {
     const radio = q.querySelector('[name="' + name + '"]:checked');
     const textarea = q.querySelector('[name="' + name + '_other"]') || q.querySelector('[name="' + name + '"]');
     const text = textarea && textarea.tagName === 'TEXTAREA' ? textarea.value.trim() : '';
-    if (radio || text) {
-      q.classList.add('answered');
-    } else {
-      q.classList.remove('answered');
-    }
+    if (radio || text) q.classList.add('answered');
+    else q.classList.remove('answered');
   });
-  // Update selected state on options
   document.querySelectorAll('.option').forEach(opt => {
     const input = opt.querySelector('input');
     if (input && input.checked) opt.classList.add('selected');
@@ -636,40 +743,49 @@ document.addEventListener('change', () => {
   saveDebounce = setTimeout(saveState, 100);
 });
 
-// === EMAIL BUILDING ===
-function buildEmailBody() {
+// === DATA COLLECTION ===
+function collectData() {
   const form = document.getElementById('approval-form');
   const data = new FormData(form);
   const name = document.getElementById('contact-name').value.trim() || '(Name nicht angegeben)';
   const email = document.getElementById('contact-email').value.trim() || '(Email nicht angegeben)';
 
-  let body = 'Strategie-Bestätigung BieneGold 2026 — Antworten von ' + name + '\n';
-  body += 'Absender-Email: ' + email + '\n';
+  const answers = {};
+  for (let i = 1; i <= 10; i++) {
+    const key = 'q' + i;
+    answers[key] = {
+      question: QUESTIONS[key],
+      answer: data.get(key) || '',
+      note: (data.get(key + '_other') || '').trim()
+    };
+  }
+  return { name, email, answers, timestamp: new Date().toISOString() };
+}
+
+function buildEmailBody() {
+  const d = collectData();
+  let body = 'Strategie-Bestätigung BieneGold 2026 — Antworten von ' + d.name + '\n';
+  body += 'Absender-Email: ' + d.email + '\n';
   body += 'Datum: ' + new Date().toLocaleDateString('de-DE') + '\n\n';
   body += 'Liebes 2 Penguins Team,\n\n';
   body += 'hier meine Antworten zur Strategie-Bestätigung BieneGold 2026:\n\n';
   body += '═══════════════════════════════════════════\n\n';
 
   for (let i = 1; i <= 10; i++) {
-    const key = 'q' + i;
-    const answer = data.get(key) || '';
-    const other = data.get(key + '_other') || '';
-
-    body += QUESTIONS[key] + '\n';
+    const a = d.answers['q' + i];
+    body += a.question + '\n';
     if (i === 10) {
-      body += (other || answer || '(keine Antwort)') + '\n\n';
+      body += (a.note || a.answer || '(keine Antwort)') + '\n\n';
     } else {
-      body += 'Antwort: ' + (answer || '(noch nicht gewählt)') + '\n';
-      if (other.trim()) body += 'Anmerkung: ' + other.trim() + '\n';
+      body += 'Antwort: ' + (a.answer || '(noch nicht gewählt)') + '\n';
+      if (a.note) body += 'Anmerkung: ' + a.note + '\n';
       body += '\n';
     }
   }
 
   body += '═══════════════════════════════════════════\n\n';
-  body += 'Beste Grüße,\n' + name + '\n';
-  if (name.toLowerCase().indexOf('denis') >= 0) {
-    body += 'BieneGold GmbH';
-  }
+  body += 'Beste Grüße,\n' + d.name + '\n';
+  if (d.name.toLowerCase().indexOf('denis') >= 0) body += 'BieneGold GmbH';
   return body;
 }
 
@@ -680,8 +796,9 @@ function buildSubject() {
 
 // === MODAL ===
 function showPreview() {
-  const body = buildEmailBody();
-  document.getElementById('email-preview').textContent = body;
+  document.getElementById('email-preview').textContent = buildEmailBody();
+  document.getElementById('submit-status').classList.remove('show');
+  document.getElementById('copy-success').classList.remove('show');
   document.getElementById('preview-modal').classList.add('show');
   document.body.style.overflow = 'hidden';
 }
@@ -689,30 +806,80 @@ function showPreview() {
 function hidePreview() {
   document.getElementById('preview-modal').classList.remove('show');
   document.body.style.overflow = '';
-  document.getElementById('copy-success').classList.remove('show');
 }
 
-// Close modal on overlay-click
 document.getElementById('preview-modal').addEventListener('click', (e) => {
   if (e.target.id === 'preview-modal') hidePreview();
 });
 
-// === ACTIONS ===
-function sendViaMailto() {
-  const subject = buildSubject();
-  const body = buildEmailBody();
-  const email = document.getElementById('contact-email').value.trim();
-  const cc = email && email.indexOf('@') > 0 ? '&cc=' + encodeURIComponent(email) : '';
-  const mailto = 'mailto:team@2penguins.eu' + '?subject=' + encodeURIComponent(subject) + cc + '&body=' + encodeURIComponent(body);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') hidePreview();
+});
 
-  // Show fallback hint after 800ms (mailto-failure detection)
-  setTimeout(() => {
-    document.getElementById('copy-success').textContent = '💡 Falls sich Ihr Email-Programm nicht geöffnet hat: bitte „Text kopieren" verwenden.';
-    document.getElementById('copy-success').style.color = 'var(--warning)';
-    document.getElementById('copy-success').classList.add('show');
-  }, 1500);
+// === DIRECT SEND via FormSubmit AJAX ===
+async function sendDirect() {
+  const btn = document.getElementById('send-direct-btn');
+  const status = document.getElementById('submit-status');
+  const d = collectData();
 
-  window.location.href = mailto;
+  // Validate
+  if (!d.email || d.email.indexOf('@') < 1) {
+    status.className = 'submit-status error show';
+    status.innerHTML = '<strong>⚠ Email-Adresse fehlt</strong>Bitte tragen Sie Ihre Email-Adresse oben ein, damit wir Sie zuordnen können.';
+    return;
+  }
+
+  // Loading state
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Wird gesendet...';
+  status.className = 'submit-status loading show';
+  status.innerHTML = '<strong><span class="spinner"></span>Übermittlung läuft...</strong>Wir senden Ihre Antworten an unsere Inbox.';
+
+  const payload = {
+    _subject: buildSubject(),
+    _captcha: 'false',
+    _template: 'box',
+    _replyto: d.email,
+    Name: d.name,
+    Email: d.email,
+    Datum: new Date().toLocaleString('de-DE'),
+    Antworten_Text: buildEmailBody()
+  };
+  // Add answers as separate fields
+  for (let i = 1; i <= 10; i++) {
+    const a = d.answers['q' + i];
+    payload['Frage_' + i + '_Antwort'] = a.answer || '(keine Antwort)';
+    if (a.note) payload['Frage_' + i + '_Anmerkung'] = a.note;
+  }
+
+  try {
+    const res = await fetch(FORMSUBMIT_ENDPOINT, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify(payload)
+    });
+    const json = await res.json().catch(() => ({}));
+    if (res.ok && (json.success === true || json.success === 'true' || res.status === 200)) {
+      // SUCCESS
+      btn.innerHTML = '✓ Gesendet';
+      status.className = 'submit-status success show';
+      status.innerHTML = '<strong>✓ Ihre Antworten wurden erfolgreich an 2 Penguins gesendet.</strong>Wir bestätigen den Eingang binnen 24h und melden uns mit den nächsten Schritten. Sie können dieses Fenster jetzt schließen.';
+      markAsSent();
+      // Re-enable button after 3s so user can resend if needed
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = '📤 Erneut senden (falls Änderungen)';
+      }, 3000);
+    } else {
+      throw new Error(json.message || 'Server-Fehler ' + res.status);
+    }
+  } catch(err) {
+    // ERROR
+    btn.disabled = false;
+    btn.innerHTML = '📤 Direkt an 2 Penguins senden';
+    status.className = 'submit-status error show';
+    status.innerHTML = '<strong>⚠ Übermittlung fehlgeschlagen</strong>Bitte verwenden Sie stattdessen <strong>„Kopieren"</strong> rechts daneben und senden Sie den Text als Email an <a href="mailto:team@2penguins.eu" style="color:var(--gold);">team@2penguins.eu</a>. (Technischer Fehler: ' + (err.message || 'unbekannt') + ')';
+  }
 }
 
 async function copyToClipboard() {
@@ -722,11 +889,10 @@ async function copyToClipboard() {
   try {
     await navigator.clipboard.writeText(fullText);
     const el = document.getElementById('copy-success');
-    el.textContent = '✓ In Zwischenablage kopiert! Jetzt in einer neuen Email an team@2penguins.eu einfügen.';
+    el.textContent = '✓ Kopiert! Jetzt in eine neue Email an team@2penguins.eu einfügen.';
     el.style.color = 'var(--success)';
     el.classList.add('show');
   } catch(e) {
-    // Fallback for older browsers
     const textArea = document.createElement('textarea');
     textArea.value = fullText;
     document.body.appendChild(textArea);
@@ -755,16 +921,18 @@ function printPreview() {
   setTimeout(() => win.print(), 250);
 }
 
-// Keyboard: ESC closes modal
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') hidePreview();
-});
-
 // === INIT ===
-document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+function init() {
+  document.getElementById('theme-toggle').textContent =
+    document.documentElement.getAttribute('data-theme') === 'light' ? '🌙 Dunkel' : '☀ Hell';
   restoreState();
   updateAnsweredVisuals();
-});
+}
 </script>
 </body>
 </html>
