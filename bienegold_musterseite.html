@@ -59,7 +59,7 @@
   body.show-labels .block-label{display:inline-block;}
   body.show-labels section{outline:2px dashed rgba(212,98,42,.45);outline-offset:-4px;}
 
-  .toggle-bar{position:fixed;top:14px;right:14px;z-index:200;}
+  .toggle-bar{position:fixed;bottom:18px;right:18px;z-index:200;}
   .toggle-btn{background:var(--dark);color:#fff;border:none;padding:10px 16px;border-radius:30px;font-weight:600;font-size:13px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.2);}
   .toggle-btn.active{background:var(--terracotta);}
 
@@ -113,9 +113,8 @@
   .alt{background:var(--neutral);}
 
   /* 3 Schritte */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step;}
-  @media(max-width:880px){.steps{grid-template-columns:1fr 1fr;}}
-  @media(max-width:520px){.steps{grid-template-columns:1fr;}}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:780px){.steps{grid-template-columns:1fr;}}
   .step{background:var(--green);color:#fff;border-radius:var(--radius);padding:26px;position:relative;}
   .step .num{font-size:34px;font-weight:800;color:var(--gold-bright);line-height:1;margin-bottom:12px;}
   .step h4{color:#fff;font-size:17px;}
@@ -234,7 +233,6 @@
     <div class="trust-inner">
       <div class="trust-item"><span class="stars">★★★★★</span> 4,8 · 111 Google-Bewertungen</div>
       <div class="trust-item">📍 Berlin + Brandenburg</div>
-      <div class="trust-item">🛠 Seit 2019</div>
       <div class="trust-item">👤 Ein Ansprechpartner</div>
     </div>
     <div class="trust-logos">
@@ -293,8 +291,7 @@
     <div class="steps">
       <div class="step"><div class="num">1</div><h4>Anfrage</h4><p>Kontaktformular ausfüllen — in 2 Minuten.</p></div>
       <div class="step"><div class="num">2</div><h4>Rückruf</h4><p>Wir melden uns in 5–10 Minuten.</p></div>
-      <div class="step"><div class="num">3</div><h4>Kostenvoranschlag</h4><p>Angebot &amp; Präsentation per E-Mail.</p></div>
-      <div class="step"><div class="num">4</div><h4>Planung buchen</h4><p>Start mit dem Planungs-Konzept.</p></div>
+      <div class="step"><div class="num">3</div><h4>Kostenvoranschlag &amp; Planung</h4><p>Angebot und Präsentation per E-Mail — dann Start.</p></div>
     </div>
   </div>
 </section>
