@@ -538,10 +538,7 @@
         </div>
       </div>
 
-      <!-- Tätigkeitsgebiet -->
-      <div class="mt-12 border-t border-white/10 pt-8">
-        <p class="text-sm leading-7"><span class="font-bold text-gold-light">Tätigkeitsgebiet:</span> Berlin (u.a. Charlottenburg-Wilmersdorf, Mitte, Steglitz-Zehlendorf, Spandau, Pankow, Reinickendorf) sowie Brandenburg (u.a. Potsdam, Oranienburg, Bernau, Falkensee).</p>
-      </div>
+      <!-- Tätigkeitsgebiet als sichtbarer Block ENTFERNT (AW 06.06) — Geo-Coverage liegt jetzt in LocalBusiness-Schema areaServed (vor </body>). "Berlin und Brandenburg" steht weiterhin in Spalte 1. -->
 
       <!-- Footer-Bottom -->
       <div class="mt-8 border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm text-white/60">
@@ -562,6 +559,32 @@
     document.getElementById('burger').addEventListener('click', function () {
       document.getElementById('mobile-menu').classList.toggle('hidden');
     });
+  </script>
+
+  <!-- LocalBusiness / GeneralContractor Schema — areaServed trägt das Geo-Coverage (ersetzt den sichtbaren Footer-Block) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "name": "BieneGold GmbH",
+    "url": "https://bienegold.de/",
+    "telephone": "+49 30 52014158",
+    "email": "anfrage@bienegold.de",
+    "foundingDate": "2012",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Lutherplatz 5",
+      "postalCode": "13585",
+      "addressLocality": "Berlin",
+      "addressCountry": "DE"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Berlin" },
+      { "@type": "AdministrativeArea", "name": "Brandenburg" },
+      "Charlottenburg-Wilmersdorf", "Mitte", "Steglitz-Zehlendorf", "Spandau", "Pankow", "Reinickendorf",
+      "Potsdam", "Oranienburg", "Bernau", "Falkensee"
+    ]
+  }
   </script>
 </body>
 </html>
