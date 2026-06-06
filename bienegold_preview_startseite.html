@@ -49,14 +49,75 @@
       background: repeating-linear-gradient(45deg, #f3f4f6, #f3f4f6 10px, #eceef1 10px, #eceef1 20px);
       color: #4b5563;
     }
+
+    :root {
+      --fb-accent: #2563eb; --fb-accent-border: #1d4ed8; --fb-accent-hover: #1d4ed8;
+      --fb-saved: #0ea5e9; --fb-saved-border: #0284c7;
+      --fb-save: #2563eb; --fb-save-border: #1d4ed8; --fb-save-hover: #1d4ed8;
+      --fb-panel-bg: #eff6ff; --fb-panel-border: #2563eb;
+      --fb-delete: #dc2626; --fb-delete-bg: #fef2f2; --fb-delete-border: #fca5a5;
+      --success: #10b981; --radius: 12px;
+    }
+
+    /* === FEEDBACK-UI (Canon 2p-preview/references/feedback-ui.md) === */
+    .feedback-counter{background:var(--fb-accent);color:#fff;padding:6px 16px;border-radius:20px;font-weight:700;cursor:pointer;transition:transform .2s;font-size:13px;border:none}
+    .feedback-counter:hover{transform:scale(1.05)}
+    .feedback-counter.has-feedback{animation:fb-pulse 2s infinite}
+    @keyframes fb-pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,.4)}50%{box-shadow:0 0 0 8px transparent}}
+    .feedback-btn{position:absolute;top:12px;right:20px;background:var(--fb-accent);border:2px solid var(--fb-accent-border);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:13px;color:#fff;font-weight:600;transition:all .2s;z-index:20}
+    .feedback-btn:hover{background:var(--fb-accent-hover);color:#fff}
+    .feedback-btn.has-comment{background:var(--fb-saved);border-color:var(--fb-saved-border);color:#fff}
+    .feedback-panel{display:none;position:absolute;top:3rem;right:.75rem;width:340px;max-width:calc(100% - 1.5rem);z-index:200;background:var(--fb-panel-bg);border:2px solid var(--fb-panel-border);border-radius:var(--radius);padding:20px;box-shadow:0 4px 16px rgba(0,0,0,.2);animation:fb-slideDown .3s ease;text-align:left}
+    .feedback-panel.open{display:block}
+    @keyframes fb-slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+    .feedback-panel label{display:block;font-weight:600;margin-bottom:8px;color:#1d4ed8;font-size:14px}
+    .feedback-panel textarea{width:100%;min-height:100px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-family:inherit;font-size:15px;resize:vertical;line-height:1.5;color:#1a1d24}
+    .feedback-panel textarea:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+    .feedback-actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;align-items:center}
+    .btn-save{background:var(--fb-save);color:#fff;border:2px solid var(--fb-save-border);padding:8px 20px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600}
+    .btn-save:hover{background:var(--fb-save-hover)}
+    .btn-cancel{background:#fff;border:2px solid #94a3b8;padding:8px 20px;border-radius:8px;cursor:pointer;font-size:14px;color:#334155;font-weight:500}
+    .btn-delete{background:var(--fb-delete-bg);border:2px solid var(--fb-delete-border);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;color:var(--fb-delete);font-weight:500;margin-left:auto}
+    .saved-indicator{display:none;color:var(--success);font-size:13px;align-items:center;gap:4px}
+    .export-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;justify-content:center;align-items:center}
+    .export-overlay.open{display:flex}
+    .export-box{background:#fff;border-radius:12px;padding:32px;max-width:520px;width:90%;text-align:center}
+    .export-box h2{margin-bottom:12px;font-size:22px;color:#1a1d24}
+    .export-box p{color:#64748b;margin-bottom:20px}
+    .export-box .count{font-size:48px;font-weight:800;color:var(--fb-save)}
+    .btn-export{display:inline-block;background:var(--fb-save);color:#fff;padding:14px 28px;border-radius:8px;border:none;font-size:16px;font-weight:600;cursor:pointer;margin:6px}
+    .btn-export.btn-copy{background:var(--fb-accent)}
+    .btn-close-overlay{display:inline-block;background:transparent;border:1px solid #e2e8f0;padding:14px 28px;border-radius:8px;font-size:16px;cursor:pointer;margin:6px;color:#64748b}
+    .block-label{position:absolute;left:-9999px}
+    .feedback-guide{max-width:80rem;margin:0 auto;padding:20px 24px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px}
+    .feedback-guide h3{font-weight:800;color:#1d4ed8;margin-bottom:8px;font-size:16px}
+    .feedback-guide ol{margin:0 0 0 1.1rem;color:#1e293b;font-size:14px;line-height:1.7}
+    .feedback-guide li{margin-bottom:4px}
+    .feedback-guide em{color:#475569;font-size:13px}
+    @media(max-width:768px){.feedback-btn{top:8px;right:12px;font-size:12px}.feedback-panel{width:calc(100vw - 2rem)}}
   </style>
 </head>
 <body class="bg-white text-ink antialiased">
 
   <!-- META-BANNER (kein Seiteninhalt) -->
-  <div class="w-full bg-ink text-amber-100 text-center text-xs sm:text-sm px-4 py-2 font-medium">
-    VORSCHAU — BieneGold Startseite · Texte DVL-Status ⚠️ Entwurf (vor Klient-Freigabe) · Design = Tailwind-Plus-Pattern + Marken-Tokens
+  <div class="w-full bg-ink text-amber-100 px-4 py-2 font-medium flex items-center justify-between gap-3 flex-wrap">
+    <span class="text-xs sm:text-sm text-center sm:text-left flex-1 min-w-0">VORSCHAU — BieneGold Startseite · Texte DVL-Status ⚠️ Entwurf (vor Klient-Freigabe) · Design = Tailwind-Plus-Pattern + Marken-Tokens</span>
+    <button class="feedback-counter" id="feedbackCounter" onclick="openExportOverlay()">Feedback: 0 Kommentare</button>
   </div>
+
+  <!-- Kurzanleitung für Kunden (Canon 2p-preview, Position: ganz oben im Content) -->
+  <section class="px-6 lg:px-8 pt-6">
+    <div class="feedback-guide">
+      <h3>📝 So geben Sie Feedback zu den Texten</h3>
+      <ol>
+        <li><strong>Kommentar hinterlassen</strong> — Neben jedem Textblock sehen Sie „✏️ Vorschlag". Klicken Sie darauf, schreiben Sie Ihren Kommentar und klicken Sie auf „Speichern".</li>
+        <li><strong>Beliebig viele Blöcke</strong> — Kommentare bleiben gespeichert, Sie können jederzeit weitere ergänzen.</li>
+        <li><strong>Feedback absenden</strong> — Oben rechts: „📥 Feedback: X Kommentare" → klicken → „Als Datei herunterladen" (.txt) oder „In Zwischenablage kopieren" (für E-Mail/WhatsApp).</li>
+        <li><strong>An uns senden</strong> — Schicken Sie uns die Datei oder den kopierten Text, wie es Ihnen am liebsten ist.</li>
+      </ol>
+      <p><em>Hinweis: Ihre Kommentare werden lokal in Ihrem Browser gespeichert und bleiben erhalten, auch wenn Sie die Seite schließen. Bitte bewerten Sie nur die Texte — Layout und Farben sind ein Entwurf.</em></p>
+    </div>
+  </section>
 
   <!-- ============ HEADER (sticky) ============ -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gold/30">
@@ -143,7 +204,9 @@
   <main>
 
     <!-- ============ BLOCK 1 — HERO ============ -->
-    <section class="relative bg-white overflow-hidden">
+    <section id="block-1" class="relative bg-white overflow-hidden">
+      <span class="block-label">Block 1 — Hero</span>
+      <button class="feedback-btn" onclick="toggleFeedback(1)">✏️ Vorschlag</button>
       <div class="absolute inset-0 honeycomb opacity-70" aria-hidden="true"></div>
       <div class="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-br from-tanne/5 to-transparent hidden lg:block" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-7xl px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
@@ -156,10 +219,22 @@
           </div>
         </div>
       </div>
+      <div class="feedback-panel" id="feedback-panel-1">
+        <label>Ihr Vorschlag für Block 1 — Hero:</label>
+        <textarea id="feedback-text-1" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+        <div class="feedback-actions">
+          <button class="btn-save" onclick="saveFeedback(1)">Speichern</button>
+          <button class="btn-cancel" onclick="toggleFeedback(1)">Abbrechen</button>
+          <button class="btn-delete" onclick="deleteFeedback(1)" style="display:none" id="delete-btn-1">Löschen</button>
+          <span class="saved-indicator" id="saved-1">✓ Gespeichert</span>
+        </div>
+      </div>
     </section>
 
     <!-- ============ BLOCK 2 — TRUST-STRIP ============ -->
-    <section class="bg-tanne text-white">
+    <section id="block-2" class="relative bg-tanne text-white">
+      <span class="block-label">Block 2 — Trust-Strip</span>
+      <button class="feedback-btn" onclick="toggleFeedback(2)">✏️ Vorschlag</button>
       <div class="mx-auto max-w-7xl px-6 lg:px-8 py-16 sm:py-20">
         <dl class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 text-center">
           <div class="flex flex-col items-center">
@@ -180,10 +255,23 @@
           </div>
         </dl>
       </div>
+      <div class="feedback-panel" id="feedback-panel-2">
+        <label>Ihr Vorschlag für Block 2 — Trust-Strip:</label>
+        <textarea id="feedback-text-2" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+        <div class="feedback-actions">
+          <button class="btn-save" onclick="saveFeedback(2)">Speichern</button>
+          <button class="btn-cancel" onclick="toggleFeedback(2)">Abbrechen</button>
+          <button class="btn-delete" onclick="deleteFeedback(2)" style="display:none" id="delete-btn-2">Löschen</button>
+          <span class="saved-indicator" id="saved-2">✓ Gespeichert</span>
+        </div>
+      </div>
     </section>
 
     <!-- ============ BLOCK 3 — VALUE PROPOSITION ============ -->
-    <section id="ueber-uns" class="bg-white">
+    <section id="block-3" class="relative bg-white">
+      <span class="block-label">Block 3 — Value-Proposition</span>
+      <button class="feedback-btn" onclick="toggleFeedback(3)">✏️ Vorschlag</button>
+      <span id="ueber-uns"></span>
       <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
         <div class="mx-auto max-w-3xl">
           <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl text-balance">Wand, Decke, Akustik und Licht — zusammen gedacht</h2>
@@ -191,10 +279,23 @@
           <p class="mt-6 text-lg leading-8 text-ink/70">Bei BieneGold läuft alles über einen Plan und einen Ansprechpartner. Oberflächen, Verkleidung, Raumakustik und Beleuchtung werden gemeinsam geplant, aufeinander abgestimmt und sauber umgesetzt. Sie wissen vorab, was passiert, was es kostet und wie lange es dauert.</p>
         </div>
       </div>
+      <div class="feedback-panel" id="feedback-panel-3">
+        <label>Ihr Vorschlag für Block 3 — Value-Proposition:</label>
+        <textarea id="feedback-text-3" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+        <div class="feedback-actions">
+          <button class="btn-save" onclick="saveFeedback(3)">Speichern</button>
+          <button class="btn-cancel" onclick="toggleFeedback(3)">Abbrechen</button>
+          <button class="btn-delete" onclick="deleteFeedback(3)" style="display:none" id="delete-btn-3">Löschen</button>
+          <span class="saved-indicator" id="saved-3">✓ Gespeichert</span>
+        </div>
+      </div>
     </section>
 
     <!-- ============ BLOCK 4 — LEISTUNGS-GRID ============ -->
-    <section id="leistungen" class="bg-neutralbg">
+    <section id="block-4" class="relative bg-neutralbg">
+      <span class="block-label">Block 4 — Leistungen</span>
+      <button class="feedback-btn" onclick="toggleFeedback(4)">✏️ Vorschlag</button>
+      <span id="leistungen"></span>
       <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
         <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Unsere Leistungen</h2>
         <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -244,10 +345,22 @@
           <p class="text-base leading-7 text-ink/80"><span class="font-bold text-tanne">Zusammen gedacht:</span> Eine Vinyl-Spanndecke lässt sich akustisch optimieren, mit integriertem Licht planen — und als beheizte Decke mit IR-Folie ausführen. Genau das ist der Vorteil, wenn ein Anbieter alles plant.</p>
         </div>
       </div>
+      <div class="feedback-panel" id="feedback-panel-4">
+        <label>Ihr Vorschlag für Block 4 — Leistungen:</label>
+        <textarea id="feedback-text-4" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+        <div class="feedback-actions">
+          <button class="btn-save" onclick="saveFeedback(4)">Speichern</button>
+          <button class="btn-cancel" onclick="toggleFeedback(4)">Abbrechen</button>
+          <button class="btn-delete" onclick="deleteFeedback(4)" style="display:none" id="delete-btn-4">Löschen</button>
+          <span class="saved-indicator" id="saved-4">✓ Gespeichert</span>
+        </div>
+      </div>
     </section>
 
     <!-- ============ BLOCK 5 — METHODIK (mit System, skalierbar) ============ -->
-    <section class="relative bg-white overflow-hidden">
+    <section id="block-5" class="relative bg-white overflow-hidden">
+      <span class="block-label">Block 5 — Methodik (mit System)</span>
+      <button class="feedback-btn" onclick="toggleFeedback(5)">✏️ Vorschlag</button>
       <div class="absolute inset-0 honeycomb opacity-50" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
         <div class="mx-auto max-w-3xl text-center">
@@ -266,10 +379,22 @@
         </div>
         <p class="mx-auto mt-10 max-w-3xl text-center text-lg font-semibold text-ink">So entsteht unser Versprechen: Planungssicherheit statt Baustellen-Chaos.</p>
       </div>
+      <div class="feedback-panel" id="feedback-panel-5">
+        <label>Ihr Vorschlag für Block 5 — Methodik (mit System):</label>
+        <textarea id="feedback-text-5" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+        <div class="feedback-actions">
+          <button class="btn-save" onclick="saveFeedback(5)">Speichern</button>
+          <button class="btn-cancel" onclick="toggleFeedback(5)">Abbrechen</button>
+          <button class="btn-delete" onclick="deleteFeedback(5)" style="display:none" id="delete-btn-5">Löschen</button>
+          <span class="saved-indicator" id="saved-5">✓ Gespeichert</span>
+        </div>
+      </div>
     </section>
 
     <!-- ============ BLOCK 6 — USP-STACK ============ -->
-    <section class="bg-ink text-white">
+    <section id="block-6" class="relative bg-ink text-white">
+      <span class="block-label">Block 6 — USP-Stack</span>
+      <button class="feedback-btn" onclick="toggleFeedback(6)">✏️ Vorschlag</button>
       <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
         <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Warum BieneGold</h2>
         <dl class="mt-16 grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-2">
@@ -300,10 +425,22 @@
           </div>
         </dl>
       </div>
+      <div class="feedback-panel" id="feedback-panel-6">
+        <label>Ihr Vorschlag für Block 6 — USP-Stack:</label>
+        <textarea id="feedback-text-6" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+        <div class="feedback-actions">
+          <button class="btn-save" onclick="saveFeedback(6)">Speichern</button>
+          <button class="btn-cancel" onclick="toggleFeedback(6)">Abbrechen</button>
+          <button class="btn-delete" onclick="deleteFeedback(6)" style="display:none" id="delete-btn-6">Löschen</button>
+          <span class="saved-indicator" id="saved-6">✓ Gespeichert</span>
+        </div>
+      </div>
     </section>
 
     <!-- ============ BLOCK 7 — 3-SCHRITTE-FUNNEL ============ -->
-    <section class="bg-white">
+    <section id="block-7" class="relative bg-white">
+      <span class="block-label">Block 7 — 3-Schritte-Funnel</span>
+      <button class="feedback-btn" onclick="toggleFeedback(7)">✏️ Vorschlag</button>
       <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
         <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl text-center">In drei Schritten zu Ihrem Projekt</h2>
         <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -327,10 +464,23 @@
           <a href="#kontakt" class="inline-block rounded-md bg-gold px-6 py-3.5 text-base font-bold text-ink shadow-sm hover:bg-gold-light transition">Jetzt Anfrage starten — Rückruf in 5–10 Minuten →</a>
         </div>
       </div>
+      <div class="feedback-panel" id="feedback-panel-7">
+        <label>Ihr Vorschlag für Block 7 — 3-Schritte-Funnel:</label>
+        <textarea id="feedback-text-7" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+        <div class="feedback-actions">
+          <button class="btn-save" onclick="saveFeedback(7)">Speichern</button>
+          <button class="btn-cancel" onclick="toggleFeedback(7)">Abbrechen</button>
+          <button class="btn-delete" onclick="deleteFeedback(7)" style="display:none" id="delete-btn-7">Löschen</button>
+          <span class="saved-indicator" id="saved-7">✓ Gespeichert</span>
+        </div>
+      </div>
     </section>
 
     <!-- ============ BLOCK 8 — SOCIAL PROOF ============ -->
-    <section id="referenzen" class="bg-neutralbg">
+    <section id="block-8" class="relative bg-neutralbg">
+      <span class="block-label">Block 8 — Social Proof</span>
+      <button class="feedback-btn" onclick="toggleFeedback(8)">✏️ Vorschlag</button>
+      <span id="referenzen"></span>
       <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
         <div class="mx-auto max-w-3xl text-center">
           <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Was unsere Kundinnen und Kunden sagen</h2>
@@ -343,10 +493,23 @@
         </div>
         <p class="mt-8 mx-auto max-w-3xl text-center text-base leading-7 text-ink/70">Wir zeigen alle Bewertungen — auch kritische. Echtes Feedback ist uns lieber als ein makelloses Bild.</p>
       </div>
+      <div class="feedback-panel" id="feedback-panel-8">
+        <label>Ihr Vorschlag für Block 8 — Social Proof:</label>
+        <textarea id="feedback-text-8" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+        <div class="feedback-actions">
+          <button class="btn-save" onclick="saveFeedback(8)">Speichern</button>
+          <button class="btn-cancel" onclick="toggleFeedback(8)">Abbrechen</button>
+          <button class="btn-delete" onclick="deleteFeedback(8)" style="display:none" id="delete-btn-8">Löschen</button>
+          <span class="saved-indicator" id="saved-8">✓ Gespeichert</span>
+        </div>
+      </div>
     </section>
 
     <!-- ============ BLOCK 9 — KUNDEN-KABINETT ============ -->
-    <section id="kabinett" class="bg-tanne text-white">
+    <section id="block-9" class="relative bg-tanne text-white">
+      <span class="block-label">Block 9 — Kunden-Kabinett</span>
+      <button class="feedback-btn" onclick="toggleFeedback(9)">✏️ Vorschlag</button>
+      <span id="kabinett"></span>
       <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
         <div class="mx-auto max-w-3xl">
           <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl text-balance">Ihr Projekt immer im Blick — Kunden-Kabinett (geplant)</h2>
@@ -379,10 +542,22 @@
           </li>
         </ul>
       </div>
+      <div class="feedback-panel" id="feedback-panel-9">
+        <label>Ihr Vorschlag für Block 9 — Kunden-Kabinett:</label>
+        <textarea id="feedback-text-9" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+        <div class="feedback-actions">
+          <button class="btn-save" onclick="saveFeedback(9)">Speichern</button>
+          <button class="btn-cancel" onclick="toggleFeedback(9)">Abbrechen</button>
+          <button class="btn-delete" onclick="deleteFeedback(9)" style="display:none" id="delete-btn-9">Löschen</button>
+          <span class="saved-indicator" id="saved-9">✓ Gespeichert</span>
+        </div>
+      </div>
     </section>
 
     <!-- ============ BLOCK 10 — FAQ ============ -->
-    <section class="bg-white">
+    <section id="block-10" class="relative bg-white">
+      <span class="block-label">Block 10 — FAQ</span>
+      <button class="feedback-btn" onclick="toggleFeedback(10)">✏️ Vorschlag</button>
       <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
         <div class="mx-auto max-w-4xl">
           <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Häufige Fragen</h2>
@@ -470,10 +645,23 @@
           </dl>
         </div>
       </div>
+      <div class="feedback-panel" id="feedback-panel-10">
+        <label>Ihr Vorschlag für Block 10 — FAQ:</label>
+        <textarea id="feedback-text-10" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+        <div class="feedback-actions">
+          <button class="btn-save" onclick="saveFeedback(10)">Speichern</button>
+          <button class="btn-cancel" onclick="toggleFeedback(10)">Abbrechen</button>
+          <button class="btn-delete" onclick="deleteFeedback(10)" style="display:none" id="delete-btn-10">Löschen</button>
+          <span class="saved-indicator" id="saved-10">✓ Gespeichert</span>
+        </div>
+      </div>
     </section>
 
     <!-- ============ BLOCK 11 — CLOSING / FINAL CTA ============ -->
-    <section id="kontakt" class="relative bg-ink text-white overflow-hidden">
+    <section id="block-11" class="relative bg-ink text-white overflow-hidden">
+      <span class="block-label">Block 11 — Closing/CTA</span>
+      <button class="feedback-btn" onclick="toggleFeedback(11)">✏️ Vorschlag</button>
+      <span id="kontakt"></span>
       <div class="absolute inset-0 honeycomb opacity-40" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32 text-center">
         <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl text-balance">Ein Ansprechpartner für Ihr ganzes Projekt</h2>
@@ -483,6 +671,16 @@
         </div>
         <p class="mt-8 text-base text-white/80">E-Mail: <a href="mailto:anfrage@bienegold.de" class="text-gold-light hover:underline">anfrage@bienegold.de</a> · Telefon: <a href="tel:03052014158" class="text-gold-light hover:underline">030 52014158</a></p>
         <p class="mt-12 text-2xl sm:text-3xl font-extrabold tracking-wide text-gold-light">EIN ANSPRECHPARTNER. EIN SYSTEM. EIN ERGEBNIS.</p>
+      </div>
+      <div class="feedback-panel" id="feedback-panel-11">
+        <label>Ihr Vorschlag für Block 11 — Closing/CTA:</label>
+        <textarea id="feedback-text-11" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+        <div class="feedback-actions">
+          <button class="btn-save" onclick="saveFeedback(11)">Speichern</button>
+          <button class="btn-cancel" onclick="toggleFeedback(11)">Abbrechen</button>
+          <button class="btn-delete" onclick="deleteFeedback(11)" style="display:none" id="delete-btn-11">Löschen</button>
+          <span class="saved-indicator" id="saved-11">✓ Gespeichert</span>
+        </div>
       </div>
     </section>
 
@@ -559,6 +757,38 @@
     document.getElementById('burger').addEventListener('click', function () {
       document.getElementById('mobile-menu').classList.toggle('hidden');
     });
+  </script>
+
+  <div class="export-overlay" id="exportOverlay">
+    <div class="export-box">
+      <div class="count" id="exportCount">0</div>
+      <h2>Kommentare bereit</h2>
+      <p>Alle Ihre Änderungsvorschläge in einer Datei. Laden Sie sie herunter und senden Sie sie an Ihr Projektteam.</p>
+      <button class="btn-export" onclick="exportFeedback()">📥 Als Datei herunterladen</button>
+      <button class="btn-export btn-copy" onclick="copyFeedback()">📋 In Zwischenablage kopieren</button>
+      <button class="btn-close-overlay" onclick="closeExportOverlay()">Schließen</button>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var PROJECT='bienegold',PAGE='startseite',PAGE_TITLE='Startseite',STORAGE_KEY='2p-feedback-'+PROJECT;
+    function getAll(){return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}
+    function getPage(){var a=getAll();return a[PAGE]||{};}
+    function savePage(p){var a=getAll();if(Object.keys(p).length===1&&p._title){delete a[PAGE];}else{a[PAGE]=p;}localStorage.setItem(STORAGE_KEY,JSON.stringify(a));}
+    function total(){var a=getAll(),c=0;for(var pg in a){for(var k in a[pg]){if(k!=='_title')c++;}}return c;}
+    function load(){var p=getPage();for(var id in p){if(id==='_title')continue;var e=p[id],t=(typeof e==='object')?e.text:e;var ta=document.getElementById('feedback-text-'+id);var b=document.querySelector('#block-'+id+' .feedback-btn');var db=document.getElementById('delete-btn-'+id);if(ta)ta.value=t;if(b){b.classList.add('has-comment');b.textContent='✏️ Kommentar bearbeiten';}if(db)db.style.display='inline-block';}upd();}
+    window.toggleFeedback=function(id){var pn=document.getElementById('feedback-panel-'+id);pn.classList.toggle('open');if(pn.classList.contains('open'))document.getElementById('feedback-text-'+id).focus();};
+    window.saveFeedback=function(id){var t=document.getElementById('feedback-text-'+id).value.trim();if(!t)return;var bl=document.getElementById('block-'+id);var le=bl?bl.querySelector('.block-label'):null;var label=le?le.textContent:('Block '+id);var p=getPage();p._title=PAGE_TITLE;p[id]={text:t,label:label};savePage(p);var b=document.querySelector('#block-'+id+' .feedback-btn');b.classList.add('has-comment');b.textContent='✏️ Kommentar bearbeiten';document.getElementById('delete-btn-'+id).style.display='inline-block';var ind=document.getElementById('saved-'+id);ind.style.display='flex';setTimeout(function(){ind.style.display='none';},2000);upd();setTimeout(function(){window.toggleFeedback(id);},1200);};
+    window.deleteFeedback=function(id){var p=getPage();delete p[id];savePage(p);document.getElementById('feedback-text-'+id).value='';var b=document.querySelector('#block-'+id+' .feedback-btn');b.classList.remove('has-comment');b.textContent='✏️ Vorschlag';document.getElementById('delete-btn-'+id).style.display='none';upd();window.toggleFeedback(id);};
+    function upd(){var c=total();var el=document.getElementById('feedbackCounter');if(!el)return;if(c>0){el.classList.add('has-feedback');el.innerHTML='📥 Feedback: '+c+' Kommentar'+(c>1?'e':'');}else{el.classList.remove('has-feedback');el.innerHTML='Feedback: 0 Kommentare';}}
+    window.openExportOverlay=function(){var c=total();if(c===0)return;document.getElementById('exportCount').textContent=c;document.getElementById('exportOverlay').classList.add('open');};
+    window.closeExportOverlay=function(){document.getElementById('exportOverlay').classList.remove('open');};
+    function build(){var a=getAll(),tc=total();var x='FEEDBACK — '+PROJECT.toUpperCase()+'\n'+'Datum: '+new Date().toLocaleDateString('de-DE')+'\n'+tc+' Kommentar(e) insgesamt\n==================================================\n\n';for(var pg in a){var pd=a[pg],pt=pd._title||pg;x+='━━━ '+pt+' ━━━\n\n';for(var id in pd){if(id==='_title')continue;var e=pd[id];var ct=(typeof e==='object')?e.text:e;var lb=(typeof e==='object'&&e.label)?e.label:('Block '+id);x+='📌 '+lb+'\n----------------------------------------\n'+ct+'\n\n';}}x+='==================================================\nErstellt am '+new Date().toLocaleString('de-DE')+'\n';return x;}
+    window.exportFeedback=function(){var t=build();var b=new Blob([t],{type:'text/plain;charset=utf-8'});var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='feedback_'+PROJECT+'_'+new Date().toISOString().slice(0,10)+'.txt';a.click();URL.revokeObjectURL(u);window.closeExportOverlay();};
+    window.copyFeedback=function(){var t=build();navigator.clipboard.writeText(t).then(function(){var b=document.querySelector('.btn-copy');var o=b.textContent;b.textContent='✅ Kopiert!';setTimeout(function(){b.textContent=o;},2000);});};
+    load();
+  })();
   </script>
 
   <!-- LocalBusiness / GeneralContractor Schema — areaServed trägt das Geo-Coverage (ersetzt den sichtbaren Footer-Block) -->
