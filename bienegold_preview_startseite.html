@@ -157,11 +157,8 @@
         </div>
 
         <!-- Right buttons -->
+        <!-- DECISION (AW 06.06, Preview-Review #4): Nav-Button "Kunden-Kabinett (geplant)" entfernt — kein prominentes Bewerben eines noch nicht live Features. Kabinett nur noch als USP #5 (geplant). RE-ADD wenn live. -->
         <div class="hidden lg:flex lg:items-center lg:gap-x-3">
-          <a href="#kabinett" class="inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-semibold text-tanne ring-1 ring-tanne/30 hover:bg-tanne/5">
-            Kunden-Kabinett
-            <span class="rounded bg-tanne/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-tanne">geplant</span>
-          </a>
           <a href="#kontakt" class="rounded-md bg-gold px-4 py-2 text-sm font-bold text-ink shadow-sm hover:bg-gold-light transition">Anfrage starten</a>
         </div>
 
@@ -193,10 +190,6 @@
       <a href="#referenzen" class="block py-2 text-sm font-semibold text-ink">Referenzen</a>
       <a href="#ueber-uns" class="block py-2 text-sm font-semibold text-ink">Über uns</a>
       <a href="#kontakt" class="block py-2 text-sm font-semibold text-ink">Kontakt</a>
-      <a href="#kabinett" class="flex items-center gap-1.5 py-2 text-sm font-semibold text-tanne">
-        Kunden-Kabinett
-        <span class="rounded bg-tanne/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-tanne">geplant</span>
-      </a>
       <a href="#kontakt" class="mt-2 block rounded-md bg-gold px-4 py-2.5 text-center text-sm font-bold text-ink">Anfrage starten</a>
     </div>
   </header>
@@ -515,42 +508,8 @@
       </div>
     </section>
 
-    <!-- ============ BLOCK 9 — KUNDEN-KABINETT ============ -->
-    <section id="block-9" class="relative bg-tanne text-white">
-      <span class="block-label">Block 9 — Kunden-Kabinett</span>
-      <button class="feedback-btn" onclick="toggleFeedback(9)">✏️ Vorschlag</button>
-      <span id="kabinett"></span>
-      <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
-        <div class="mx-auto max-w-3xl">
-          <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl text-balance">Ihr Projekt immer im Blick — Kunden-Kabinett (geplant)</h2>
-          <p class="mt-6 text-lg leading-8 text-white/85">Unser Kunden-Kabinett ist in Vorbereitung — dort werden Sie künftig Ihren Projektstand verfolgen können. Vorgesehen sind:</p>
-        </div>
-        <ul class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <li class="rounded-xl bg-white/5 ring-1 ring-white/10 p-6">
-            <span class="block text-base font-bold text-gold-light">Projektstand &amp; Phasen</span>
-            <span class="mt-1 block text-sm text-white/75">wo Ihr Projekt gerade steht</span>
-          </li>
-          <li class="rounded-xl bg-white/5 ring-1 ring-white/10 p-6">
-            <span class="block text-base font-bold text-gold-light">Dokumente &amp; Termine</span>
-            <span class="mt-1 block text-sm text-white/75">Angebote, Planung und alle Fristen an einem Ort</span>
-          </li>
-          <li class="rounded-xl bg-white/5 ring-1 ring-white/10 p-6">
-            <span class="block text-base font-bold text-gold-light">Foto- und Videoberichte</span>
-            <span class="mt-1 block text-sm text-white/75">Fortschritt direkt mitverfolgen</span>
-          </li>
-        </ul>
-      </div>
-      <div class="feedback-panel" id="feedback-panel-9">
-        <label>Ihr Vorschlag für Block 9 — Kunden-Kabinett:</label>
-        <textarea id="feedback-text-9" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
-        <div class="feedback-actions">
-          <button class="btn-save" onclick="saveFeedback(9)">Speichern</button>
-          <button class="btn-cancel" onclick="toggleFeedback(9)">Abbrechen</button>
-          <button class="btn-delete" onclick="deleteFeedback(9)" style="display:none" id="delete-btn-9">Löschen</button>
-          <span class="saved-indicator" id="saved-9">✓ Gespeichert</span>
-        </div>
-      </div>
-    </section>
+    <!-- ============ BLOCK 9 — KUNDEN-KABINETT — ⏸️ GEPARKT (AW 06.06) ============ -->
+    <!-- Ganze Sektion entfernt: vollwertige Sektion fuer ein noch NICHT live Feature ueberzeichnet eine nicht existierende Funktion + Doppel zu USP #5. RE-ADD sobald Kabinett live ist (Quelle: git-Historie vor 06.06). Kabinett-Hinweis lebt bis dahin nur als USP #5 (geplant) in Block 6. -->
 
     <!-- ============ BLOCK 10 — FAQ ============ -->
     <section id="block-10" class="relative bg-white">
