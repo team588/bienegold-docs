@@ -16,18 +16,17 @@
   .legend span{display:inline-flex;align-items:center;gap:5px}
   .dot{width:13px;height:13px;border-radius:3px;display:inline-block}
   .g{background:var(--green)}.r{background:var(--red)}.a{background:var(--amber)}.e{background:var(--grey)}
-  /* macro flow */
   .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
-  .ph{flex:1;min-width:150px;border-radius:12px;padding:14px;background:#fff;border:1px solid #e3e1da;position:relative}
+  .ph{flex:1;min-width:150px;border-radius:12px;padding:14px;background:#fff;border:1px solid #e3e1da}
   .ph .n{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:#888}
   .ph .t{font-weight:700;margin:3px 0 6px}
   .ph .st{font-size:.8rem;font-weight:700}
-  .ph.done{border-left:5px solid var(--green)}
-  .ph.gap{border-left:5px solid var(--red);background:#fff6f6}
-  .ph.todo{border-left:5px solid var(--grey)}
+  .ph.s-g{border-left:5px solid var(--green)} .ph.s-g .st{color:var(--green)}
+  .ph.s-r{border-left:5px solid var(--red);background:#fff6f6} .ph.s-r .st{color:var(--red)}
+  .ph.s-a{border-left:5px solid var(--amber)} .ph.s-a .st{color:var(--amber)}
+  .ph.s-e{border-left:5px solid var(--grey)} .ph.s-e .st{color:var(--grey)}
   .arrow{align-self:center;color:var(--gold-d);font-weight:800;font-size:1.3rem}
-  /* cycle */
-  .cycle{counter-reset:s;margin:0;padding:0;list-style:none}
+  .cycle{margin:0;padding:0;list-style:none}
   .cycle li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #e9e7e0}
   .cycle li:last-child{border-bottom:0}
   .cycle .num{flex:0 0 30px;height:30px;border-radius:8px;background:var(--tanne);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.85rem}
@@ -38,23 +37,21 @@
   .tag{display:inline-block;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
   .tag.new{background:var(--gold);color:var(--ink)}
   .tag.skip{background:#fde2e2;color:var(--red)}
-  /* matrix */
   table{border-collapse:collapse;width:100%;font-size:.82rem;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
   th,td{padding:7px 6px;text-align:center;border:1px solid #ececec}
   th{background:var(--tanne);color:#fff;font-weight:600;font-size:.74rem}
   td.page{text-align:left;font-weight:700;white-space:nowrap;background:#faf9f5}
   .cell{font-weight:800}
-  .cg{color:var(--green)}.cr{color:var(--red)}.ca{color:var(--amber)}.ce{color:var(--grey)}
+  .cell.g{color:var(--green)}.cell.r{color:var(--red)}.cell.a{color:var(--amber)}.cell.e{color:var(--grey)}
   .note{background:#fff;border-left:5px solid var(--amber);border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem}
   .note.red{border-left-color:var(--red);background:#fff6f6}
-  .note b{color:var(--ink)}
   .foot{margin-top:30px;font-size:.78rem;color:#777}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>BieneGold — Pipeline-Map</h1>
-  <p class="sub">2p-orchestrator · 5-Phasen-Pipeline + Phase-3-Per-Page-Cycle · Stand 06.06.2026 · <b>Rote Felder = wo es hinkt</b></p>
+  <p class="sub">2p-orchestrator · 5-Phasen + Phase-3-Per-Page-Cycle · Stand <b id="updated"></b> · <b>Rote Felder = wo es hinkt</b></p>
 
   <div class="legend">
     <span><i class="dot g"></i> erledigt</span>
@@ -64,76 +61,93 @@
   </div>
 
   <h2>1 · Makro-Pipeline (5 Phasen)</h2>
-  <div class="flow">
-    <div class="ph done"><div class="n">Phase 0</div><div class="t">Intake · Site-Audit</div><div class="st" style="color:var(--green)">✅ fertig</div></div>
-    <div class="arrow">→</div>
-    <div class="ph done"><div class="n">Phase 1</div><div class="t">Entities</div><div class="st" style="color:var(--green)">✅ 43 Entitäten</div></div>
-    <div class="arrow">→</div>
-    <div class="ph done"><div class="n">Phase 2</div><div class="t">Strategist<br><small>FACT_PACK · Blueprint · Internal Spec</small></div><div class="st" style="color:var(--green)">✅ READY</div></div>
-    <div class="arrow">→</div>
-    <div class="ph gap"><div class="n">Phase 3</div><div class="t">Content-Cycle</div><div class="st" style="color:var(--red)">🔴 HIER hinkt es</div></div>
-    <div class="arrow">→</div>
-    <div class="ph todo"><div class="n">Phase 4</div><div class="t">Build (2p-builder STATIC)</div><div class="st" style="color:var(--grey)">⬜ offen</div></div>
-  </div>
+  <div class="flow" id="flow"></div>
 
   <h2>2 · Phase-3 Per-Page-Cycle (Soll-Ablauf je Seite)</h2>
-  <p class="sub" style="margin-top:-6px">Orchestrator-Reihenfolge + die 2 Gates, die wir diese Session entdeckt haben (gold = NEU, gehört in 2p-page-architecture / Bitrix #4058).</p>
-  <ol class="cycle">
-    <li><span class="num new">0</span><div class="body"><span class="skill">Grounding Pre-Flight</span><span class="tag new">NEU</span><div class="meta">page-strategie + FACT_PACK + Internal-Spec(Seite) + entities + früherer kritik-report lesen — BEVOR irgendetwas gebaut wird.</div></div></li>
-    <li><span class="num new">1</span><div class="body"><span class="skill">2p-page-architecture (Drehbuch)</span><span class="tag new">NEU</span><div class="meta">Block-Logik + Sitemap-Link + Komposition-Gates → AW-Signoff.</div></div></li>
-    <li><span class="num">2</span><div class="body"><span class="skill">2p-copywriting</span><div class="meta">Texte je Block (für BieneGold: vorhandenes content/0X an Drehbuch + Grounding ausrichten).</div></div></li>
-    <li><span class="num">3</span><div class="body"><span class="skill">2p-copy-editing</span><span class="tag skip">bisher übersprungen</span><div class="meta">Eight Sweeps + Terminologie + DVL.</div></div></li>
-    <li><span class="num">4</span><div class="body"><span class="skill">2p-kritik (GROUNDED)</span><div class="meta">Devil's Advocate gegen Strategie (nicht nur Artefakt + Decisions).</div></div></li>
-    <li><span class="num">5</span><div class="body"><span class="skill">2p-verify</span><span class="tag skip">bisher übersprungen</span><div class="meta">Vollständigkeit · Trace-ability · Contract-Compliance.</div></div></li>
-    <li><span class="num">6</span><div class="body"><span class="skill">2p-preview (Build)</span><div class="meta">HTML mit Feedback-UI + Schema @graph + Seiten-Logik-Panel.</div></div></li>
-    <li><span class="num">7</span><div class="body"><span class="skill">S5 / S6 Walkthrough</span><div class="meta">Narrative-Walkthrough + Visual-Review gegen Drehbuch.</div></div></li>
-    <li><span class="num">8</span><div class="body"><span class="skill">Deploy + PCM-Checkpoint</span><div class="meta">Loops: kritik ❌→copy · ⚠️→copy-editing · verify FAIL→copy.</div></div></li>
-  </ol>
+  <p class="sub" style="margin-top:-6px">Orchestrator-Reihenfolge + 2 Gates aus Session 06.06 (gold = NEU → gehört in 2p-page-architecture / Bitrix #4058).</p>
+  <ol class="cycle" id="cycle"></ol>
 
   <h2>3 · Status-Matrix (Seite × Schritt) — WO ES HINKT</h2>
-  <table>
-    <thead><tr>
-      <th style="text-align:left">Seite</th>
-      <th>0 Ground</th><th>1 Drehb.</th><th>2 Copy</th><th>3 C-Edit</th><th>4 Kritik(grd)</th><th>5 Verify</th><th>6 Preview</th><th>7 S5/S6</th><th>8 Deploy</th>
-    </tr></thead>
-    <tbody>
-      <tr><td class="page">01 Startseite</td>
-        <td class="cell cr">✗</td><td class="cell cg">✓</td><td class="cell cg">✓</td><td class="cell cr">✗</td><td class="cell cr">✗</td><td class="cell cr">✗</td><td class="cell cg">✓</td><td class="cell ca">~</td><td class="cell cg">✓</td></tr>
-      <tr><td class="page">03 Spanndecken</td>
-        <td class="cell cg">✓</td><td class="cell cg">✓</td><td class="cell cg">✓</td><td class="cell cr">✗</td><td class="cell cg">✓</td><td class="cell cr">✗</td><td class="cell ca">~veraltet</td><td class="cell ca">~</td><td class="cell ca">~</td></tr>
-      <tr><td class="page">02 Wandverkleidung</td>
-        <td class="cell ce">·</td><td class="cell ce">·</td><td class="cell cg">✓</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td></tr>
-      <tr><td class="page">04 Akustik</td>
-        <td class="cell ce">·</td><td class="cell ce">·</td><td class="cell cg">✓</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td></tr>
-      <tr><td class="page">05 Lichtkonzepte</td>
-        <td class="cell ce">·</td><td class="cell ce">·</td><td class="cell cg">✓</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td></tr>
-      <tr><td class="page">06 Innenausbau</td>
-        <td class="cell ce">·</td><td class="cell ce">·</td><td class="cell cg">✓</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td></tr>
-      <tr><td class="page">07 Badsanierung</td>
-        <td class="cell ce">·</td><td class="cell ce">·</td><td class="cell cg">✓</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td></tr>
-      <tr><td class="page">08 SmartHome</td>
-        <td class="cell ce">·</td><td class="cell ce">·</td><td class="cell cg">✓</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td></tr>
-      <tr><td class="page">09 Infrarot</td>
-        <td class="cell ce">·</td><td class="cell ce">·</td><td class="cell cg">✓</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td><td class="cell ce">·</td></tr>
-    </tbody>
-  </table>
-  <p class="sub" style="margin-top:8px">✓ erledigt · ✗ <b style="color:var(--red)">Lücke (übersprungen)</b> · ~ teilweise/veraltet · · offen</p>
+  <table><thead><tr id="matHead"></tr></thead><tbody id="matBody"></tbody></table>
+  <p class="sub" style="margin-top:8px">✓ erledigt · ✗ <b style="color:var(--red)">Lücke</b> · ~ teilweise/veraltet · · offen</p>
 
   <h2>4 · Wo es konkret hinkt</h2>
-  <div class="note red"><b>Lücke A — Spalten „C-Edit" & „Verify" sind komplett leer/rot.</b><br>Die Orchestrator-Pflichtgates <b>2p-copy-editing</b> (Eight Sweeps) und <b>2p-verify</b> (Vollständigkeit/Trace/Contract) wurden für KEINE Seite gefahren. Wir sind von copywriting direkt zu preview/build gesprungen.</div>
-  <div class="note red"><b>Lücke B — Spalte „Ground" / „Kritik" rot bei Startseite.</b><br>Startseite wurde OHNE strategische Erdung gebaut und nie grounded-kritisiert. Spanndecken erst nach AW-Einwand grounded (6/10). → Grounding-Gate fehlte.</div>
-  <div class="note"><b>Lücke C — Reihenfolge.</b><br>kritik lief reaktiv NACH dem Build statt VOR preview; Schritte 0+1 (Grounding/Drehbuch) sind im Orchestrator noch gar nicht definiert (Upgrade → Bitrix #4058).</div>
-  <div class="note"><b>Lücke D — Spanndecken-Preview veraltet.</b><br>content/03 auf ~2.834 W erweitert, aber live ist noch die ~1,2k-Version (Rebuild offen).</div>
+  <div id="luecken"></div>
 
-  <h2>5 · Reihenfolge zum Schließen (so gehen wir den Pipeline durch)</h2>
-  <ol class="cycle">
-    <li><span class="num">A</span><div class="body"><span class="skill">Spanndecken fertig durch die Gates:</span><div class="meta">copy-editing → verify → preview-REBUILD → S5/S6 → deploy. (Grounding + grounded-kritik schon ✅.)</div></div></li>
-    <li><span class="num">B</span><div class="body"><span class="skill">Startseite nachziehen:</span><div class="meta">Grounding (0) + grounded-kritik (4) + copy-editing (3) + verify (5) — wurde ohne diese gebaut.</div></div></li>
-    <li><span class="num">C</span><div class="body"><span class="skill">8 LP je voller Cycle 0→8</span><div class="meta">Wandverkleidung · Akustik · Lichtkonzepte · Innenausbau · Badsanierung · SmartHome · Infrarot.</div></div></li>
-    <li><span class="num">D</span><div class="body"><span class="skill">Phase 3 Close → Consistency-Check → Project Hub → Phase 4 Build</span></div></li>
-  </ol>
+  <h2>5 · Reihenfolge zum Schließen</h2>
+  <ol class="cycle" id="reihenfolge"></ol>
 
-  <p class="foot">Quelle: 2p-orchestrator (5-Phasen) + Session-Findings 06.06 (Grounding/Drehbuch-Gates, Bitrix #4058). Dieses Dokument = Reviewbasis, kein Klient-Artefakt.</p>
+  <p class="foot">Quelle: 2p-orchestrator (5-Phasen) + Session-Findings 06.06. <b>Living-Doc:</b> nur den <code>PIPELINE</code>-Datenblock im Quelltext bearbeiten (1 Buchstabe pro Statuswechsel: g/r/a/e), neu deployen — kein Re-Build.</p>
 </div>
+
+<script>
+/* ===== EINZIGE QUELLE DER WAHRHEIT — zum Updaten NUR HIER Werte ändern (g=fertig, r=Lücke, a=teilweise, e=offen) ===== */
+const PIPELINE = {
+  updated: "06.06.2026",
+  steps: ["0 Ground","1 Drehb.","2 Copy","3 C-Edit","4 Kritik(grd)","5 Verify","6 Preview","7 S5/S6","8 Deploy"],
+  phases: [
+    {n:"Phase 0", t:"Intake · Site-Audit", s:"g", st:"✅ fertig"},
+    {n:"Phase 1", t:"Entities", s:"g", st:"✅ 43 Entitäten"},
+    {n:"Phase 2", t:"Strategist<br><small>FACT_PACK · Blueprint · Internal Spec</small>", s:"g", st:"✅ READY"},
+    {n:"Phase 3", t:"Content-Cycle", s:"r", st:"🔴 HIER hinkt es"},
+    {n:"Phase 4", t:"Build (2p-builder STATIC)", s:"e", st:"⬜ offen"}
+  ],
+  cycle: [
+    {num:"0", isNew:true, skill:"Grounding Pre-Flight", tag:"NEU", meta:"page-strategie + FACT_PACK + Internal-Spec(Seite) + entities + früherer kritik-report lesen — BEVOR gebaut wird."},
+    {num:"1", isNew:true, skill:"2p-page-architecture (Drehbuch)", tag:"NEU", meta:"Block-Logik + Sitemap-Link + Komposition-Gates → AW-Signoff."},
+    {num:"2", skill:"2p-copywriting", meta:"Texte je Block (BieneGold: vorhandenes content/0X an Drehbuch+Grounding ausrichten)."},
+    {num:"3", skill:"2p-copy-editing", tagSkip:true, meta:"Eight Sweeps + Terminologie + DVL."},
+    {num:"4", skill:"2p-kritik (GROUNDED)", meta:"Devil's Advocate gegen Strategie (nicht nur Artefakt + Decisions)."},
+    {num:"5", skill:"2p-verify", tagSkip:true, meta:"Vollständigkeit · Trace-ability · Contract-Compliance."},
+    {num:"6", skill:"2p-preview (Build)", meta:"HTML mit Feedback-UI + Schema @graph + Seiten-Logik-Panel."},
+    {num:"7", skill:"S5 / S6 Walkthrough", meta:"Narrative-Walkthrough + Visual-Review gegen Drehbuch."},
+    {num:"8", skill:"Deploy + PCM-Checkpoint", meta:"Loops: kritik ❌→copy · ⚠️→copy-editing · verify FAIL→copy."}
+  ],
+  /* cells: pro Seite 9 Werte (Reihenfolge = steps). Wert = "g/r/a/e" ODER ["a","Label"]. */
+  pages: [
+    {name:"01 Startseite",      cells:["r","g","g","r","r","r","g","a","g"]},
+    {name:"03 Spanndecken",     cells:["g","g","g","r","g","r",["a","veraltet"],"a","a"]},
+    {name:"02 Wandverkleidung", cells:["e","e","g","e","e","e","e","e","e"]},
+    {name:"04 Akustik",         cells:["e","e","g","e","e","e","e","e","e"]},
+    {name:"05 Lichtkonzepte",   cells:["e","e","g","e","e","e","e","e","e"]},
+    {name:"06 Innenausbau",     cells:["e","e","g","e","e","e","e","e","e"]},
+    {name:"07 Badsanierung",    cells:["e","e","g","e","e","e","e","e","e"]},
+    {name:"08 SmartHome",       cells:["e","e","g","e","e","e","e","e","e"]},
+    {name:"09 Infrarot",        cells:["e","e","g","e","e","e","e","e","e"]}
+  ],
+  luecken: [
+    {sev:"red", html:"<b>Lücke A — Spalten „C-Edit\" & „Verify\" komplett leer/rot.</b><br>Pflichtgates <b>2p-copy-editing</b> + <b>2p-verify</b> für KEINE Seite gefahren. Sprung copywriting → preview/build."},
+    {sev:"red", html:"<b>Lücke B — „Ground\"/„Kritik\" rot bei Startseite.</b><br>Startseite ohne strategische Erdung gebaut, nie grounded-kritisiert. Spanndecken erst nach AW-Einwand grounded (6/10)."},
+    {sev:"amber", html:"<b>Lücke C — Reihenfolge.</b><br>kritik reaktiv NACH Build statt VOR preview; Schritte 0+1 (Grounding/Drehbuch) im Orchestrator noch nicht definiert (Upgrade → Bitrix #4058)."},
+    {sev:"amber", html:"<b>Lücke D — Spanndecken-Preview veraltet.</b><br>content/03 auf ~2.834 W erweitert, live noch ~1,2k-Version (Rebuild offen)."}
+  ],
+  reihenfolge: [
+    {num:"A", skill:"Spanndecken fertig durch die Gates", meta:"copy-editing → verify → preview-REBUILD → S5/S6 → deploy. (Grounding + grounded-kritik ✅.)"},
+    {num:"B", skill:"Startseite nachziehen", meta:"Grounding (0) + grounded-kritik (4) + copy-editing (3) + verify (5)."},
+    {num:"C", skill:"8 LP je voller Cycle 0→8", meta:"Wandverkleidung · Akustik · Lichtkonzepte · Innenausbau · Badsanierung · SmartHome · Infrarot."},
+    {num:"D", skill:"Phase 3 Close → Consistency-Check → Project Hub → Phase 4 Build", meta:""}
+  ]
+};
+
+/* ===== RENDER (nicht ändern beim Updaten) ===== */
+const sym={g:"✓",r:"✗",a:"~",e:"·"};
+document.getElementById("updated").textContent=PIPELINE.updated;
+// macro flow
+let fl="";PIPELINE.phases.forEach((p,i)=>{if(i)fl+='<div class="arrow">→</div>';fl+=`<div class="ph s-${p.s}"><div class="n">${p.n}</div><div class="t">${p.t}</div><div class="st">${p.st}</div></div>`;});
+document.getElementById("flow").innerHTML=fl;
+// cycle
+document.getElementById("cycle").innerHTML=PIPELINE.cycle.map(c=>`<li><span class="num ${c.isNew?'new':''}">${c.num}</span><div class="body"><span class="skill">${c.skill}</span>${c.tag?`<span class="tag new">${c.tag}</span>`:''}${c.tagSkip?'<span class="tag skip">bisher übersprungen</span>':''}<div class="meta">${c.meta}</div></div></li>`).join("");
+// matrix head
+document.getElementById("matHead").innerHTML='<th style="text-align:left">Seite</th>'+PIPELINE.steps.map(s=>`<th>${s}</th>`).join("");
+// matrix body
+document.getElementById("matBody").innerHTML=PIPELINE.pages.map(pg=>{
+  const tds=pg.cells.map(c=>{let code=Array.isArray(c)?c[0]:c;let lbl=Array.isArray(c)?c[1]:sym[code];return `<td class="cell ${code}">${Array.isArray(c)?sym[code]+'<small> '+lbl+'</small>':lbl}</td>`;}).join("");
+  return `<tr><td class="page">${pg.name}</td>${tds}</tr>`;
+}).join("");
+// luecken
+document.getElementById("luecken").innerHTML=PIPELINE.luecken.map(l=>`<div class="note ${l.sev==='red'?'red':''}">${l.html}</div>`).join("");
+// reihenfolge
+document.getElementById("reihenfolge").innerHTML=PIPELINE.reihenfolge.map(r=>`<li><span class="num">${r.num}</span><div class="body"><span class="skill">${r.skill}</span>${r.meta?`<div class="meta">${r.meta}</div>`:''}</div></li>`).join("");
+</script>
 </body>
 </html>
