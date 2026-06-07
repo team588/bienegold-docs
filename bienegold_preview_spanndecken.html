@@ -691,26 +691,59 @@
   })();
   </script>
 
-  <!-- LocalBusiness / GeneralContractor Schema -->
+  <!-- Schema.org @graph: GeneralContractor + Service + FAQPage (schema-markup-Skill, Q8-Fix). Spiegelt sichtbaren Content (Texte ⚠️ AI bis Denis). -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "GeneralContractor",
-    "name": "BieneGold GmbH",
-    "url": "https://bienegold.de/spanndecken/",
-    "telephone": "+49 30 52014158",
-    "email": "anfrage@bienegold.de",
-    "foundingDate": "2012",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Lutherplatz 5",
-      "postalCode": "13585",
-      "addressLocality": "Berlin",
-      "addressCountry": "DE"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Berlin" },
-      { "@type": "AdministrativeArea", "name": "Brandenburg" }
+    "@graph": [
+      {
+        "@type": "GeneralContractor",
+        "@id": "https://bienegold.de/#organization",
+        "name": "BieneGold GmbH",
+        "url": "https://bienegold.de/",
+        "telephone": "+49 30 52014158",
+        "email": "anfrage@bienegold.de",
+        "foundingDate": "2012",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Lutherplatz 5",
+          "postalCode": "13585",
+          "addressLocality": "Berlin",
+          "addressCountry": "DE"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Berlin" },
+          { "@type": "AdministrativeArea", "name": "Brandenburg" }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Spanndecken Berlin",
+        "serviceType": "Vinyl-Spanndecken Montage",
+        "url": "https://bienegold.de/spanndecken/",
+        "provider": { "@id": "https://bienegold.de/#organization" },
+        "areaServed": [
+          { "@type": "City", "name": "Berlin" },
+          { "@type": "AdministrativeArea", "name": "Brandenburg" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Muss meine alte Decke vorher entfernt werden?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. Die Spanndecke wird in einem Profilrahmen unterhalb Ihrer bestehenden Decke gespannt. Die alte Decke bleibt erhalten und wird verdeckt — das spart Abriss, Putzarbeiten und Schmutz." } },
+          { "@type": "Question", "name": "Ist die Montage staubig und aufwendig?", "acceptedAnswer": { "@type": "Answer", "text": "Der Aufwand ist gering. Weil nichts abgerissen oder verputzt wird, entsteht vergleichsweise wenig Staub. Möbel können meist im Raum bleiben — was geräumt werden muss, klären wir beim Aufmaß." } },
+          { "@type": "Question", "name": "Wie lange dauert die Montage?", "acceptedAnswer": { "@type": "Answer", "text": "Eine Spanndecken-Montage geht vergleichsweise schnell. Die genaue Dauer hängt von Raumgröße und Ausstattung ab und steht in Ihrem Kostenvoranschlag." } },
+          { "@type": "Question", "name": "Aus welchem Material sind Ihre Spanndecken?", "acceptedAnswer": { "@type": "Answer", "text": "Aus Vinyl. Vinyl-Spanndecken sind glatt, abwischbar und feuchtigkeitsbeständig — und damit auch für Bad und Küche geeignet. Wir arbeiten markenoffen und wählen das System passend zu Ihrem Raum." } },
+          { "@type": "Question", "name": "Wer führt die Arbeiten bei Ihnen aus?", "acceptedAnswer": { "@type": "Answer", "text": "Wir koordinieren Planung und Ausführung aus einer Hand — mit eigenen Mitarbeitenden sowie geprüften Partnern und Subunternehmern je nach Bereich. Was eine besondere Qualifikation verlangt, wird durch qualifizierte Partner ausgeführt oder von uns kontrolliert. So haben Sie einen festen Ansprechpartner, der alles zusammenhält." } },
+          { "@type": "Question", "name": "Sind die Materialien wohngesund und brandsicher?", "acceptedAnswer": { "@type": "Answer", "text": "Raumluftverträglichkeit und Brandverhalten sind bei der Materialauswahl für uns wichtig. Die konkreten Nachweise zeigen wir Ihnen gerne im Beratungsgespräch." } },
+          { "@type": "Question", "name": "Kann ich Licht in die Spanndecke integrieren?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. LED-Spots, Lichtkanäle und indirekte Beleuchtung lassen sich direkt einplanen. Mehr dazu auf unserer Seite Lichtkonzepte." } },
+          { "@type": "Question", "name": "Eignet sich eine Spanndecke fürs Bad?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Vinyl ist feuchtigkeitsbeständig und abwischbar und eignet sich daher gut für Feuchträume wie Bad und Küche." } },
+          { "@type": "Question", "name": "Was kostet eine Spanndecke?", "acceptedAnswer": { "@type": "Answer", "text": "Der Preis hängt von Raumgröße, Material und Ausstattung ab. Beim Aufmaß erhalten Sie einen Kostenvoranschlag mit ±30 % Genauigkeit. Eine ausführliche Übersicht finden Sie in unserem Ratgeber." } },
+          { "@type": "Question", "name": "Werde ich am Ende mehr bezahlen?", "acceptedAnswer": { "@type": "Answer", "text": "Diesen Satz hören wir oft. Deshalb arbeiten wir mit einem Kostenvoranschlag (±30 % Genauigkeit) und einem festen Ansprechpartner. Sie wissen vor der Montage, woran Sie sind — keine bösen Überraschungen am Ende." } },
+          { "@type": "Question", "name": "Warum kostet eine günstige Decke am Ende oft mehr?", "acceptedAnswer": { "@type": "Answer", "text": "Ein niedriger Quadratmeterpreis sagt wenig aus, wenn Material, Licht und Akustik getrennt geplant werden und am Ende nicht zusammenpassen. Wir planen alles aus einer Hand — das spart Nacharbeit und Folgekosten." } },
+          { "@type": "Question", "name": "Arbeiten Sie in ganz Berlin und Brandenburg?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Wir sind ein lokaler Anbieter aus Berlin und arbeiten in ganz Berlin und im Umland Brandenburg." } }
+        ]
+      }
     ]
   }
   </script>
