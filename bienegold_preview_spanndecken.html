@@ -253,6 +253,8 @@
       <div class="mx-auto max-w-4xl px-6 lg:px-8 py-24 sm:py-32">
         <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Was ist eine Spanndecke?</h2>
         <p class="mt-6 text-lg leading-8 text-ink/70">Eine Spanndecke ist eine vorkonfektionierte Vinyl-Bahn, die millimetergenau auf Maß zugeschnitten und in einem Profilrahmen unterhalb der bestehenden Decke gespannt wird. Die alte Decke bleibt verdeckt — ohne Abriss, ohne aufwendiges Verputzen. Das Ergebnis ist eine glatte, gleichmäßige Oberfläche, in die sich Licht und Akustik direkt integrieren lassen.</p>
+        <h3 class="mt-10 text-lg font-bold text-ink">Wie funktioniert eine Spanndecke?</h3>
+        <p class="mt-3 text-base leading-7 text-ink/70">Zuerst messen wir Ihren Raum millimetergenau aus. Nach Ihren Maßen wird die Vinyl-Bahn passgenau angefertigt. Bei der Montage befestigen wir einen schmalen Profilrahmen an den Wänden direkt unter der bestehenden Decke, in den die Bahn anschließend eingespannt wird — straff, faltenfrei und exakt waagerecht. Steckdosen für Spots, Lichtkanäle oder eine Akustikschicht werden dabei von Anfang an berücksichtigt. So entsteht in kurzer Zeit eine fertige, makellose Decke, ganz ohne Bauschutt.</p>
         <p class="mt-6 font-bold text-ink">Kurz gesagt:</p>
         <ul class="mt-3 space-y-2 text-base text-ink/80">
           <li class="flex gap-2"><span class="text-gold-dark">•</span> Material: <strong>Vinyl</strong> (keine Textil-Bahn).</li>
@@ -287,6 +289,40 @@
         <button class="btn-cancel" onclick="toggleFeedback(3)">Abbrechen</button>
         <button class="btn-delete" onclick="deleteFeedback(3)" style="display:none" id="delete-btn-3">Löschen</button>
         <span class="saved-indicator" id="saved-3">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <!-- ============ BLOCK 3B — MATERIAL & PFLEGE ============ -->
+    <section id="block-13" class="relative bg-neutralbg">
+      <span class="block-label">Block 3B — Material &amp; Pflege</span>
+      <button class="feedback-btn" onclick="toggleFeedback(13)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-4xl px-6 lg:px-8 py-24 sm:py-32">
+        <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Vinyl-Spanndecke: das Material und seine Pflege</h2>
+        <p class="mt-6 text-lg leading-8 text-ink/70">Eine Vinyl-Spanndecke ist eine hochwertige Kunststoffbahn, die in einem umlaufenden Profilrahmen straff gespannt wird. Das Ergebnis ist eine durchgehend glatte, <strong>fugenlose</strong> Fläche — keine Übergänge, keine Risse, keine sichtbaren Nähte im Raum. Genau das macht den ruhigen, hochwertigen Eindruck aus: ein Raum ohne Bruchstellen an der Decke.</p>
+        <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
+            <h3 class="text-lg font-bold text-ink">Pflegeleicht im Alltag</h3>
+            <p class="mt-3 text-sm leading-6 text-ink/70">Die glatte Oberfläche nimmt kaum Staub an und lässt sich einfach reinigen. Für die normale Pflege genügt ein weiches, leicht feuchtes Tuch. Scharfe Scheuermittel oder spitze Gegenstände sind nicht nötig — und sollten vermieden werden, damit die Oberfläche makellos bleibt.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
+            <h3 class="text-lg font-bold text-ink">Feuchtigkeitsbeständig</h3>
+            <p class="mt-3 text-sm leading-6 text-ink/70">Weil das Material Feuchtigkeit nicht aufnimmt, eignet sich die Spanndecke für Räume, in denen es feucht wird: Bad, Küche, Hauswirtschaftsraum. Wo eine herkömmliche Putzdecke mit der Zeit vergilbt oder Flecken bekommt, bleibt die Vinyl-Decke pflegeleicht.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
+            <h3 class="text-lg font-bold text-ink">Langlebig — mit Garantie</h3>
+            <p class="mt-3 text-sm leading-6 text-ink/70">Bei normaler Nutzung behält die Vinyl-Spanndecke ihre glatte Optik über viele Jahre. Auf das Material geben wir 15 Jahre, auf die Montage 7 Jahre Garantie — schriftlich, als Zertifikat bei der Übergabe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-13">
+      <label>Ihr Vorschlag für Block 3B — Material &amp; Pflege:</label>
+      <textarea id="feedback-text-13" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(13)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(13)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(13)" style="display:none" id="delete-btn-13">Löschen</button>
+        <span class="saved-indicator" id="saved-13">✓ Gespeichert</span>
       </div>
     </div>
 
@@ -367,34 +403,20 @@
       <button class="feedback-btn" onclick="toggleFeedback(6)">✏️ Vorschlag</button>
       <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
         <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Wo Ihre Spanndecke zur Geltung kommt</h2>
-        <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <p class="mt-6 text-lg leading-8 text-ink/70">Eine Spanndecke passt in nahezu jeden Raum — vom Altbau-Wohnzimmer bis zum Praxisempfang. Ein kurzer Überblick:</p>
+        <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
           <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
             <h3 class="text-lg font-bold text-ink">Wohnräume</h3>
             <p class="mt-3 text-sm leading-6 text-ink/70">Glatte, ruhige Decke ohne Risse und Flecken — ideal für Altbau-Wohnungen, in denen die Decke der letzte unrenovierte Punkt ist.</p>
           </div>
           <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
-            <h3 class="text-lg font-bold text-ink">Spanndecke im Bad</h3>
-            <p class="mt-3 text-sm leading-6 text-ink/70">Vinyl ist feuchtigkeitsbeständig und abwischbar — deshalb eignet sich die Spanndecke gut für Bad und Küche. Wer ohnehin saniert, kombiniert sie direkt mit der Badsanierung und spart einen separaten Termin.</p>
+            <h3 class="text-lg font-bold text-ink">Bad &amp; Küche</h3>
+            <p class="mt-3 text-sm leading-6 text-ink/70">Vinyl ist feuchtigkeitsbeständig und abwischbar — ideal für Feuchträume. Wer ohnehin saniert, kombiniert die Decke direkt mit der Badsanierung und spart einen separaten Termin.</p>
             <a href="/badsanierung/" class="mt-3 inline-block text-sm font-semibold text-gold-dark hover:text-gold">→ Mehr dazu: Badsanierung</a>
-          </div>
-          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
-            <h3 class="text-lg font-bold text-ink">Licht-Integration</h3>
-            <p class="mt-3 text-sm leading-6 text-ink/70">LED-Spots, Lichtkanäle und indirekte Beleuchtung lassen sich direkt in die Decke einplanen.</p>
-            <a href="/lichtkonzepte/" class="mt-3 inline-block text-sm font-semibold text-gold-dark hover:text-gold">→ Mehr dazu: Lichtkonzepte</a>
-          </div>
-          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
-            <h3 class="text-lg font-bold text-ink">Akustik in der Decke</h3>
-            <p class="mt-3 text-sm leading-6 text-ink/70">Auf Wunsch integrieren wir eine schallabsorbierende Schicht, die den Nachhall im Raum spürbar reduziert — für angenehmere Raumakustik.</p>
-            <a href="/akustik/" class="mt-3 inline-block text-sm font-semibold text-gold-dark hover:text-gold">→ Mehr dazu: Akustik</a>
           </div>
           <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
             <h3 class="text-lg font-bold text-ink">Büro, Praxis &amp; Gewerbe</h3>
             <p class="mt-3 text-sm leading-6 text-ink/70">Auch im gewerblichen Raum sorgt die Spanndecke für eine saubere, hochwertige Optik — zügig montiert, mit wenig Betriebsunterbrechung.</p>
-          </div>
-          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
-            <h3 class="text-lg font-bold text-ink">Infrarot-Heizung integriert</h3>
-            <p class="mt-3 text-sm leading-6 text-ink/70">Auf Wunsch lässt sich eine Infrarot-Heizfolie unter der Spanndecke integrieren — Wärme aus der Decke, unsichtbar.</p>
-            <a href="/infrarot/" class="mt-3 inline-block text-sm font-semibold text-gold-dark hover:text-gold">→ Mehr dazu: Infrarot</a>
           </div>
         </div>
       </div>
@@ -410,6 +432,158 @@
       </div>
     </div>
 
+    <!-- ============ BLOCK 6C — LICHT, AKUSTIK & WÄRME IN DER DECKE ============ -->
+    <section id="block-14" class="relative bg-white">
+      <span class="block-label">Block 6C — Licht, Akustik &amp; Wärme</span>
+      <button class="feedback-btn" onclick="toggleFeedback(14)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+        <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Mehr als nur eine glatte Fläche</h2>
+        <p class="mt-6 text-lg leading-8 text-ink/70">Eine Spanndecke ist die ideale Ebene, um Licht, Akustik und sogar Wärme von Anfang an mitzuplanen — unsichtbar integriert statt nachträglich aufgesetzt.</p>
+        <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div class="rounded-2xl bg-neutralbg p-8 ring-1 ring-gold/10">
+            <h3 class="text-lg font-bold text-ink">Lichtdecke &amp; indirekte Beleuchtung</h3>
+            <p class="mt-3 text-sm leading-6 text-ink/70">In die Spanndecke lassen sich LED-Spots, Lichtkanäle und indirekte Beleuchtung direkt einplanen. So entsteht eine ruhige Lichtstimmung ohne sichtbare Kabel oder Aufbauleuchten — vom dezenten Arbeitslicht bis zur warmen Abendbeleuchtung. Welche Lichtszenen zu Ihrem Raum passen, planen wir gemeinsam.</p>
+            <a href="/lichtkonzepte/" class="mt-3 inline-block text-sm font-semibold text-gold-dark hover:text-gold">→ Mehr dazu: Lichtkonzepte</a>
+          </div>
+          <div class="rounded-2xl bg-neutralbg p-8 ring-1 ring-gold/10">
+            <h3 class="text-lg font-bold text-ink">Akustikdecke gegen Nachhall</h3>
+            <p class="mt-3 text-sm leading-6 text-ink/70">Auf Wunsch integrieren wir eine schallabsorbierende Schicht hinter der Spanndecke. Sie reduziert den Nachhall im Raum spürbar — besonders sinnvoll in offenen Wohnräumen, im Homeoffice oder in Praxis- und Büroräumen, in denen man sich gut verstehen möchte.</p>
+            <a href="/akustik/" class="mt-3 inline-block text-sm font-semibold text-gold-dark hover:text-gold">→ Mehr dazu: Akustik</a>
+          </div>
+          <div class="rounded-2xl bg-neutralbg p-8 ring-1 ring-gold/10">
+            <h3 class="text-lg font-bold text-ink">Wärme aus der Decke</h3>
+            <p class="mt-3 text-sm leading-6 text-ink/70">Auf Wunsch lässt sich eine Infrarot-Heizfolie unter der Spanndecke integrieren — angenehme Strahlungswärme von oben, völlig unsichtbar. Eine elegante Lösung für Räume ohne Platz für klassische Heizkörper.</p>
+            <a href="/infrarot/" class="mt-3 inline-block text-sm font-semibold text-gold-dark hover:text-gold">→ Mehr dazu: Infrarot</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-14">
+      <label>Ihr Vorschlag für Block 6C — Licht, Akustik &amp; Wärme:</label>
+      <textarea id="feedback-text-14" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(14)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(14)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(14)" style="display:none" id="delete-btn-14">Löschen</button>
+        <span class="saved-indicator" id="saved-14">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <!-- ============ BLOCK 6D — SPANNDECKE IM BAD ============ -->
+    <section id="block-15" class="relative bg-neutralbg">
+      <span class="block-label">Block 6D — Spanndecke im Bad</span>
+      <button class="feedback-btn" onclick="toggleFeedback(15)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-5xl px-6 lg:px-8 py-24 sm:py-32">
+        <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Die richtige Decke fürs Badezimmer</h2>
+        <p class="mt-6 text-lg leading-8 text-ink/70">Im Bad ist die Decke besonderen Bedingungen ausgesetzt: Feuchtigkeit, Wasserdampf, Temperaturwechsel. Genau dafür ist die Vinyl-Spanndecke gemacht.</p>
+        <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Feuchtigkeitsbeständig</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Vinyl nimmt keine Feuchtigkeit auf — die Decke vergilbt nicht und bekommt keine Stockflecken, wie es bei gestrichenen Putzdecken im Bad oft passiert.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Hygienisch und pflegeleicht</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Die glatte Oberfläche lässt sich einfach abwischen — keine raue Struktur, in der sich Staub oder Feuchtigkeit festsetzt.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Licht direkt integriert</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Gerade im Bad sorgt eingeplante Beleuchtung für Atmosphäre — von der hellen Ausleuchtung am Spiegel bis zum stimmungsvollen Licht an der Badewanne.</p>
+          </div>
+        </div>
+        <p class="mt-8 text-base leading-7 text-ink/70">Wer ohnehin sein Bad modernisiert, kombiniert die Spanndecke direkt mit der Sanierung — ein Termin, ein Ansprechpartner, ein abgestimmtes Ergebnis.</p>
+        <a href="/badsanierung/" class="mt-3 inline-block text-base font-semibold text-gold-dark hover:text-gold">→ Mehr dazu: Badsanierung</a>
+      </div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-15">
+      <label>Ihr Vorschlag für Block 6D — Spanndecke im Bad:</label>
+      <textarea id="feedback-text-15" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(15)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(15)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(15)" style="display:none" id="delete-btn-15">Löschen</button>
+        <span class="saved-indicator" id="saved-15">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <!-- ============ BLOCK 6E — BÜRO, PRAXIS & GEWERBE ============ -->
+    <section id="block-16" class="relative bg-white">
+      <span class="block-label">Block 6E — Büro, Praxis &amp; Gewerbe</span>
+      <button class="feedback-btn" onclick="toggleFeedback(16)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+        <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Hochwertige Decken für Geschäftsräume</h2>
+        <p class="mt-6 text-lg leading-8 text-ink/70">Nicht nur im Wohnraum macht eine Spanndecke einen Unterschied. In Büros, Praxen, Kanzleien, Ladenlokalen und in der Gastronomie zählt der erste Eindruck — und eine ruhige, akustisch angenehme Atmosphäre.</p>
+        <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div class="rounded-2xl bg-neutralbg p-6 ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Schneller, planbarer Ablauf</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Weil die Montage zügig und sauber abläuft, hält sich die Betriebsunterbrechung in Grenzen — oft lässt sich die Decke in Randzeiten erneuern.</p>
+          </div>
+          <div class="rounded-2xl bg-neutralbg p-6 ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Akustik für konzentriertes Arbeiten</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">In Großraumbüros oder Wartebereichen reduziert eine integrierte schallabsorbierende Schicht den Nachhall — angenehmer für Mitarbeitende und Kundschaft.</p>
+          </div>
+          <div class="rounded-2xl bg-neutralbg p-6 ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Hygienisch und repräsentativ</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Die glatte, abwischbare Oberfläche wirkt hochwertig und ist in Praxen und Gastronomie leicht sauber zu halten.</p>
+          </div>
+          <div class="rounded-2xl bg-neutralbg p-6 ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Licht als Gestaltungselement</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Mit integrierter Beleuchtung setzen Sie Empfangsbereiche, Produkte oder Behandlungsräume gezielt in Szene.</p>
+          </div>
+        </div>
+        <p class="mt-8 text-base leading-7 text-ink/70">Für gewerbliche Projekte erstellen wir Ihnen ein passendes Konzept — sprechen Sie uns an.</p>
+      </div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-16">
+      <label>Ihr Vorschlag für Block 6E — Büro, Praxis &amp; Gewerbe:</label>
+      <textarea id="feedback-text-16" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(16)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(16)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(16)" style="display:none" id="delete-btn-16">Löschen</button>
+        <span class="saved-indicator" id="saved-16">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <!-- ============ BLOCK 6B — NACHTEILE & GRENZEN (ehrlich) ============ -->
+    <section id="block-17" class="relative bg-ink text-white">
+      <span class="block-label">Block 6B — Nachteile &amp; Grenzen</span>
+      <button class="feedback-btn" onclick="toggleFeedback(17)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-5xl px-6 lg:px-8 py-24 sm:py-32">
+        <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Was eine Spanndecke kann — und was nicht</h2>
+        <p class="mt-6 text-lg leading-8 text-white/80">Wir sagen Ihnen offen, wo die Grenzen einer Spanndecke liegen. Das gehört für uns zu einer ehrlichen Beratung — und hilft Ihnen, die richtige Entscheidung zu treffen.</p>
+        <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div class="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+            <h3 class="text-base font-bold text-gold-light">Etwas Raumhöhe geht verloren</h3>
+            <p class="mt-2 text-sm leading-6 text-white/80">Weil die Decke in einem Profilrahmen unter der bestehenden Decke gespannt wird, sinkt die Raumhöhe um einige Zentimeter. In den allermeisten Räumen fällt das nicht ins Gewicht — bei sehr niedrigen Decken besprechen wir das vorab beim Aufmaß.</p>
+          </div>
+          <div class="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+            <h3 class="text-base font-bold text-gold-light">Nichts für Heimwerker</h3>
+            <p class="mt-2 text-sm leading-6 text-white/80">Das millimetergenaue Zuschneiden und das Spannen der Bahn brauchen Spezialwerkzeug und Erfahrung. Die fachgerechte Montage ist Voraussetzung dafür, dass die Decke dauerhaft glatt und faltenfrei bleibt — und dass die Garantie greift.</p>
+          </div>
+          <div class="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+            <h3 class="text-base font-bold text-gold-light">Vorsicht bei spitzen Gegenständen</h3>
+            <p class="mt-2 text-sm leading-6 text-white/80">Die Bahn ist robust im Alltag, aber kein unzerstörbares Material. Ein gezielter Stich mit einem spitzen Gegenstand kann sie beschädigen. Im normalen Wohnalltag ist das kein Thema.</p>
+          </div>
+          <div class="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+            <h3 class="text-base font-bold text-gold-light">Bei sehr großen Flächen</h3>
+            <p class="mt-2 text-sm leading-6 text-white/80">Für besonders große Räume klären wir beim Aufmaß, wie die Fläche optimal ausgeführt wird.</p>
+            <span class="dvl-placeholder mt-2 inline-block rounded px-2 py-0.5 text-xs font-medium">[KLIENT: maximale fugenlose Spannweite / Naht-Lösung bei Großflächen bestätigen]</span>
+          </div>
+        </div>
+        <p class="mt-8 text-base leading-7 text-white/80">Für die meisten Räume überwiegen die Vorteile deutlich — vor allem die schnelle, saubere Montage und die glatte, pflegeleichte Oberfläche.</p>
+      </div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-17">
+      <label>Ihr Vorschlag für Block 6B — Nachteile &amp; Grenzen:</label>
+      <textarea id="feedback-text-17" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(17)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(17)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(17)" style="display:none" id="delete-btn-17">Löschen</button>
+        <span class="saved-indicator" id="saved-17">✓ Gespeichert</span>
+      </div>
+    </div>
+
     <!-- ============ BLOCK 7 — ABLAUF (3 Schritte) ============ -->
     <section id="block-7" class="relative bg-white">
       <span class="block-label">Block 7 — Ablauf (3 Schritte)</span>
@@ -420,18 +594,18 @@
         <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
           <div>
             <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gold text-ink font-extrabold">1</div>
-            <h3 class="mt-4 text-lg font-bold text-ink">Anfrage &amp; Kostenvoranschlag</h3>
-            <p class="mt-2 text-base leading-7 text-ink/70">Sie senden uns Ihre Anfrage über das Formular oder rufen an. Wir melden uns innerhalb von 5–10 Minuten zurück und besprechen Ihr Vorhaben.</p>
+            <h3 class="mt-4 text-lg font-bold text-ink">Anfrage &amp; Rückruf</h3>
+            <p class="mt-2 text-base leading-7 text-ink/70">Sie senden uns Ihre Anfrage über das Formular oder rufen an — mit ein paar Worten zu Ihrem Raum und Ihren Wünschen. Wir melden uns innerhalb von 5–10 Minuten zurück, besprechen Ihr Vorhaben und vereinbaren bei Interesse einen Termin zum Aufmaß.</p>
           </div>
           <div>
             <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gold text-ink font-extrabold">2</div>
-            <h3 class="mt-4 text-lg font-bold text-ink">Projekt-Planung</h3>
-            <p class="mt-2 text-base leading-7 text-ink/70">Wir messen vor Ort millimetergenau auf und wählen gemeinsam mit Ihnen das passende Vinyl-System aus. Sie erhalten einen Kostenvoranschlag mit ±30 % Genauigkeit — ehrliche Planungssicherheit statt unrealistischer Festzusagen.</p>
+            <h3 class="mt-4 text-lg font-bold text-ink">Aufmaß &amp; Planungs-Konzept</h3>
+            <p class="mt-2 text-base leading-7 text-ink/70">Beim Aufmaß messen wir vor Ort millimetergenau und schauen uns die Gegebenheiten an: Raumhöhe, Wände, vorhandene Leitungen, Ihre Wünsche zu Licht und Akustik. Gemeinsam wählen wir das passende Vinyl-System und die Oberfläche aus. Anschließend erhalten Sie einen Kostenvoranschlag mit ±30 % Genauigkeit — ehrliche Planungssicherheit statt unrealistischer Festzusagen. Erst wenn alles passt, geht es weiter.</p>
           </div>
           <div>
             <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gold text-ink font-extrabold">3</div>
             <h3 class="mt-4 text-lg font-bold text-ink">Montage &amp; Übergabe</h3>
-            <p class="mt-2 text-base leading-7 text-ink/70">Wir montieren Ihre Spanndecke sauber und übergeben sie inklusive Garantie-Zertifikat. Die genaue Montagedauer steht in Ihrem Kostenvoranschlag.</p>
+            <p class="mt-2 text-base leading-7 text-ink/70">Am Montagetag arbeiten wir sauber und zügig: Profilrahmen setzen, Bahn einspannen, Licht und Technik anschließen. Möbel können in den meisten Fällen im Raum bleiben. Zum Abschluss übergeben wir Ihnen die fertige Decke inklusive schriftlichem Garantie-Zertifikat. Die genaue Montagedauer steht in Ihrem Kostenvoranschlag.</p>
           </div>
         </div>
       </div>
@@ -473,6 +647,79 @@
       </div>
     </div>
 
+    <!-- ============ BLOCK 8B — WORAUF SIE ACHTEN SOLLTEN ============ -->
+    <section id="block-18" class="relative bg-white">
+      <span class="block-label">Block 8B — Worauf achten</span>
+      <button class="feedback-btn" onclick="toggleFeedback(18)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-5xl px-6 lg:px-8 py-24 sm:py-32">
+        <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Worauf Sie bei einer Spanndecke achten sollten</h2>
+        <p class="mt-6 text-lg leading-8 text-ink/70">Spanndecke ist nicht gleich Spanndecke. Ein paar Punkte helfen Ihnen, Qualität zu erkennen — ganz unabhängig vom Anbieter:</p>
+        <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div class="rounded-2xl bg-neutralbg p-6 ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Material und Verarbeitung</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Achten Sie auf eine sauber gespannte, faltenfreie Fläche und passgenaue Übergänge an Wänden, Lampen und Einbauten. Das zeigt sich erst in der Ausführung — nicht im Prospekt.</p>
+          </div>
+          <div class="rounded-2xl bg-neutralbg p-6 ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Garantie schriftlich</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Ein niedriger Quadratmeterpreis sagt wenig, wenn keine belastbare Garantie dahintersteht. Lassen Sie sich Material- und Montagegarantie schriftlich geben. Wir geben 15 Jahre auf das Material und 7 Jahre auf die Montage — als Zertifikat bei der Übergabe.</p>
+          </div>
+          <div class="rounded-2xl bg-neutralbg p-6 ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Ein Ansprechpartner statt vieler Gewerke</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Wenn Licht, Akustik und Oberfläche getrennt geplant werden, passt am Ende oft nicht alles zusammen — und Nacharbeit kostet. Wer alles aus einer Hand plant, spart Schnittstellen und Folgekosten.</p>
+          </div>
+          <div class="rounded-2xl bg-neutralbg p-6 ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Markenoffene Beratung</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Ein guter Anbieter empfiehlt das System, das zu Ihrem Raum passt — nicht das, an das er gebunden ist. Wir arbeiten markenoffen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-18">
+      <label>Ihr Vorschlag für Block 8B — Worauf achten:</label>
+      <textarea id="feedback-text-18" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(18)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(18)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(18)" style="display:none" id="delete-btn-18">Löschen</button>
+        <span class="saved-indicator" id="saved-18">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <!-- ============ BLOCK 8C — SPANNDECKE IM VERGLEICH ============ -->
+    <section id="block-19" class="relative bg-neutralbg">
+      <span class="block-label">Block 8C — Spanndecke im Vergleich</span>
+      <button class="feedback-btn" onclick="toggleFeedback(19)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-5xl px-6 lg:px-8 py-24 sm:py-32">
+        <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Spanndecke oder andere Deckenlösung?</h2>
+        <p class="mt-6 text-lg leading-8 text-ink/70">Wenn die alte Decke erneuert werden soll, gibt es mehrere Wege. Ein kurzer Vergleich hilft bei der Entscheidung:</p>
+        <div class="mt-10 space-y-5">
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Gegenüber Streichen &amp; Verputzen</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Eine Putzdecke auszubessern und neu zu streichen ist günstig, aber aufwendig: Risse müssen gespachtelt, Unebenheiten ausgeglichen, der Raum ausgeräumt werden — und nach einigen Jahren zeigen sich oft wieder Risse. Die Spanndecke verdeckt den alten Zustand dauerhaft mit einer glatten Fläche, in einem Arbeitsgang.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Gegenüber einer abgehängten Trockenbau-Decke</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Eine Gipskarton-Decke ist solide, aber baulich aufwendiger: Unterkonstruktion, Spachteln, Schleifen, Streichen — mehr Staub, mehr Tage, Trocknungszeiten. Die Spanndecke ist schneller montiert und sofort fertig.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gold/10">
+            <h3 class="text-base font-bold text-ink">Gegenüber Deckenpaneelen</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70">Paneele zeigen sichtbare Fugen und wirken schnell weniger hochwertig. Die Spanndecke bleibt fugenlos und gleichmäßig.</p>
+          </div>
+        </div>
+        <p class="mt-8 text-base leading-7 text-ink/70">Welche Lösung für Ihren Raum am sinnvollsten ist, sagen wir Ihnen ehrlich beim Aufmaß — auch dann, wenn es einmal nicht die Spanndecke ist.</p>
+      </div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-19">
+      <label>Ihr Vorschlag für Block 8C — Spanndecke im Vergleich:</label>
+      <textarea id="feedback-text-19" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(19)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(19)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(19)" style="display:none" id="delete-btn-19">Löschen</button>
+        <span class="saved-indicator" id="saved-19">✓ Gespeichert</span>
+      </div>
+    </div>
+
     <!-- ============ BLOCK 9 — FAQ ============ -->
     <section id="block-9" class="relative bg-white">
       <span class="block-label">Block 9 — FAQ</span>
@@ -492,6 +739,19 @@
           <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">„Ich werde am Ende mehr bezahlen." — stimmt das bei Ihnen?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Diesen Satz hören wir oft. Deshalb arbeiten wir mit einem Kostenvoranschlag (±30 % Genauigkeit) und einem festen Ansprechpartner. Sie wissen vor der Montage, woran Sie sind — keine bösen Überraschungen am Ende.</p></details>
           <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Warum kostet eine günstige Decke am Ende oft mehr?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Ein niedriger Quadratmeterpreis sagt wenig aus, wenn Material, Licht und Akustik getrennt geplant werden und am Ende nicht zusammenpassen. Wir planen alles aus einer Hand — das spart Nacharbeit und Folgekosten.</p></details>
           <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Arbeiten Sie in ganz Berlin und Brandenburg?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Ja. Wir sind ein lokaler Anbieter aus Berlin und arbeiten in ganz Berlin und im Umland Brandenburg.</p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Was sind die Nachteile einer Spanndecke?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Ehrlich gesagt gibt es drei Punkte: Die Raumhöhe sinkt um einige Zentimeter, die Montage gehört in Fachhände (kein Heimwerker-Projekt), und gegen spitze Gegenstände ist die Bahn nicht völlig unempfindlich. Für die meisten Wohn- und Geschäftsräume überwiegen die Vorteile aber deutlich.</p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Wie reinige ich eine Spanndecke?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Im Alltag genügt ein weiches, leicht feuchtes Tuch. Die glatte Oberfläche ist abwischbar und nimmt kaum Staub an. Scharfe Scheuermittel sind nicht nötig.</p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Wie lange hält eine Spanndecke?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Bei normaler Nutzung behält sie ihre glatte Optik über viele Jahre. Wir geben 15 Jahre Garantie auf das Material und 7 Jahre auf die Montage — schriftlich.</p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Verliere ich durch eine Spanndecke Raumhöhe?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Ja, einige Zentimeter — die Decke wird in einem Profilrahmen unter der bestehenden Decke gespannt. In den meisten Räumen fällt das nicht auf; bei sehr niedrigen Decken besprechen wir das beim Aufmaß.</p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Kann eine Spanndecke auch über eine unebene alte Decke?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Ja. Weil die Spanndecke in einem Profilrahmen darunter gespannt wird, gleicht sie Unebenheiten der alten Decke aus — diese muss vorher nicht aufwendig verputzt werden.</p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Bildet sich hinter der Spanndecke Schimmel oder Kondenswasser?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">In normalen Wohnräumen ist das bei fachgerechter Montage kein Thema — Vinyl nimmt keine Feuchtigkeit auf. Bei Sonderfällen (z. B. ungedämmte Außendecken) klären wir die Situation beim Aufmaß.</p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Riecht eine Spanndecke nach der Montage?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Direkt nach der Montage kann ein leichter Eigengeruch wahrnehmbar sein, der nach kurzer Zeit verfliegt. <span class="dvl-placeholder inline-block rounded px-2 py-0.5 text-xs font-medium">[KLIENT: Geruch/Ausgasung — Aussage bestätigen]</span></p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Kann ich später noch Lampen oder Technik einbauen lassen?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Am besten planen wir Beleuchtung und Einbauten von Anfang an mit. Nachträgliche Ergänzungen sind je nach Situation möglich — sprechen Sie uns einfach an.</p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Vergilbt eine Spanndecke mit der Zeit?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Anders als gestrichene Putzdecken behält die Vinyl-Oberfläche bei normaler Nutzung ihre Optik über viele Jahre. Darauf geben wir 15 Jahre Material-Garantie.</p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Eignet sich eine Spanndecke auch für die Mietwohnung?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Grundsätzlich ja, sofern Ihr Vermieter zustimmt. Die Montage erfolgt ohne Eingriff in die bestehende Bausubstanz — die alte Decke bleibt erhalten. Klären Sie die Zustimmung am besten vorab mit dem Eigentümer.</p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Welche Oberflächen und Farben gibt es?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Vinyl-Spanndecken sind in verschiedenen Oberflächen erhältlich. <span class="dvl-placeholder inline-block rounded px-2 py-0.5 text-xs font-medium">[KLIENT: verfügbare Oberflächen/Farben bestätigen — matt, satiniert, weitere?]</span> Welche Variante zu Ihrem Raum passt, besprechen wir beim Aufmaß.</p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Funktioniert eine Spanndecke auch bei Dachschrägen?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">In vielen Fällen ja — Schrägen und besondere Grundrisse klären wir individuell beim Aufmaß.</p></details>
+          <details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Was passiert mit meiner vorhandenen Deckenlampe?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Ihre Beleuchtung planen wir mit: Vorhandene Anschlüsse berücksichtigen wir, neue Spots oder Lichtkanäle lassen sich direkt integrieren.</p></details>
         </div>
       </div>
     </section>
@@ -640,16 +900,16 @@
             <tr class="border-b border-gray-100"><td class="py-1.5 px-3">3</td><td class="py-1.5 px-3 font-semibold">Definition</td><td class="py-1.5 px-3">Was ist eine Spanndecke?</td><td class="py-1.5 px-3">Konzept</td><td class="py-1.5 px-3">Vinyl-Bahn unter der Decke, integrierbar</td></tr>
             <tr class="border-b border-gray-100"><td class="py-1.5 px-3">4</td><td class="py-1.5 px-3 font-semibold">Vorteile</td><td class="py-1.5 px-3">Was bringt's meinem Raum?</td><td class="py-1.5 px-3 font-semibold text-tanne">Nutzen (S)</td><td class="py-1.5 px-3">schnell/sauber · Möbel bleiben · Oberfläche+Akustik+Licht aus 1 Planung</td></tr>
             <tr class="border-b border-gray-100"><td class="py-1.5 px-3">5</td><td class="py-1.5 px-3 font-semibold">Garantie</td><td class="py-1.5 px-3">Belegt ihr das?</td><td class="py-1.5 px-3 font-semibold text-tanne">Beweis (R)</td><td class="py-1.5 px-3">15 J. Material · 7 J. Montage · Zertifikat</td></tr>
-            <tr class="border-b border-gray-100"><td class="py-1.5 px-3">6</td><td class="py-1.5 px-3 font-semibold">Räume</td><td class="py-1.5 px-3">Passt das zu meinem Raum?</td><td class="py-1.5 px-3">Katalog + Cross-Sell</td><td class="py-1.5 px-3">Wohnraum/Bad/Licht/Akustik/Büro/Infrarot</td></tr>
+            <tr class="border-b border-gray-100"><td class="py-1.5 px-3">6</td><td class="py-1.5 px-3 font-semibold">Räume</td><td class="py-1.5 px-3">Passt das zu meinem Raum?</td><td class="py-1.5 px-3">Räume-Hub (D-PROJ-014)</td><td class="py-1.5 px-3">Wohnraum · Bad · Büro <span class="text-gray-400">(Funktionen Licht/Akustik/Wärme → 6C · Bad-Detail → 6D · B2B → 6E · Nachteile → 6B)</span></td></tr>
             <tr class="border-b border-gray-100"><td class="py-1.5 px-3">7</td><td class="py-1.5 px-3 font-semibold">Ablauf</td><td class="py-1.5 px-3">Wie starte ich?</td><td class="py-1.5 px-3">Aktion</td><td class="py-1.5 px-3">Anfrage → Aufmaß (KV ±30 %) → Montage</td></tr>
             <tr class="border-b border-gray-100"><td class="py-1.5 px-3">8</td><td class="py-1.5 px-3 font-semibold">Referenzen</td><td class="py-1.5 px-3">Echte Projekte?</td><td class="py-1.5 px-3">Evidenz</td><td class="py-1.5 px-3">Vorher/Nachher <span class="text-amber-600">⚠️ Platzhalter</span></td></tr>
-            <tr class="border-b border-gray-100"><td class="py-1.5 px-3">9</td><td class="py-1.5 px-3 font-semibold">FAQ</td><td class="py-1.5 px-3">Meine Einwände?</td><td class="py-1.5 px-3">Einwand-Abbau</td><td class="py-1.5 px-3">12 Long-Tail (Abriss, Staub, Dauer, Ausführung, Kosten, Geo …)</td></tr>
+            <tr class="border-b border-gray-100"><td class="py-1.5 px-3">9</td><td class="py-1.5 px-3 font-semibold">FAQ</td><td class="py-1.5 px-3">Meine Einwände?</td><td class="py-1.5 px-3">Einwand-Abbau</td><td class="py-1.5 px-3">~25 Long-Tail (Abriss, Staub, Dauer, Ausführung, Kosten, Nachteile, Reinigung, Raumhöhe, Bad, Geo …) · Schema-FAQPage 23 Q&amp;A (2 [KLIENT]-offen ausgespart)</td></tr>
             <tr class="border-b border-gray-100"><td class="py-1.5 px-3">11</td><td class="py-1.5 px-3 font-semibold">Finale CTA</td><td class="py-1.5 px-3">Was jetzt?</td><td class="py-1.5 px-3">Abschluss</td><td class="py-1.5 px-3">Anfrage → Rückruf 5–10 Min · anfrage@ · Tel</td></tr>
             <tr><td class="py-1.5 px-3">12</td><td class="py-1.5 px-3 font-semibold">Closing-Triade</td><td class="py-1.5 px-3">—</td><td class="py-1.5 px-3">Signatur</td><td class="py-1.5 px-3">„EIN ANSPRECHPARTNER. EIN SYSTEM. EIN ERGEBNIS."</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="mt-4 text-xs text-gray-500">⏸️ <strong>Geparkt:</strong> Block 10 Kunden-Kabinett (nicht-live Feature — konsistent mit Startseite, RE-ADD wenn live). · <strong>Verlinkung:</strong> Cross-Sell-Hub Block 6 → /badsanierung/ /lichtkonzepte/ /akustik/ /infrarot/ · FAQ → /lichtkonzepte/ /ratgeber/spanndecken-kosten/ · alle intern (+ tel/mailto). · <strong>Quelle:</strong> <code>docs/page-drehbuch/03_spanndecken.md</code> + <code>00_sitemap.md</code> (D-PROJ-011).</p>
+      <p class="mt-4 text-xs text-gray-500">⏸️ <strong>Geparkt:</strong> Block 10 Kunden-Kabinett (nicht-live Feature, RE-ADD wenn live). · <strong>Expansion (D-PROJ-013, ~2,7k W, Pos-4-Schutz):</strong> 3B Material/Pflege · 6C Licht/Akustik/Wärme · 6D Bad · 6E B2B · 6B Nachteile · 8B Worauf-achten · 8C Vergleich. · <strong>Block 6 = reine Räume-Übersicht</strong> (D-PROJ-014, Funktionen → 6C, Anti-Dopplung). · <strong>Verlinkung:</strong> Cross-Sell-Hub Block 6/6C/6D → /badsanierung/ /lichtkonzepte/ /akustik/ /infrarot/ · FAQ → /lichtkonzepte/ /ratgeber/spanndecken-kosten/ · Block 8 → /referenzen/ · alle intern (+ tel/mailto). · <strong>Quelle:</strong> <code>docs/page-drehbuch/03_spanndecken.md</code> (D-PROJ-011) · grounded-verifiziert 07.06 (0 Halluzination / 0 Drift).</p>
     </div>
   </details>
 
@@ -741,7 +1001,18 @@
           { "@type": "Question", "name": "Was kostet eine Spanndecke?", "acceptedAnswer": { "@type": "Answer", "text": "Der Preis hängt von Raumgröße, Material und Ausstattung ab. Beim Aufmaß erhalten Sie einen Kostenvoranschlag mit ±30 % Genauigkeit. Eine ausführliche Übersicht finden Sie in unserem Ratgeber." } },
           { "@type": "Question", "name": "Werde ich am Ende mehr bezahlen?", "acceptedAnswer": { "@type": "Answer", "text": "Diesen Satz hören wir oft. Deshalb arbeiten wir mit einem Kostenvoranschlag (±30 % Genauigkeit) und einem festen Ansprechpartner. Sie wissen vor der Montage, woran Sie sind — keine bösen Überraschungen am Ende." } },
           { "@type": "Question", "name": "Warum kostet eine günstige Decke am Ende oft mehr?", "acceptedAnswer": { "@type": "Answer", "text": "Ein niedriger Quadratmeterpreis sagt wenig aus, wenn Material, Licht und Akustik getrennt geplant werden und am Ende nicht zusammenpassen. Wir planen alles aus einer Hand — das spart Nacharbeit und Folgekosten." } },
-          { "@type": "Question", "name": "Arbeiten Sie in ganz Berlin und Brandenburg?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Wir sind ein lokaler Anbieter aus Berlin und arbeiten in ganz Berlin und im Umland Brandenburg." } }
+          { "@type": "Question", "name": "Arbeiten Sie in ganz Berlin und Brandenburg?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Wir sind ein lokaler Anbieter aus Berlin und arbeiten in ganz Berlin und im Umland Brandenburg." } },
+          { "@type": "Question", "name": "Was sind die Nachteile einer Spanndecke?", "acceptedAnswer": { "@type": "Answer", "text": "Ehrlich gesagt gibt es drei Punkte: Die Raumhöhe sinkt um einige Zentimeter, die Montage gehört in Fachhände (kein Heimwerker-Projekt), und gegen spitze Gegenstände ist die Bahn nicht völlig unempfindlich. Für die meisten Wohn- und Geschäftsräume überwiegen die Vorteile aber deutlich." } },
+          { "@type": "Question", "name": "Wie reinige ich eine Spanndecke?", "acceptedAnswer": { "@type": "Answer", "text": "Im Alltag genügt ein weiches, leicht feuchtes Tuch. Die glatte Oberfläche ist abwischbar und nimmt kaum Staub an. Scharfe Scheuermittel sind nicht nötig." } },
+          { "@type": "Question", "name": "Wie lange hält eine Spanndecke?", "acceptedAnswer": { "@type": "Answer", "text": "Bei normaler Nutzung behält sie ihre glatte Optik über viele Jahre. Wir geben 15 Jahre Garantie auf das Material und 7 Jahre auf die Montage — schriftlich." } },
+          { "@type": "Question", "name": "Verliere ich durch eine Spanndecke Raumhöhe?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, einige Zentimeter — die Decke wird in einem Profilrahmen unter der bestehenden Decke gespannt. In den meisten Räumen fällt das nicht auf; bei sehr niedrigen Decken besprechen wir das beim Aufmaß." } },
+          { "@type": "Question", "name": "Kann eine Spanndecke auch über eine unebene alte Decke?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Weil die Spanndecke in einem Profilrahmen darunter gespannt wird, gleicht sie Unebenheiten der alten Decke aus — diese muss vorher nicht aufwendig verputzt werden." } },
+          { "@type": "Question", "name": "Bildet sich hinter der Spanndecke Schimmel oder Kondenswasser?", "acceptedAnswer": { "@type": "Answer", "text": "In normalen Wohnräumen ist das bei fachgerechter Montage kein Thema — Vinyl nimmt keine Feuchtigkeit auf. Bei Sonderfällen (z. B. ungedämmte Außendecken) klären wir die Situation beim Aufmaß." } },
+          { "@type": "Question", "name": "Kann ich später noch Lampen oder Technik einbauen lassen?", "acceptedAnswer": { "@type": "Answer", "text": "Am besten planen wir Beleuchtung und Einbauten von Anfang an mit. Nachträgliche Ergänzungen sind je nach Situation möglich — sprechen Sie uns einfach an." } },
+          { "@type": "Question", "name": "Vergilbt eine Spanndecke mit der Zeit?", "acceptedAnswer": { "@type": "Answer", "text": "Anders als gestrichene Putzdecken behält die Vinyl-Oberfläche bei normaler Nutzung ihre Optik über viele Jahre. Darauf geben wir 15 Jahre Material-Garantie." } },
+          { "@type": "Question", "name": "Eignet sich eine Spanndecke auch für die Mietwohnung?", "acceptedAnswer": { "@type": "Answer", "text": "Grundsätzlich ja, sofern Ihr Vermieter zustimmt. Die Montage erfolgt ohne Eingriff in die bestehende Bausubstanz — die alte Decke bleibt erhalten. Klären Sie die Zustimmung am besten vorab mit dem Eigentümer." } },
+          { "@type": "Question", "name": "Funktioniert eine Spanndecke auch bei Dachschrägen?", "acceptedAnswer": { "@type": "Answer", "text": "In vielen Fällen ja — Schrägen und besondere Grundrisse klären wir individuell beim Aufmaß." } },
+          { "@type": "Question", "name": "Was passiert mit meiner vorhandenen Deckenlampe?", "acceptedAnswer": { "@type": "Answer", "text": "Ihre Beleuchtung planen wir mit: Vorhandene Anschlüsse berücksichtigen wir, neue Spots oder Lichtkanäle lassen sich direkt integrieren." } }
         ]
       }
     ]
