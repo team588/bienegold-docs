@@ -83,7 +83,7 @@
 <script>
 /* ===== EINZIGE QUELLE DER WAHRHEIT — zum Updaten NUR HIER Werte ändern (g=fertig, r=Lücke, a=teilweise, e=offen) ===== */
 const PIPELINE = {
-  updated: "06.06.2026",
+  updated: "12.06.2026",
   steps: ["0 Ground","1 Drehb.","2 Copy","3 C-Edit","4 Kritik(grd)","5 Verify","6 Preview","7 S5/S6","8 Deploy"],
   phases: [
     {n:"Phase 0", t:"Intake · Site-Audit", s:"g", st:"✅ fertig"},
@@ -116,15 +116,14 @@ const PIPELINE = {
     {name:"09 Infrarot",        cells:["e","e","g","e","e","e","e","e","e"]}
   ],
   luecken: [
-    {sev:"red", html:"<b>Lücke A — Spalten „C-Edit\" & „Verify\" komplett leer/rot.</b><br>Pflichtgates <b>2p-copy-editing</b> + <b>2p-verify</b> für KEINE Seite gefahren. Sprung copywriting → preview/build."},
-    {sev:"red", html:"<b>Lücke B — „Ground\"/„Kritik\" rot bei Startseite.</b><br>Startseite ohne strategische Erdung gebaut, nie grounded-kritisiert. Spanndecken erst nach AW-Einwand grounded (6/10)."},
-    {sev:"amber", html:"<b>Lücke C — Reihenfolge.</b><br>kritik reaktiv NACH Build statt VOR preview; Schritte 0+1 (Grounding/Drehbuch) im Orchestrator noch nicht definiert (Upgrade → Bitrix #4058)."},
-    {sev:"amber", html:"<b>Lücke D — Spanndecken-Preview veraltet.</b><br>content/03 auf ~2.834 W erweitert, live noch ~1,2k-Version (Rebuild offen)."}
+    {sev:"amber", html:"<b>Lücke A — C-Edit & Verify ungleich verteilt.</b><br>Spanndecken: copy-editing + verify ✅ (07.06). Startseite: formales <b>2p-copy-editing</b> (3) + grounded-kritik (4) noch offen."},
+    {sev:"amber", html:"<b>Lücke B — Startseite Grounding nachgeholt.</b><br>Startseite jetzt via page-architecture-Obkatka geerdet (08.06) + Consistency-Check 12.06 (Nummerierung · Leistungen-Order · Methodik-Restruktur D-PROJ-016, gegen Blueprint/Spec geprüft). Offen: grounded-kritik (4) + copy-editing (3)."},
+    {sev:"amber", html:"<b>Lücke C — Orchestrator-Upgrade.</b><br>Schritte 0+1 (Grounding/page-architecture) im Orchestrator noch nicht als Gates definiert; Dashboard-Hook offen → Bitrix #4058 (MT)."}
   ],
   reihenfolge: [
-    {num:"A", skill:"Spanndecken fertig durch die Gates", meta:"copy-editing → verify → preview-REBUILD → S5/S6 → deploy. (Grounding + grounded-kritik ✅.)"},
-    {num:"B", skill:"Startseite nachziehen", meta:"Grounding (0) + grounded-kritik (4) + copy-editing (3) + verify (5)."},
-    {num:"C", skill:"8 LP je voller Cycle 0→8", meta:"Wandverkleidung · Akustik · Lichtkonzepte · Innenausbau · Badsanierung · SmartHome · Infrarot."},
+    {num:"A", skill:"Startseite — page-architecture-Obkatka ✅ (deployed)", meta:"12.06: Block-Nummerierung + Leistungen-Order (Innenausbau→Bad) + Methodik-Restruktur D-PROJ-016 — Consistency vs Blueprint/Spec geprüft. Offen: grounded-kritik + copy-editing + AW-Visual."},
+    {num:"B", skill:"Spanndecken — 2. Obkatka (LÄUFT)", meta:"page-architecture-Re-Gate vs Blueprint §6.2 + Spec §9.3 + Selling-Standard → Diff content/03 → finale Variant-1-vs-2-Entscheidung. + progressive-disclosure + S6-Visual."},
+    {num:"C", skill:"Fan-out 7 LP je voller Cycle 0→8", meta:"Wandverkleidung · Akustik · Lichtkonzepte · Innenausbau · Badsanierung · SmartHome · Infrarot."},
     {num:"D", skill:"Phase 3 Close → Consistency-Check → Project Hub → Phase 4 Build", meta:""}
   ]
 };
