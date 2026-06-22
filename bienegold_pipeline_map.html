@@ -45,6 +45,7 @@
   .cell.g{color:var(--green)}.cell.r{color:var(--red)}.cell.a{color:var(--amber)}.cell.e{color:var(--grey)}
   .note{background:#fff;border-left:5px solid var(--amber);border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem}
   .note.red{border-left-color:var(--red);background:#fff6f6}
+  .note.green{border-left-color:var(--green);background:#f3faf5}
   .foot{margin-top:30px;font-size:.78rem;color:#777}
 </style>
 </head>
@@ -64,7 +65,7 @@
   <div class="flow" id="flow"></div>
 
   <h2>2 · Phase-3 Per-Page-Cycle (Soll-Ablauf je Seite)</h2>
-  <p class="sub" style="margin-top:-6px">Orchestrator-Reihenfolge + 2 Gates aus Session 06.06 (gold = NEU → gehört in 2p-page-architecture / Bitrix #4058).</p>
+  <p class="sub" style="margin-top:-6px">Orchestrator-Reihenfolge inkl. Gates 0+1 (page-architecture / Grounding) — seit Fan-out 06.06 fester Standard. generate.py-getrieben (Single-Source content↔HTML).</p>
   <ol class="cycle" id="cycle"></ol>
 
   <h2>3 · Status-Matrix (Seite × Schritt) — WO ES HINKT</h2>
@@ -77,54 +78,56 @@
   <h2>5 · Reihenfolge zum Schließen</h2>
   <ol class="cycle" id="reihenfolge"></ol>
 
-  <p class="foot">Quelle: 2p-orchestrator (5-Phasen) + Session-Findings 06.06. <b>Living-Doc:</b> nur den <code>PIPELINE</code>-Datenblock im Quelltext bearbeiten (1 Buchstabe pro Statuswechsel: g/r/a/e), neu deployen — kein Re-Build.</p>
+  <p class="foot">Quelle: 2p-orchestrator (5-Phasen) + ActivityLog/Decisions Stand 22.06 (D-PROJ-020..025 · D-PARCH-001..007 · Consistency-Check 22.06 🟢 0 high-severity drift · Deploy gh-pages LIVE · PCM gesynct). <b>Living-Doc:</b> nur den <code>PIPELINE</code>-Datenblock im Quelltext bearbeiten (1 Buchstabe pro Statuswechsel: g/r/a/e), neu deployen — kein Re-Build.</p>
 </div>
 
 <script>
 /* ===== EINZIGE QUELLE DER WAHRHEIT — zum Updaten NUR HIER Werte ändern (g=fertig, r=Lücke, a=teilweise, e=offen) ===== */
 const PIPELINE = {
-  updated: "12.06.2026",
-  steps: ["0 Ground","1 Drehb.","2 Copy","3 C-Edit","4 Kritik(grd)","5 Verify","6 Preview","7 S5/S6","8 Deploy"],
+  updated: "22.06.2026",
+  steps: ["0 Ground","1 Drehb.","2 Copy","3 C-Edit","4 Kritik(grd)","5 Verify","6 Preview","7 S5+Mob","8 Deploy"],
   phases: [
     {n:"Phase 0", t:"Intake · Site-Audit", s:"g", st:"✅ fertig"},
     {n:"Phase 1", t:"Entities", s:"g", st:"✅ 43 Entitäten"},
     {n:"Phase 2", t:"Strategist<br><small>FACT_PACK · Blueprint · Internal Spec</small>", s:"g", st:"✅ READY"},
-    {n:"Phase 3", t:"Content-Cycle", s:"r", st:"🔴 HIER hinkt es"},
+    {n:"Phase 3", t:"Content-Cycle", s:"a", st:"🔄 4/10 Seiten LIVE (Klient-Review)"},
     {n:"Phase 4", t:"Build (2p-builder STATIC)", s:"e", st:"⬜ offen"}
   ],
   cycle: [
-    {num:"0", isNew:true, skill:"Grounding Pre-Flight", tag:"NEU", meta:"page-strategie + FACT_PACK + Internal-Spec(Seite) + entities + früherer kritik-report lesen — BEVOR gebaut wird."},
-    {num:"1", isNew:true, skill:"2p-page-architecture (Drehbuch)", tag:"NEU", meta:"Block-Logik + Sitemap-Link + Komposition-Gates → AW-Signoff."},
-    {num:"2", skill:"2p-copywriting", meta:"Texte je Block (BieneGold: vorhandenes content/0X an Drehbuch+Grounding ausrichten)."},
-    {num:"3", skill:"2p-copy-editing", tagSkip:true, meta:"Eight Sweeps + Terminologie + DVL."},
-    {num:"4", skill:"2p-kritik (GROUNDED)", meta:"Devil's Advocate gegen Strategie (nicht nur Artefakt + Decisions)."},
-    {num:"5", skill:"2p-verify", tagSkip:true, meta:"Vollständigkeit · Trace-ability · Contract-Compliance."},
-    {num:"6", skill:"2p-preview (Build)", meta:"HTML mit Feedback-UI + Schema @graph + Seiten-Logik-Panel."},
-    {num:"7", skill:"S5 / S6 Walkthrough", meta:"Narrative-Walkthrough + Visual-Review gegen Drehbuch."},
-    {num:"8", skill:"Deploy + PCM-Checkpoint", meta:"Loops: kritik ❌→copy · ⚠️→copy-editing · verify FAIL→copy."}
+    {num:"0", isNew:true, skill:"Grounding Pre-Flight", tag:"STANDARD", meta:"page-strategie + FACT_PACK + Internal-Spec(Seite) + entities + früherer kritik-report lesen — BEVOR gebaut wird."},
+    {num:"1", isNew:true, skill:"2p-page-architecture (Drehbuch)", tag:"STANDARD", meta:"Block-Logik + Sitemap-Link + Komposition-Gates G1–G8 → AW-Signoff → 🔒 FREEZE (D-PARCH)."},
+    {num:"2", skill:"2p-copywriting", meta:"Texte je Block 1:1 nach 🔒 Drehbuch — generator-driven via generate.py (Single-Source content↔HTML)."},
+    {num:"3", skill:"2p-copy-editing", meta:"Eight Sweeps + Terminologie + DVL + Text-Dubletten / CTA-Kadenz + em-dash-Reduktion (D-PROJ-025: kein „—\" in Prosa)."},
+    {num:"4", skill:"2p-kritik (GROUNDED)", meta:"Devil's Advocate WEBSITE_CONTENT (CANON · AI-tells · TABU · CTA)."},
+    {num:"5", skill:"2p-verify", meta:"Vollständigkeit · Block-Completeness vs 🔒 Drehbuch · Trace-ability."},
+    {num:"6", skill:"2p-preview (Build)", meta:"generate.py → HTML · --lint 0 + Render-Verify no-loss (nicht nur lint) · Seiten-Logik-Panel OBEN (D-PARCH-003) · Chrome-Freeze."},
+    {num:"7", skill:"S5 + Mobile-Gate + AW-Visual", meta:"S5-Konformität (Panel = gerenderte Blocks) + MOBILE 390px (Pflicht-Gate) + AW-Visual-Review."},
+    {num:"8", skill:"Deploy + PCM-Checkpoint", meta:"gebündelt (Variante B). Loops: kritik ❌→copy · ⚠️→copy-editing · verify FAIL→copy."}
   ],
   /* cells: pro Seite 9 Werte (Reihenfolge = steps). Wert = "g/r/a/e" ODER ["a","Label"]. */
   pages: [
-    {name:"01 Startseite",      cells:["g","g","g","r","r","g","g","a","g"]},
-    {name:"03 Spanndecken",     cells:["g","g","g","g","g","g","g",["a","visuell"],"g"]},
-    {name:"02 Wandverkleidung", cells:["e","e","g","e","e","e","e","e","e"]},
-    {name:"04 Akustik",         cells:["e","e","g","e","e","e","e","e","e"]},
-    {name:"05 Lichtkonzepte",   cells:["e","e","g","e","e","e","e","e","e"]},
-    {name:"06 Innenausbau",     cells:["e","e","g","e","e","e","e","e","e"]},
-    {name:"07 Badsanierung",    cells:["e","e","g","e","e","e","e","e","e"]},
-    {name:"08 SmartHome",       cells:["e","e","g","e","e","e","e","e","e"]},
-    {name:"09 Infrarot",        cells:["e","e","g","e","e","e","e","e","e"]}
+    {name:"01 Startseite",      cells:["g","g","g","g","g","g","g",["a","AW-Review"],["g","LIVE"]]},
+    {name:"03 Spanndecken",     cells:["g","g","g","g","g","g","g",["a","AW-Review"],["g","LIVE"]]},
+    {name:"06 Innenausbau",     cells:["g","g","g","g","g","g","g",["a","AW-Review"],["g","LIVE"]]},
+    {name:"Ratgeber (Hub)",     cells:["g","a","g","g","e","e","g",["a","AW-Review"],["g","LIVE"]]},
+    {name:"02 Wandverkleidung", cells:["e","e","a","e","e","e","e","e","e"]},
+    {name:"04 Akustik",         cells:["e","e","a","e","e","e","e","e","e"]},
+    {name:"05 Lichtkonzepte",   cells:["e","e","a","e","e","e","e","e","e"]},
+    {name:"08 SmartHome",       cells:["e","e","a","e","e","e","e","e","e"]},
+    {name:"09 Infrarot",        cells:["e","e","a","e","e","e","e","e","e"]},
+    {name:"07 Badsanierung",    cells:["e","e","a","e","e","e","e","e","e"]}
   ],
   luecken: [
-    {sev:"amber", html:"<b>Lücke A — C-Edit & Verify ungleich verteilt.</b><br>Spanndecken: copy-editing + verify ✅ (07.06). Startseite: formales <b>2p-copy-editing</b> (3) + grounded-kritik (4) noch offen."},
-    {sev:"amber", html:"<b>Lücke B — Startseite Grounding nachgeholt.</b><br>Startseite jetzt via page-architecture-Obkatka geerdet (08.06) + Consistency-Check 12.06 (Nummerierung · Leistungen-Order · Methodik-Restruktur D-PROJ-016, gegen Blueprint/Spec geprüft). Offen: grounded-kritik (4) + copy-editing (3)."},
-    {sev:"amber", html:"<b>Lücke C — Orchestrator-Upgrade.</b><br>Schritte 0+1 (Grounding/page-architecture) im Orchestrator noch nicht als Gates definiert; Dashboard-Hook offen → Bitrix #4058 (MT)."}
+    {sev:"green", html:"<b>✅ ERLEDIGT (22.06) — Lücke A (Deploy) geschlossen.</b><br>3 Klient-Seiten + Ratgeber sind auf gh-pages LIVE: <a href=\"https://team588.github.io/bienegold-docs/\">team588.github.io/bienegold-docs/</a> (Startseite · Spanndecken · Innenausbau als <code>*_GEN.html</code>). Vorausgegangen: Consistency-Gate 🟢 (0 high-severity drift). Offen vor LIVE-Schaltung der echten Domain: nur [KLIENT]-Platzhalter + Dev-#4092 (Head-Tags)."},
+    {sev:"amber", html:"<b>Lücke B — 6 Service-LP noch nicht an _SELLING-LP-STANDARD ausgerichtet.</b><br>Wandverkleidung · Akustik · Lichtkonzepte · SmartHome · Infrarot · Badsanierung = nur Rohcopy. Offen je LP: Kundenportal-Park + Trust-Stack-Lücken (02 ohne Reviews-Block = schlimmste · 04/05/08/09 ohne Garantie/Gewährleistung) + Infrarot→/smarthome/ Cross-Link + voller Gate-Chain 0→8."},
+    {sev:"amber", html:"<b>Lücke C — formales 2p-copy-editing ✅ geschlossen (22.06) für alle 4 preview-ready Seiten.</b><br>Eight Sweeps formal: Spanndecken (07.06) + Startseite/Innenausbau/Ratgeber (22.06 → V1.2/V1.2/V1.1). Seiten waren reif → nur Mikro-Politur + Konsistenz-Fixes (Innenausbau Closing-Kontaktzeile entfernt = Startseite-Standard · Ratgeber-CTA an D-PROJ-021 + Rückruf-Promise in Body). --lint 0 errors ×4, Mobile 390px ✓. Offen nur für die 6 ungebauten LP (beim Build)."},
+    {sev:"red", html:"<b>Lücke D — Denis-Carry-overs (Launch-Blocker, NICHT Preview-Blocker) — konsolidiert in <code>docs/bienegold_klient_fragen_2026-06-06</code> (Stand 22.06).</b><br>NEU 22.06: C7 Rating Ø4,8/100+ bestätigen (D-KRIT-007) · B22 finaler Begriff „Kundenportal\" (D-PROJ-022) · C8 WhatsApp-fähige Nr. Weiter: Optik/Montagedauer/Brandschutz-Nachweis · Vorher/Nachher-Fotos + echte Reviews · Erstberatung-kostenfrei · Erreichbarkeit · 8-Phasen-Flow. <b>1 Denis-Email entsperrt 6+ Spanndecken-Platzhalter.</b> Generator-Gaps (SEO-Head / Mobile-Gate) → Bitrix #4092 (MT)."}
   ],
   reihenfolge: [
-    {num:"A", skill:"Startseite — page-architecture-Obkatka ✅ (deployed)", meta:"12.06: Block-Nummerierung + Leistungen-Order (Innenausbau→Bad) + Methodik-Restruktur D-PROJ-016 — Consistency vs Blueprint/Spec geprüft. Offen: grounded-kritik + copy-editing + AW-Visual."},
-    {num:"B", skill:"Spanndecken — 2. Obkatka (LÄUFT)", meta:"page-architecture-Re-Gate vs Blueprint §6.2 + Spec §9.3 + Selling-Standard → Diff content/03 → finale Variant-1-vs-2-Entscheidung. + progressive-disclosure + S6-Visual."},
-    {num:"C", skill:"Fan-out 7 LP je voller Cycle 0→8", meta:"Wandverkleidung · Akustik · Lichtkonzepte · Innenausbau · Badsanierung · SmartHome · Infrarot."},
-    {num:"D", skill:"Phase 3 Close → Consistency-Check → Project Hub → Phase 4 Build", meta:""}
+    {num:"A", skill:"✅ ERLEDIGT (22.06) — 3 Seiten QA'd + Konsistenz-Gate 🟢 + LIVE", meta:"Startseite · Spanndecken · Innenausbau voll re-verifiziert (DVL/Stil/SEO/Komponenten/Source-Coverage + Render-Verify + Mobile 390px, --lint 0×4). Startseite D-PARCH-007 (Block 10 Card-Grid + Verteiler-Schema-Fix). Projektweiter Consistency-Check 🟢 (0 high-severity drift). Auf gh-pages deployed (+ Ratgeber intern verlinkt). Offen: AW-Visual-Review · [KLIENT]-Platzhalter (Denis-Email)."},
+    {num:"B", skill:"NÄCHSTER SCHRITT — AW wählt: Klient-Fragen-Versand ODER Fan-out", meta:"(B1) Klient-Fragen-Email an Denis (AW-Go + Kanal Bitrix #3982 / den@bienegold.de) → docs/bienegold_klient_fragen_2026-06-06 (Stand 22.06: NEU C7 Rating/B22 Kundenportal-Begriff/C8 WhatsApp) → entsperrt 6+ Spanndecken-[KLIENT]-Platzhalter. (B2) Fan-out 6 Service-LP (D-FB-026: Wand→Akustik→Licht→SmartHome→Infrarot→Bad) je Gate-Chain unter _SELLING-LP-STANDARD (erbt em-dash/Chrome/Kundenportal-Park)."},
+    {num:"C", skill:"Interner Doc-Sweep „Kundenportal\"", meta:"MainDoc · DataRegistry · IA · Internal-Spec · Blueprint · ContextCard · PSP (~34×) — DEFERRED bis Denis finalen Begriff bestätigt (D-PROJ-022, kein Doppel-Churn)."},
+    {num:"D", skill:"Gebündelter Deploy → Phase 3 Close → Phase 4 Build", meta:"Consistency-Check → Project Hub → gh-pages Deploy → 2p-builder STATIC."}
   ]
 };
 
@@ -144,7 +147,7 @@ document.getElementById("matBody").innerHTML=PIPELINE.pages.map(pg=>{
   return `<tr><td class="page">${pg.name}</td>${tds}</tr>`;
 }).join("");
 // luecken
-document.getElementById("luecken").innerHTML=PIPELINE.luecken.map(l=>`<div class="note ${l.sev==='red'?'red':''}">${l.html}</div>`).join("");
+document.getElementById("luecken").innerHTML=PIPELINE.luecken.map(l=>`<div class="note ${l.sev==='red'?'red':l.sev==='green'?'green':''}">${l.html}</div>`).join("");
 // reihenfolge
 document.getElementById("reihenfolge").innerHTML=PIPELINE.reihenfolge.map(r=>`<li><span class="num">${r.num}</span><div class="body"><span class="skill">${r.skill}</span>${r.meta?`<div class="meta">${r.meta}</div>`:''}</div></li>`).join("");
 </script>
