@@ -106,11 +106,11 @@ const PIPELINE = {
   ],
   /* cells: pro Seite 9 Werte (Reihenfolge = steps). Wert = "g/r/a/e" ODER ["a","Label"]. */
   pages: [
-    {name:"01 Startseite",      cells:["g","g","g","g","g","g","g",["a","AW-Review"],["g","LIVE"]]},
-    {name:"03 Spanndecken",     cells:["g","g","g","g","g","g","g",["a","AW-Review"],["g","LIVE"]]},
-    {name:"06 Innenausbau",     cells:["g","g","g","g","g","g","g",["a","AW-Review"],["g","LIVE"]]},
-    {name:"Ratgeber (Hub)",     cells:["g","a","g","g","e","e","g",["a","AW-Review"],["g","LIVE"]]},
-    {name:"02 Wandverkleidung<br><small>V2.1 Muster (D-PARCH-015)</small>", cells:["g","g","g","g","g","g","g",["a","AW+MT Review"],["g","LIVE 13.07"]]},
+    {name:"01 Startseite",      cells:["g","g","g","g","g","g","g",["g","Review ✓ 13.07"],["g","LIVE"]]},
+    {name:"03 Spanndecken",     cells:["g","g","g","g","g","g","g",["g","Review ✓ 13.07"],["g","LIVE"]]},
+    {name:"06 Innenausbau<br><small>Density-Fix = NÄCHSTE (Audit §3)</small>",     cells:["g","g","g","g","g","g","g",["a","Density-Fix next"],["g","LIVE"]]},
+    {name:"Ratgeber (Hub)",     cells:["g","a","g","g","e","e","g",["g","Review ✓ 13.07"],["g","LIVE"]]},
+    {name:"02 Wandverkleidung<br><small>V2.1 Muster (D-PARCH-015)</small>", cells:["g","g","g","g","g","g","g",["g","Review ✓ 13.07"],["g","LIVE 13.07"]]},
     {name:"04 Akustik",         cells:["e","e","a","e","e","e","e","e","e"]},
     {name:"05 Lichtkonzepte",   cells:["e","e","a","e","e","e","e","e","e"]},
     {name:"08 SmartHome",       cells:["e","e","a","e","e","e","e","e","e"]},
@@ -129,7 +129,7 @@ const PIPELINE = {
   ],
   reihenfolge: [
     {num:"A", skill:"✅ ERLEDIGT (22.06) — 3 Seiten QA'd + Konsistenz-Gate 🟢 + LIVE", meta:"Startseite · Spanndecken · Innenausbau voll re-verifiziert (DVL/Stil/SEO/Komponenten/Source-Coverage + Render-Verify + Mobile 390px, --lint 0×4). Startseite D-PARCH-007 (Block 10 Card-Grid + Verteiler-Schema-Fix). Projektweiter Consistency-Check 🟢 (0 high-severity drift). Auf gh-pages deployed (+ Ratgeber intern verlinkt). Offen: AW-Visual-Review · [KLIENT]-Platzhalter (Denis-Email)."},
-    {num:"B", skill:"NÄCHSTER SCHRITT (13.07) — Muster-Review + 4 Rest-LP", meta:"Wandverkleidung Muster-Fix V2.1 ✅ ERLEDIGT (D-PARCH-015, live 261cf47). Jetzt: (1) AW+MT Visual-Review am V2.1-Muster (MT-Flag 29.06 schließen) → Stempel. (2) Fan-out Rest (D-FB-026): Akustik → Lichtkonzepte → SmartHome → Infrarot, je voller Gate-Chain + EXPLIZITE Density-Linse + Block-Glossar-Badges. Andrey-Sichtbarkeit (drawn/to-draw im Toggle) später bei mehr Material; Glossar §5.6 (raeume→use-cases) beim Gruppen-Signoff. [KLIENT] offen (kein Blocker): Rating Ø4,8 via Anja (D-KRIT-007) · V/N-Fotos = Phase-4 · F-K1."},
+    {num:"B", skill:"NÄCHSTER SCHRITT (13.07) — Innenausbau Density-Fix, dann 4 rohe LP", meta:"Wandverkleidung Muster-Fix V2.1 ✅ (D-PARCH-015, live 261cf47) + Review-Gate ✓ 13.07 für Startseite/Spanndecken/Wandverkleidung/Ratgeber (AW-Auftrag, DOM/Geometry-Sweep live @1280+390: 0 Defekte; dokumentiert im ActivityLog). Jetzt: (1) Innenausbau Density-Fix (Audit 10.07 §3: Botschaft 4×, Block 4.5 → /ratgeber/, Block 5 → Cards, Kundenportal-Leiche raus) — GLEICHER Workflow wie Spanndecken/WV (voller Gate-Chain + Density-Linse + Glossar-Badges). (2) Danach 4 rohe LP (D-FB-026): Akustik → Lichtkonzepte → SmartHome → Infrarot. Glossar §5.6 (raeume→use-cases) beim Gruppen-Signoff; MT-Flag 29.06: MT den V2.1-Muster-Stand zeigen. [KLIENT] offen (kein Blocker): Rating Ø4,8 via Anja (D-KRIT-007) · V/N-Fotos = Phase-4 · F-K1."},
     {num:"C", skill:"Interner Doc-Sweep „Kundenportal\"", meta:"MainDoc · DataRegistry · IA · Internal-Spec · Blueprint · ContextCard · PSP (~34×) — DEFERRED bis Denis finalen Begriff bestätigt (D-PROJ-022, kein Doppel-Churn)."},
     {num:"D", skill:"Gebündelter Deploy → Phase 3 Close → Phase 4 Build", meta:"Consistency-Check → Project Hub → gh-pages Deploy → 2p-builder STATIC."}
   ]
