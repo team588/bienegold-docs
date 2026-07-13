@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akustik Berlin · Stoff-Akustikdecken &amp; -wände | BieneGold</title>
+  <!-- source: bienegold_04_akustik.md sha256:20b4af544f5341f1e1dce5b234ad3720e58a7fd72db5d8ed16dd043e637080ee generated:2026-07-13T15:57:28 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+        colors: {
+          gold: { DEFAULT: '#d4a843', light: '#f0c463', dark: '#9c7a2e' },
+          tanne: { DEFAULT: '#1F4D2E', mid: '#2E6B40' },
+          terra: '#d4622a', ink: '#1a1d24', neutralbg: '#f2f1ed',
+        },
+      } },
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .honeycomb {
+      background-color: transparent;
+      background-image: url("data:image/svg+xml,%3Csvg width='56' height='100' viewBox='0 0 56 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 0L56 16v33L28 65 0 49V16z M28 65l28 16v33L28 130 0 116V81z' fill='none' stroke='%23d4a843' stroke-width='1.2' stroke-opacity='0.18'/%3E%3C/svg%3E");
+    }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .faq-plus { display: none; }
+    details:not([open]) .faq-minus { display: none; }
+    .dvl-placeholder {
+      border: 2px dashed #9ca3af;
+      background: repeating-linear-gradient(45deg, #f3f4f6, #f3f4f6 10px, #eceef1 10px, #eceef1 20px);
+      color: #4b5563;
+    }
+    :root {
+      --fb-accent: #2563eb; --fb-accent-border: #1d4ed8; --fb-accent-hover: #1d4ed8;
+      --fb-saved: #0ea5e9; --fb-saved-border: #0284c7;
+      --fb-save: #2563eb; --fb-save-border: #1d4ed8; --fb-save-hover: #1d4ed8;
+      --fb-panel-bg: #eff6ff; --fb-panel-border: #2563eb;
+      --fb-delete: #dc2626; --fb-delete-bg: #fef2f2; --fb-delete-border: #fca5a5;
+      --success: #10b981; --radius: 12px;
+    }
+    .feedback-counter{background:var(--fb-accent);color:#fff;padding:6px 16px;border-radius:20px;font-weight:700;cursor:pointer;transition:transform .2s;font-size:13px;border:none}
+    .feedback-counter:hover{transform:scale(1.05)}
+    .feedback-counter.has-feedback{animation:fb-pulse 2s infinite}
+    @keyframes fb-pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,.4)}50%{box-shadow:0 0 0 8px transparent}}
+    .feedback-btn{position:absolute;top:12px;right:20px;background:var(--fb-accent);border:2px solid var(--fb-accent-border);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:13px;color:#fff;font-weight:600;transition:all .2s;z-index:20}
+    .feedback-btn:hover{background:var(--fb-accent-hover);color:#fff}
+    .feedback-btn.has-comment{background:var(--fb-saved);border-color:var(--fb-saved-border);color:#fff}
+    .feedback-panel{display:none;position:absolute;top:3rem;right:.75rem;width:340px;max-width:calc(100% - 1.5rem);z-index:200;background:var(--fb-panel-bg);border:2px solid var(--fb-panel-border);border-radius:var(--radius);padding:20px;box-shadow:0 4px 16px rgba(0,0,0,.2);animation:fb-slideDown .3s ease;text-align:left}
+    .feedback-panel.open{display:block}
+    @keyframes fb-slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+    .feedback-panel label{display:block;font-weight:600;margin-bottom:8px;color:#1d4ed8;font-size:14px}
+    .feedback-panel textarea{width:100%;min-height:100px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-family:inherit;font-size:15px;resize:vertical;line-height:1.5;color:#1a1d24}
+    .feedback-panel textarea:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+    .feedback-actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;align-items:center}
+    .btn-save{background:var(--fb-save);color:#fff;border:2px solid var(--fb-save-border);padding:8px 20px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600}
+    .btn-save:hover{background:var(--fb-save-hover)}
+    .btn-cancel{background:#fff;border:2px solid #94a3b8;padding:8px 20px;border-radius:8px;cursor:pointer;font-size:14px;color:#334155;font-weight:500}
+    .btn-delete{background:var(--fb-delete-bg);border:2px solid var(--fb-delete-border);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;color:var(--fb-delete);font-weight:500;margin-left:auto}
+    .saved-indicator{display:none;color:var(--success);font-size:13px;align-items:center;gap:4px}
+    .export-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;justify-content:center;align-items:center}
+    .export-overlay.open{display:flex}
+    .export-box{background:#fff;border-radius:12px;padding:32px;max-width:520px;width:90%;text-align:center}
+    .export-box h2{margin-bottom:12px;font-size:22px;color:#1a1d24}
+    .export-box p{color:#64748b;margin-bottom:20px}
+    .export-box .count{font-size:48px;font-weight:800;color:var(--fb-save)}
+    .btn-export{display:inline-block;background:var(--fb-save);color:#fff;padding:14px 28px;border-radius:8px;border:none;font-size:16px;font-weight:600;cursor:pointer;margin:6px}
+    .btn-export.btn-copy{background:var(--fb-accent)}
+    .btn-close-overlay{display:inline-block;background:transparent;border:1px solid #e2e8f0;padding:14px 28px;border-radius:8px;font-size:16px;cursor:pointer;margin:6px;color:#64748b}
+    .block-label{position:absolute;left:-9999px}
+    .block-canon{position:absolute;top:8px;left:8px;z-index:30;display:none;font:600 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#fff;background:rgba(31,77,46,.92);padding:3px 8px;border-radius:5px;letter-spacing:.03em;pointer-events:none;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+    body.show-blocks .block-canon{display:inline-block}
+    .blocktoggle{position:fixed;left:16px;bottom:16px;z-index:400;display:inline-flex;align-items:center;min-height:44px;background:#1F4D2E;color:#fff;border:none;padding:0 18px;border-radius:22px;font:600 13px/1 'Inter',sans-serif;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.22)}
+    .blocktoggle:hover{filter:brightness(1.08)}
+    body.show-blocks .blocktoggle{background:#d4a843;color:#1a1d24}
+    @media print{.blocktoggle,.block-canon{display:none!important}}
+    .feedback-guide{max-width:80rem;margin:0 auto;padding:20px 24px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px}
+    .feedback-guide h3{font-weight:800;color:#1d4ed8;margin-bottom:8px;font-size:16px}
+    .feedback-guide ol{margin:0 0 0 1.1rem;color:#1e293b;font-size:14px;line-height:1.7}
+    .feedback-guide li{margin-bottom:4px}
+    .feedback-guide em{color:#475569;font-size:13px}
+    @media(max-width:768px){.feedback-btn{top:8px;right:12px;font-size:12px}.feedback-panel{width:calc(100vw - 2rem)}}
+
+    /* === SEO BAR === */
+    .seo-bar{background:#1a1a2e;color:#e5e7eb;border:1px solid #2d2d44;font-size:13px;overflow:hidden}
+    .seo-summary{cursor:pointer;padding:10px 18px;font-weight:700;color:#f0c463;list-style:none}
+    .seo-summary::-webkit-details-marker{display:none}
+    .seo-body{padding:8px 18px 16px}
+    .seo-row{display:flex;gap:12px;padding:6px 0;border-top:1px solid #2d2d44;align-items:baseline;flex-wrap:wrap}
+    .seo-key{min-width:110px;font-weight:600;color:#9ca3af}
+    .seo-val{flex:1;color:#e5e7eb}
+    .seo-val code{background:#11111e;padding:2px 6px;border-radius:4px;color:#f0c463}
+    .len-badge{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:700}
+    .len-ok{background:#065f46;color:#d1fae5}
+    .len-warn{background:#92400e;color:#fde68a}
+    .len-over{background:#7f1d1d;color:#fecaca}
+    .schema-tag{display:inline-block;margin:2px 4px 2px 0;padding:2px 10px;border-radius:10px;background:#312e81;color:#c7d2fe;font-size:11px;font-weight:700}
+
+  </style>
+</head>
+<body class="bg-white text-ink antialiased">
+
+  <!-- META-BANNER (kein Seiteninhalt) -->
+  <div class="w-full bg-ink text-amber-100 px-4 py-2 font-medium flex items-center justify-between gap-3 flex-wrap">
+    <span class="text-xs sm:text-sm text-center sm:text-left flex-1 min-w-0">VORSCHAU — BieneGold Akustik (/akustik/) · Texte DVL-Status ⚠️ Entwurf (vor Klient-Freigabe) · Design = Tailwind-Plus-Pattern + Marken-Tokens · GENERATED via generate.py</span>
+    <button class="feedback-counter" id="feedbackCounter" onclick="openExportOverlay()">Feedback: 0 Kommentare</button>
+  </div>
+
+  <!-- Kurzanleitung für Kunden -->
+  <section class="px-6 lg:px-8 pt-6">
+    <div class="feedback-guide">
+      <h3>📝 So geben Sie Feedback zu den Texten</h3>
+      <ol>
+        <li><strong>Kommentar hinterlassen</strong> — Neben jedem Textblock sehen Sie „✏️ Vorschlag". Klicken Sie darauf, schreiben Sie Ihren Kommentar und klicken Sie auf „Speichern".</li>
+        <li><strong>Beliebig viele Blöcke</strong> — Kommentare bleiben gespeichert, Sie können jederzeit weitere ergänzen.</li>
+        <li><strong>Feedback absenden</strong> — Oben rechts: „📥 Feedback: X Kommentare" → klicken → „Als Datei herunterladen" (.txt) oder „In Zwischenablage kopieren" (für E-Mail/WhatsApp).</li>
+        <li><strong>An uns senden</strong> — Schicken Sie uns die Datei oder den kopierten Text, wie es Ihnen am liebsten ist.</li>
+      </ol>
+      <p><em>Hinweis: Ihre Kommentare werden lokal in Ihrem Browser gespeichert und bleiben erhalten, auch wenn Sie die Seite schließen. Bitte bewerten Sie nur die Texte — Layout und Farben sind ein Entwurf.</em></p>
+    </div>
+  </section>
+
+  <!-- ============ HEADER (sticky) ============ -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gold/30">
+    <span class="block-canon">block/header</span>
+    <nav class="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Hauptnavigation">
+      <div class="flex h-16 items-center justify-between">
+        <a href="bienegold_preview_startseite_GEN.html" class="flex items-center gap-2">
+          <svg class="h-8 w-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M50 4L87 25v42L50 88 13 67V25z" fill="#d4a843" fill-opacity="0.15" stroke="#d4a843" stroke-width="3"/>
+            <path d="M50 28L67 38v20L50 68 33 58V38z" fill="#1F4D2E"/>
+          </svg>
+          <span class="text-xl font-extrabold tracking-tight text-ink">Biene<span class="text-gold-dark">Gold</span></span>
+        </a>
+        <div class="hidden lg:flex lg:items-center lg:gap-x-8">
+          <div class="relative group">
+            <button class="flex items-center gap-1 text-sm font-semibold text-ink hover:text-gold-dark py-2">Leistungen
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="absolute left-0 top-full hidden group-hover:block w-64 rounded-xl bg-white shadow-lg ring-1 ring-gold/20 p-2">
+              <a href="/wandverkleidung/" class="block rounded-lg px-3 py-2 text-sm text-ink hover:bg-neutralbg">Wandverkleidung</a>
+              <a href="bienegold_preview_spanndecken_GEN.html" class="block rounded-lg px-3 py-2 text-sm font-semibold text-gold-dark bg-neutralbg">Spanndecken</a>
+              <a href="/akustik/" class="block rounded-lg px-3 py-2 text-sm text-ink hover:bg-neutralbg">Akustik</a>
+              <a href="/lichtkonzepte/" class="block rounded-lg px-3 py-2 text-sm text-ink hover:bg-neutralbg">Lichtkonzepte</a>
+              <a href="bienegold_preview_innenausbau_GEN.html" class="block rounded-lg px-3 py-2 text-sm text-ink hover:bg-neutralbg">Innenausbau</a>
+              <a href="/badsanierung/" class="block rounded-lg px-3 py-2 text-sm text-ink hover:bg-neutralbg">Badsanierung</a>
+              <a href="/smarthome/" class="block rounded-lg px-3 py-2 text-sm text-ink hover:bg-neutralbg">SmartHome</a>
+              <a href="/infrarot/" class="block rounded-lg px-3 py-2 text-sm text-ink hover:bg-neutralbg">Infrarot</a>
+            </div>
+          </div>
+          <a href="#referenzen" class="text-sm font-semibold text-ink hover:text-gold-dark">Referenzen</a>
+          <a href="#ueber-uns" class="text-sm font-semibold text-ink hover:text-gold-dark">Über uns</a>
+          <a href="#kontakt" class="text-sm font-semibold text-ink hover:text-gold-dark">Kontakt</a>
+          <!-- Kundenportal = GEPLANT (D-FB-031, Odoo); nicht live -> muted „bald"-Marker, KEIN toter Link. Begriff „Kundenportal" = Arbeitsstand (Russismus „Kunden-Kabinett" ersetzt), Denis bestätigt final. Bei Live-Gang aktivieren. -->
+          <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-ink/35 cursor-default" title="In Vorbereitung, bald verfügbar">Kundenportal<span class="rounded bg-ink/5 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink/40">bald</span></span>
+        </div>
+        <div class="hidden lg:flex lg:items-center lg:gap-x-3">
+          <a href="tel:03052014158" class="inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-bold text-tanne ring-1 ring-tanne/30 hover:bg-tanne/5 transition" aria-label="Anrufen"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Anrufen</a>
+          <a href="#kontakt" class="rounded-md bg-gold px-4 py-2 text-sm font-bold text-ink shadow-sm hover:bg-gold-light transition">Jetzt anfragen</a>
+        </div>
+        <button id="burger" class="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-ink" aria-label="Menü öffnen">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gold/20 bg-white px-6 py-4 space-y-1">
+      <details class="group"><summary class="flex items-center justify-between py-2 text-sm font-semibold text-ink">Leistungen
+        <svg class="faq-plus h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </summary>
+        <div class="pl-3 pb-2 space-y-1">
+          <a href="/wandverkleidung/" class="block py-1.5 text-sm text-ink/80">Wandverkleidung</a>
+          <a href="bienegold_preview_spanndecken_GEN.html" class="block py-1.5 text-sm font-semibold text-gold-dark">Spanndecken</a>
+          <a href="/akustik/" class="block py-1.5 text-sm text-ink/80">Akustik</a>
+          <a href="/lichtkonzepte/" class="block py-1.5 text-sm text-ink/80">Lichtkonzepte</a>
+          <a href="bienegold_preview_innenausbau_GEN.html" class="block py-1.5 text-sm text-ink/80">Innenausbau</a>
+          <a href="/badsanierung/" class="block py-1.5 text-sm text-ink/80">Badsanierung</a>
+          <a href="/smarthome/" class="block py-1.5 text-sm text-ink/80">SmartHome</a>
+          <a href="/infrarot/" class="block py-1.5 text-sm text-ink/80">Infrarot</a>
+        </div>
+      </details>
+      <a href="#referenzen" class="block py-2 text-sm font-semibold text-ink">Referenzen</a>
+      <a href="#ueber-uns" class="block py-2 text-sm font-semibold text-ink">Über uns</a>
+      <a href="#kontakt" class="block py-2 text-sm font-semibold text-ink">Kontakt</a>
+      <span class="block py-2 text-sm font-semibold text-ink/35">Kundenportal <span class="ml-1 rounded bg-ink/5 px-1.5 py-0.5 text-[10px] font-bold uppercase text-ink/40">bald</span></span>
+      <a href="#kontakt" class="mt-2 block rounded-md bg-gold px-4 py-2.5 text-center text-sm font-bold text-ink">Jetzt anfragen</a>
+    </div>
+  </header>
+
+  <!-- ============ SEO BAR (collapsible) ============ -->
+  <details class="seo-bar mx-auto max-w-7xl my-4 rounded-xl print:hidden" open>
+    <summary class="seo-summary">🔍 SEO &amp; Schema.org — unter der Haube</summary>
+    <div class="seo-body">
+      <div class="seo-row"><span class="seo-key">Title</span><span class="seo-val">Akustik Berlin · Stoff-Akustikdecken &amp; -wände | BieneGold <span class="len-badge len-warn">57 — Warn</span></span></div>
+      <div class="seo-row"><span class="seo-key">Description</span><span class="seo-val">Raumakustik in Berlin: Akustikdecken, Akustikwände und Deckensegel für Wohnraum und Büro, aus einer Hand geplant und montiert. Rückruf in 5–10 Minuten. <span class="len-badge len-warn">151 — Warn</span></span></div>
+      <div class="seo-row"><span class="seo-key">URL</span><span class="seo-val"><code>/akustik/</code></span></div>
+      <div class="seo-row"><span class="seo-key">Schema.org</span><span class="seo-val"><span class="schema-tag">GeneralContractor</span><span class="schema-tag">BreadcrumbList</span><span class="schema-tag">Service</span><span class="schema-tag">FAQPage</span></span></div>
+    </div>
+  </details>
+
+  <!-- ============ Seiten-Logik / Block-Drehbuch (Review-Ansicht · NICHT Teil der Live-Website) ============ -->
+  <details class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-10 rounded-2xl border border-dashed border-gray-400 bg-gray-50 text-gray-700 print:hidden">
+    <summary class="cursor-pointer select-none px-4 sm:px-6 py-4 text-sm font-bold flex items-center gap-2">
+      🧭 Seiten-Logik — Block-Drehbuch (Akustik)
+      <span class="font-normal text-gray-400">(Review-Ansicht · aufklappen · NICHT Teil der Live-Website)</span>
+      &nbsp; <span class="font-bold text-green-700">✅ Seiten-Logik: konform</span>
+    </summary>
+    <div class="px-4 sm:px-6 pb-6 text-sm leading-6">
+      <p class="mb-4"><span class="font-bold text-tanne">Narrative-Spine:</span> <strong>Eine Idee der Seite:</strong> „Ruhe ist planbar: Raumakustik wird bei BieneGold nicht nachträglich angeklebt, sondern als Teil des Raumkonzepts geplant und aus einer Hand montiert — für Wohnraum und Gewerbe gleichermaßen."</p>
+      <div class="overflow-x-auto rounded-lg ring-1 ring-gray-200 bg-white">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead><tr class="border-b border-gray-300 text-gray-500">
+            <th class="py-2 px-3 font-semibold">#</th><th class="py-2 px-3 font-semibold">Block</th><th class="py-2 px-3 font-semibold">Aufgabe</th><th class="py-2 px-3 font-semibold">Rolle</th><th class="py-2 px-3 font-semibold">Kern-Botschaft</th>
+          </tr></thead>
+          <tbody class="align-top">
+            
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-xs text-gray-500">Quelle: <code>docs/page-drehbuch/04_akustik.md</code>.</p>
+    </div>
+  </details>
+
+  <main>
+
+    <section id="block-1" class="relative bg-white overflow-hidden" data-block="hero">
+      <span class="block-label">Block 1 — HERO</span>
+      <span class="block-canon">block/hero</span>
+      <button class="feedback-btn" onclick="toggleFeedback(1)">✏️ Vorschlag</button>
+      <div class="absolute inset-0 honeycomb opacity-60" aria-hidden="true"></div>
+<div class="relative mx-auto max-w-4xl px-6 lg:px-8 py-24 sm:py-32 text-center">
+<p class="text-sm font-bold uppercase tracking-wide text-gold-dark">Akustik · Raumakustik · Berlin &amp; Brandenburg</p>
+<h1 class="mt-4 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl text-balance">Raumakustik in Berlin: Ruhe, die man im Raum spürt.</h1>
+<p class="mt-6 text-lg leading-8 text-ink/70">Hall, Echo und eine unruhige Geräuschkulisse verschwinden nicht durch ein einzelnes Paneel, sondern durch ein geplantes Konzept. BieneGold plant und montiert Akustikdecken, Akustikwände und Deckensegel in Berlin, für Wohnraum wie Gewerbe. Planungssicherheit statt Baustellen-Chaos.</p>
+<div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+<a href="#kontakt" class="rounded-md bg-gold px-6 py-3 text-base font-bold text-ink shadow-sm hover:bg-gold-light transition">Jetzt anfragen</a>
+<a href="#ablauf" class="rounded-md px-6 py-3 text-base font-semibold text-tanne ring-1 ring-tanne/30 hover:bg-tanne/5 transition">So läuft Ihr Projekt ab</a>
+</div>
+<div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-ink/70">
+<span>Über 100 Bewertungen, Ø 4,8★, über alle Leistungen</span><span class="hidden sm:inline text-ink/20">·</span><span>Berliner Generalunternehmer seit 2012</span><span class="hidden sm:inline text-ink/20">·</span><span>Rückruf in 5–10 Minuten</span><span class="hidden sm:inline text-ink/20">·</span><span>Ein Ansprechpartner für Planung und Montage</span>
+</div>
+</div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-1">
+      <label>Ihr Vorschlag für Block 1 — HERO:</label>
+      <textarea id="feedback-text-1" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(1)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(1)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(1)" style="display:none" id="delete-btn-1">Löschen</button>
+        <span class="saved-indicator" id="saved-1">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-2" class="relative bg-ink text-white" data-block="value-prop">
+      <span class="block-label">Block 2 — POSITIONIERUNG / MASTER-MESSAGE</span>
+      <span class="block-canon">block/value-prop</span>
+      <span id="ueber-uns"></span>
+      <button class="feedback-btn" onclick="toggleFeedback(2)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-3xl px-6 lg:px-8 py-20 sm:py-24">
+<h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Planungssicherheit statt Baustellen-Chaos.</h2>
+<p class="mt-6 text-lg leading-8 text-white/80">Wer gute Raumakustik sucht, landet meist zwischen drei Welten: Ingenieurbüros messen und beraten, führen aber nichts aus. Online-Shops verkaufen Absorber, ohne Ihren Raum zu kennen. Und der Handwerker montiert, was bestellt wurde, ob es akustisch passt oder nicht. Wir machen das anders: Akustik ist bei uns keine Einzelmaßnahme, sondern Teil des Raumkonzepts. Decke, Wand und Licht werden zusammen gedacht, geplant und montiert.</p>
+<p class="mt-6 text-lg leading-8 text-white/80">Sie haben einen Ansprechpartner. Wir koordinieren Planung und Ausführung aus einer Hand: eigene Mitarbeitende sowie geprüfte Partner und Subunternehmer, je nach Bereich. Leistungen, die eine besondere Qualifikation verlangen, werden durch qualifizierte Partner ausgeführt oder von uns kontrolliert.</p>
+</div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-2">
+      <label>Ihr Vorschlag für Block 2 — POSITIONIERUNG / MASTER-MESSAGE:</label>
+      <textarea id="feedback-text-2" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(2)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(2)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(2)" style="display:none" id="delete-btn-2">Löschen</button>
+        <span class="saved-indicator" id="saved-2">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-3" class="relative bg-neutralbg" data-block="definition">
+      <span class="block-label">Block 3 — WAS IST RAUMAKUSTIK (DEFINITION / AI-OVERVIEW)</span>
+      <span class="block-canon">block/definition</span>
+      <button class="feedback-btn" onclick="toggleFeedback(3)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-4xl px-6 lg:px-8 py-24 sm:py-32">
+<h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Was ist Raumakustik?</h2>
+<p class="mt-3 text-base leading-7 text-ink/70">Raumakustik beschreibt, wie Schall in einem geschlossenen Raum entsteht, sich ausbreitet und wieder abklingt. Lange Nachhallzeiten, Echos und ein unruhiger Grundpegel entstehen, wenn harte Oberflächen wie Beton, Fliesen oder Glas den Schall unkontrolliert zurückwerfen. Raumakustik betrifft den Klang im Raum. Schallschutz dagegen verhindert die Schallübertragung zwischen Räumen, das ist ein eigenes Feld. Durch gezielte Absorption, etwa mit Akustikdecken, Akustikwänden oder Deckensegeln, wird Sprache klarer verständlich und der Raum spürbar ruhiger.</p>
+<div class="mt-8 rounded-2xl bg-tanne/5 ring-1 ring-tanne/20 p-6"><p class="text-base leading-7 text-ink/80"><strong>Kurz gesagt:</strong> Raumakustik ist der Klang innerhalb eines Raumes. Schallabsorbierende Flächen an Decke und Wand reduzieren Hall und Nachhall, ohne dass der Raum umgebaut werden muss.</p></div>
+<p class="mt-3 text-base leading-7 text-ink/70"><em>Hinweis: BieneGold realisiert Raumakustik im Bau- und Innenausbaubereich, nicht zu verwechseln mit Hörgeräte-Akustik oder HiFi-Technik.</em></p>
+</div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-3">
+      <label>Ihr Vorschlag für Block 3 — WAS IST RAUMAKUSTIK (DEFINITION / AI-OVERVIEW):</label>
+      <textarea id="feedback-text-3" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(3)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(3)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(3)" style="display:none" id="delete-btn-3">Löschen</button>
+        <span class="saved-indicator" id="saved-3">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-4" class="relative bg-white" data-block="service-features">
+      <span class="block-label">Block 4 — AKUSTIK-LEISTUNGEN</span>
+      <span class="block-canon">block/service-features</span>
+      <button class="feedback-btn" onclick="toggleFeedback(4)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+<h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Unsere Akustik-Lösungen für Berlin</h2>
+<div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink">Akustikdecken: gespannt statt gelocht</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Die Decke ist die größte freie Fläche im Raum und der wirkungsvollste Hebel gegen Hall. Wir planen und montieren Stoff-Akustikdecken und Akustik-Spanndecken: Eine Vinyl-Spanndecke mit integrierter Akustikschicht verbindet Optik und Schallabsorption in einer Fläche. Beleuchtung lässt sich dabei von Anfang an mit einplanen.</p>
+</div>
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink">Akustikwände: Stoff mit Filz-Schicht</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Wandmontierte Stoffwände mit schallabsorbierender Filz-Schicht ergänzen die Deckenakustik dort, wo die Decke allein nicht reicht. Je nach Bedarf kommt zusätzlich Premium-Akustikschaum (Melaminharzschaum) als Einlage zum Einsatz, ein markenneutrales Material mit hoher Schallabsorption.</p>
+</div>
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink">Deckensegel und Wandabsorber</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Wo eine vollflächige Akustikdecke nicht möglich oder nicht gewünscht ist, setzen wir Deckensegel und Wandabsorber gezielt dort ein, wo der Schall am stärksten stört. Sie lassen sich auch nachträglich montieren, ohne Umbau.</p>
+</div>
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink">Auf Anfrage</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Akustikpaneele und Lamellen (Holz, Stoff) sowie Schallschutz- und Trockenbau-Lösungen realisieren wir auf Anfrage, in Abstimmung mit unserem Innenausbau-Team.</p>
+</div>
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink">Was wir nicht anbieten</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Akustikputz, Hörgeräte-Beratung, HiFi- und Studiotechnik sowie bauordnungsrechtliche Schallschutz-Gutachten (Ingenieurbüro-Leistung). Dafür empfehlen wir spezialisierte Anbieter.</p>
+</div>
+</div>
+</div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-4">
+      <label>Ihr Vorschlag für Block 4 — AKUSTIK-LEISTUNGEN:</label>
+      <textarea id="feedback-text-4" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(4)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(4)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(4)" style="display:none" id="delete-btn-4">Löschen</button>
+        <span class="saved-indicator" id="saved-4">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-5" class="relative bg-neutralbg" data-block="features">
+      <span class="block-label">Block 5 — USP-STACK (WARUM BIENEGOLD)</span>
+      <span class="block-canon">block/features</span>
+      <button class="feedback-btn" onclick="toggleFeedback(5)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-4xl px-6 lg:px-8 py-24 sm:py-32">
+<h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Warum BieneGold für Raumakustik</h2>
+<h3 class="mt-10 text-lg font-bold text-ink">1. Ein Ansprechpartner, Generalunternehmer mit System.</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Sie koordinieren nicht selbst zwischen Beratung, Materialbestellung und Handwerk. Ein Ansprechpartner steuert Ihr Akustik-Projekt von der ersten Einschätzung bis zur Übergabe. <em>Ihr Vorteil:</em> klare Verantwortung, keine Schnittstellen-Verluste zwischen drei Anbietern.</p>
+<h3 class="mt-10 text-lg font-bold text-ink">2. Planung vor der Montage.</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Wir messen auf, beraten und entwickeln Ihr Akustik-Konzept, bevor die Montage beginnt. Sie erhalten vorab einen Kostenvoranschlag mit einem realistischen Rahmen, keine Zusagen, die später nicht halten. <em>Ihr Vorteil:</em> Sie wissen vorher, woran Sie sind, ohne Sorge, am Ende mehr zu zahlen.</p>
+<h3 class="mt-10 text-lg font-bold text-ink">3. Markenoffen statt herstellergebunden.</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Wir wählen Material und System nach Ihrem Raum, Ihrer Nutzung und Ihrem Budget, nicht nach dem Katalog eines Herstellers. <em>Ihr Vorteil:</em> die Lösung richtet sich nach Ihrem Raum, nicht nach einer Hausmarke.</p>
+</div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-5">
+      <label>Ihr Vorschlag für Block 5 — USP-STACK (WARUM BIENEGOLD):</label>
+      <textarea id="feedback-text-5" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(5)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(5)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(5)" style="display:none" id="delete-btn-5">Löschen</button>
+        <span class="saved-indicator" id="saved-5">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-6" class="relative bg-gold" data-block="cta">
+      <span class="block-label">Mid-Cta — Anfrage</span>
+      <span class="block-canon">block/cta</span>
+      <button class="feedback-btn" onclick="toggleFeedback(6)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-5xl px-6 lg:px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
+<div><p class="text-xl font-extrabold text-ink">Bereit für einen Raum, in dem man sich selbst versteht?</p>
+<p class="mt-1 text-sm text-ink/70">Schildern Sie uns Ihre Situation, Ihre Anfrage ist kostenlos &amp; unverbindlich. Wir melden uns innerhalb von 5–10 Minuten zurück.</p>
+</div>
+<a href="#kontakt" class="rounded-md bg-ink px-6 py-3 text-base font-bold text-white hover:bg-ink/90 transition whitespace-nowrap">Jetzt anfragen</a>
+</div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-6">
+      <label>Ihr Vorschlag für Mid-Cta — Anfrage:</label>
+      <textarea id="feedback-text-6" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(6)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(6)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(6)" style="display:none" id="delete-btn-6">Löschen</button>
+        <span class="saved-indicator" id="saved-6">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-7" class="relative bg-white" data-block="use-cases">
+      <span class="block-label">Block 6 — ANWENDUNG / EINSATZBEREICHE</span>
+      <span class="block-canon">block/use-cases</span>
+      <button class="feedback-btn" onclick="toggleFeedback(7)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+<h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Akustik für Wohnraum und Gewerbe</h2>
+<div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink">Wohnzimmer und Essbereich</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Offene Grundrisse, hohe Decken und harte Oberflächen verstärken den Nachhall. Gezielte Absorption an Decke oder Wand bringt die Gesprächsatmosphäre zurück.</p>
+</div>
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink">Schlaf- und Kinderzimmer</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Weniger Hall in den Räumen, die zum Abschalten da sind: Gezielte Absorption macht Ruhezonen hörbar ruhiger.</p>
+</div>
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink">Home-Office</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Wenige, gezielt platzierte Elemente mindern störende Reflexionen und verbessern die Sprachverständlichkeit in Videokonferenzen.</p>
+</div>
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink">Büros und Großraumbüros</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Büroakustik für Einzel- und Großraumbüros: Wir bieten Lösungen, die Ablenkung durch Umgebungsgeräusche reduzieren und konzentriertes Arbeiten unterstützen.</p>
+</div>
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink">Arztpraxen und Therapieräume</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Diskrete Gespräche im Behandlungsraum, ein ruhiger Wartebereich: Für Praxen bieten wir Raumakustik, die Vertraulichkeit und Ruhe unterstützt.</p>
+</div>
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink">Konferenz- und Empfangsbereiche</h3>
+<p class="mt-3 text-base leading-7 text-ink/70">In Besprechungsräumen bleiben Gespräche am Tisch verständlich, ohne dass der Raum mithallt. Empfangs- und Ladenflächen werden hörbar ruhiger für Gäste und Team.</p>
+</div>
+</div>
+</div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-7">
+      <label>Ihr Vorschlag für Block 6 — ANWENDUNG / EINSATZBEREICHE:</label>
+      <textarea id="feedback-text-7" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(7)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(7)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(7)" style="display:none" id="delete-btn-7">Löschen</button>
+        <span class="saved-indicator" id="saved-7">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-8" class="relative bg-neutralbg" data-block="how-it-works">
+      <span class="block-label">Block 7 — ABLAUF — 3 SCHRITTE</span>
+      <span class="block-canon">block/how-it-works</span>
+      <span id="ablauf"></span>
+      <button class="feedback-btn" onclick="toggleFeedback(8)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-5xl px-6 lg:px-8 py-24 sm:py-32">
+<h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">In drei Schritten zu Ihrem ruhigen Raum</h2>
+<div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
+<div><div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gold text-ink font-extrabold">1</div>
+<h3 class="mt-4 text-lg font-bold text-ink">Anfrage &amp; Kostenvoranschlag</h3>
+<p class="mt-2 text-base leading-7 text-ink/70">Sie senden uns Ihre Anfrage über das Formular oder rufen an. Wir melden uns innerhalb von 5–10 Minuten zurück und besprechen Ihren Raum und Ihr Anliegen.</p>
+</div>
+<div><div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gold text-ink font-extrabold">2</div>
+<h3 class="mt-4 text-lg font-bold text-ink">Projekt-Planung</h3>
+<p class="mt-2 text-base leading-7 text-ink/70">Wir kommen zum Aufmaß-Termin vor Ort und nehmen den Raum auf: Raumgröße, Oberflächen und Nutzung bestimmen, wie viel Absorptionsfläche wo sinnvoll ist. Daraus entsteht Ihr konkretes Akustik-Konzept, mit einem Kostenvoranschlag mit klar nachvollziehbaren Positionen und einem realistischen Rahmen.</p>
+</div>
+<div><div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gold text-ink font-extrabold">3</div>
+<h3 class="mt-4 text-lg font-bold text-ink">Montage &amp; Übergabe</h3>
+<p class="mt-2 text-base leading-7 text-ink/70">Wir führen die Maßnahmen termingerecht aus und übergeben Ihnen den Raum besenrein und ohne Restbaustelle. Genutzt werden kann er sofort. Den genauen Ablauf und die Dauer halten wir in Ihrem Kostenvoranschlag fest.</p>
+</div>
+</div>
+</div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-8">
+      <label>Ihr Vorschlag für Block 7 — ABLAUF — 3 SCHRITTE:</label>
+      <textarea id="feedback-text-8" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(8)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(8)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(8)" style="display:none" id="delete-btn-8">Löschen</button>
+        <span class="saved-indicator" id="saved-8">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-9" class="relative bg-white" data-block="before-after">
+      <span class="block-label">Block 8 — REFERENZEN / VORHER-NACHHER</span>
+      <span class="block-canon">block/before-after</span>
+      <span id="referenzen"></span>
+      <button class="feedback-btn" onclick="toggleFeedback(9)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-5xl px-6 lg:px-8 py-24 sm:py-32">
+<h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Akustik-Projekte in Berlin</h2>
+<p class="dvl-placeholder mx-auto mt-4 max-w-2xl text-center rounded px-3 py-1 text-xs">[KLIENT: Vorher-Nachher-Bildpaare echter Akustik-Projekte einsetzen, keine erfundenen Projektnamen, Orte oder Werte. Freigabe: F-Akustik-3 (Denis) · Dropbox-Freigabe erteilt (D-FB-039), Einbindung Phase-4-Build.]</p>
+<div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+<div class="dvl-placeholder rounded-xl p-6 text-sm text-center min-h-[160px] flex items-center justify-center">[KLIENT: Bildpaar 1 — z.B. „Wohnzimmer, Altbau Berlin: harter Hall → Stoff-Akustikdecke mit indirektem Licht"]</div>
+<div class="dvl-placeholder rounded-xl p-6 text-sm text-center min-h-[160px] flex items-center justify-center">[KLIENT: Bildpaar 2 — z.B. „Home-Office, Berlin: schlechte Sprachverständlichkeit → Wandabsorber + Deckensegel"]</div>
+<div class="dvl-placeholder rounded-xl p-6 text-sm text-center min-h-[160px] flex items-center justify-center">[KLIENT: Bildpaar 3 — z.B. „Besprechungsraum, Berlin: Halligkeit → Akustikdecke + Stoff-Akustikwand"]</div>
+</div>
+<a href="/referenzen/" class="mt-8 inline-block text-base font-semibold text-gold-dark hover:text-gold">→ Alle Projekte ansehen: Referenzen</a>
+</div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-9">
+      <label>Ihr Vorschlag für Block 8 — REFERENZEN / VORHER-NACHHER:</label>
+      <textarea id="feedback-text-9" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(9)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(9)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(9)" style="display:none" id="delete-btn-9">Löschen</button>
+        <span class="saved-indicator" id="saved-9">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-10" class="relative bg-neutralbg" data-block="testimonials">
+      <span class="block-label">Block 9 — SOCIAL PROOF / TRUST-STACK</span>
+      <span class="block-canon">block/testimonials</span>
+      <button class="feedback-btn" onclick="toggleFeedback(10)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-6xl px-6 lg:px-8 py-24 sm:py-32">
+<div class="flex flex-col items-center text-center">
+<p class="text-2xl tracking-widest text-gold-dark">★★★★★</p>
+<p class="mt-2 text-5xl font-extrabold text-ink">Ø 4,8<span class="text-xl font-semibold text-ink/50"> / 5</span></p>
+<p class="mt-2 text-base text-ink/70">aus über 100 Google-Bewertungen, über alle Leistungen von BieneGold</p>
+<p class="dvl-placeholder mt-3 inline-block rounded px-3 py-1 text-xs font-semibold">⚠️ Bewertungs-Angaben (Ø&nbsp;4,8★ · 100+) noch nicht final bestätigt: bitte bestätigen oder korrigieren</p>
+</div>
+<p class="mx-auto mt-6 max-w-3xl text-center text-base leading-7 text-ink/70">Seit 2012 steht BieneGold für Planungssicherheit statt Baustellen-Chaos. Das spiegelt sich in über <strong>100 Google-Bewertungen mit einem Durchschnitt von 4,8 von 5 Sternen</strong> wider. Dieser Schnitt fasst Rückmeldungen aus allen unseren Leistungsbereichen zusammen.</p>
+<p class="mx-auto mt-6 max-w-3xl text-center text-base leading-7 text-ink/70">Auf alle Werkleistungen gilt die gesetzliche Gewährleistung. So haben Sie auch nach der Übergabe die Sicherheit, dass wir für unsere Arbeit einstehen.</p>
+<h2 class="mt-14 text-center text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Was unsere Kundinnen und Kunden sagen</h2>
+<div class="mt-10"><div class="dvl-placeholder rounded-2xl p-6 text-sm text-center">[KLIENT: 2–3 echte Kundenstimmen verbatim einsetzen, Vorname + Initial oder Stadtteil, keine erfundenen Zitate. Quelle: Google-Bewertungen / Anja-Anfrage #268898.]</div></div>
+</div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-10">
+      <label>Ihr Vorschlag für Block 9 — SOCIAL PROOF / TRUST-STACK:</label>
+      <textarea id="feedback-text-10" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(10)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(10)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(10)" style="display:none" id="delete-btn-10">Löschen</button>
+        <span class="saved-indicator" id="saved-10">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-11" class="relative bg-white" data-block="related-services">
+      <span class="block-label">Block 10 — CROSS-LINK-HUB (LEISTUNGSKATEGORIEN)</span>
+      <span class="block-canon">block/related-services</span>
+      <button class="feedback-btn" onclick="toggleFeedback(11)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+<h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Akustik im Zusammenspiel: entdecken Sie unsere Leistungen</h2>
+<p class="mt-6 text-lg leading-8 text-ink/70">Gute Raumakustik entsteht selten allein. Von hier kommen Sie direkt zu den verwandten Leistungen, und in unserem <a href="bienegold_preview_ratgeber_GEN.html#akustik" class="text-gold-dark font-semibold hover:text-gold">Ratgeber</a> vertiefen Sie Planung und Kosten.</p>
+<div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-4">
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink"><a href="bienegold_preview_spanndecken_GEN.html" class="text-gold-dark font-semibold hover:text-gold">Spanndecken →</a></h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Akustik-Spanndecke: Vinyl-Decke, die Optik und Schallabsorption kombiniert.</p>
+</div>
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink"><a href="/wandverkleidung/" class="text-gold-dark font-semibold hover:text-gold">Wandverkleidung →</a></h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Gewebewand mit schallabsorbierender Schicht: Oberfläche und Raumakustik gemeinsam geplant.</p>
+</div>
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink"><a href="/lichtkonzepte/" class="text-gold-dark font-semibold hover:text-gold">Lichtkonzepte →</a></h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Licht in Akustikdecke oder Deckensegel von Anfang an mitgeplant.</p>
+</div>
+<div class="rounded-2xl bg-white shadow-sm ring-1 ring-gold/10 p-8">
+<h3 class="text-lg font-bold text-ink"><a href="bienegold_preview_innenausbau_GEN.html" class="text-gold-dark font-semibold hover:text-gold">Innenausbau →</a></h3>
+<p class="mt-3 text-base leading-7 text-ink/70">Soll der ganze Raum neu? Akustik als Teil einer Komplettsanierung, von der ersten Planung an.</p>
+</div>
+</div>
+</div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-11">
+      <label>Ihr Vorschlag für Block 10 — CROSS-LINK-HUB (LEISTUNGSKATEGORIEN):</label>
+      <textarea id="feedback-text-11" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(11)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(11)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(11)" style="display:none" id="delete-btn-11">Löschen</button>
+        <span class="saved-indicator" id="saved-11">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-12" class="relative bg-neutralbg" data-block="faq">
+      <span class="block-label">Block 11 — FAQ</span>
+      <span class="block-canon">block/faq</span>
+      <button class="feedback-btn" onclick="toggleFeedback(12)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-3xl px-6 lg:px-8 py-24 sm:py-32">
+<h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Häufige Fragen zur Raumakustik</h2>
+<div class="mt-10 divide-y divide-gold/15">
+<details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Hilft eine Akustikdecke wirklich gegen Hall?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Ja. Hall entsteht, wenn Schall an harten Oberflächen wiederholt reflektiert wird. Eine Akustikdecke bringt schallabsorbierendes Material an der größten freien Fläche im Raum ein und reduziert die Reflexionen spürbar: Der Raum klingt ruhiger, Sprache wird klarer. Wie stark der Effekt ausfällt, hängt von Raum, Nutzung und Maßnahmenumfang ab, genau dafür planen wir vor Ort.</p></details>
+<details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Was kosten Akustikmaßnahmen?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Die Kosten hängen von Raumgröße, Maßnahmenart, Material und Montageaufwand ab. Auf Basis des Aufmaßes erhalten Sie einen Kostenvoranschlag mit einem realistischen Rahmen, transparent und nachvollziehbar. Für eine erste Einschätzung reicht oft ein kurzes Telefonat. Ob und wie der Aufmaß-Termin berechnet wird, besprechen wir dabei offen, bevor Sie sich entscheiden.</p></details>
+<details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Kann ich Akustik nachträglich in einen bestehenden Raum integrieren?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Ja. Deckensegel, Wandabsorber und gespannte Akustikdecken lassen sich in vielen Fällen nachträglich montieren, ohne umfangreiche Umbauten und ohne dass Sie ausziehen müssen. Was für Ihren Raum in Frage kommt, zeigt der Blick vor Ort.</p></details>
+<details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Was ist besser: Akustikdecke oder einzelne Schallabsorber?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Eine vollflächige Akustikdecke wirkt in der Regel gleichmäßiger über den ganzen Raum. Deckensegel und Wandabsorber als einzelne Schallabsorber sind flexibler und eignen sich, wenn eine vollflächige Lösung baulich oder gestalterisch nicht in Frage kommt. Oft ist die Kombination beider Ansätze die beste Lösung, abhängig von Raum und Nutzung.</p></details>
+<details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Was ist der Unterschied zwischen Raumakustik und Schallschutz?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Kurz: Raumakustik verbessert den Klang IM Raum, Schallschutz stoppt die Übertragung ZWISCHEN Räumen, etwa durch Wände oder Decken. Für Sie heißt das: Gegen Hall und schlechte Sprachverständlichkeit hilft Raumakustik, unser Kernangebot. Schallschutz- und Trockenbau-Lösungen realisieren wir auf Anfrage.</p></details>
+<details class="group py-5"><summary class="flex items-center justify-between text-lg font-semibold text-ink">Sind Sie in ganz Berlin und Umgebung tätig?<span class="ml-4 text-gold-dark"><span class="faq-plus">+</span><span class="faq-minus">−</span></span></summary><p class="mt-3 text-base leading-7 text-ink/70">Ja. BieneGold arbeitet in ganz Berlin und im näheren Brandenburger Umland, für Beratung, Aufmaß und Montage kommen wir zu Ihnen.</p></details>
+</div></div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-12">
+      <label>Ihr Vorschlag für Block 11 — FAQ:</label>
+      <textarea id="feedback-text-12" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(12)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(12)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(12)" style="display:none" id="delete-btn-12">Löschen</button>
+        <span class="saved-indicator" id="saved-12">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-13" class="relative bg-white" data-block="cta-banner">
+      <span class="block-label">Block 12 — FINALE CTA</span>
+      <span class="block-canon">block/cta-banner</span>
+      <span id="kontakt"></span>
+      <button class="feedback-btn" onclick="toggleFeedback(13)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-3xl px-6 lg:px-8 py-24 sm:py-32 text-center">
+<h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Bereit für bessere Raumakustik? Sprechen wir.</h2>
+<p class="mt-6 text-lg leading-8 text-ink/70">Ob Wohnzimmer, Home-Office oder Konferenzraum: Schildern Sie uns Ihren Raum und Ihre Situation. Ihre Anfrage ist kostenlos &amp; unverbindlich. Wir melden uns innerhalb von 5–10 Minuten zurück und vereinbaren einen Aufmaß-Termin vor Ort.</p>
+<div class="mt-8"><a href="#kontakt" class="rounded-md bg-gold px-6 py-3 text-base font-bold text-ink shadow-sm hover:bg-gold-light transition">Jetzt anfragen</a></div>
+</div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-13">
+      <label>Ihr Vorschlag für Block 12 — FINALE CTA:</label>
+      <textarea id="feedback-text-13" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(13)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(13)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(13)" style="display:none" id="delete-btn-13">Löschen</button>
+        <span class="saved-indicator" id="saved-13">✓ Gespeichert</span>
+      </div>
+    </div>
+
+    <section id="block-14" class="relative bg-tanne text-white" data-block="closing">
+      <span class="block-label">Block TRIADE — CLOSING-TRIADE</span>
+      <span class="block-canon">block/closing</span>
+      <button class="feedback-btn" onclick="toggleFeedback(14)">✏️ Vorschlag</button>
+      <div class="mx-auto max-w-5xl px-6 lg:px-8 py-16 text-center"><p class="text-xl sm:text-2xl font-extrabold tracking-tight text-white">EIN ANSPRECHPARTNER. EIN SYSTEM. EIN ERGEBNIS.</p></div>
+    </section>
+    <div class="feedback-panel" id="feedback-panel-14">
+      <label>Ihr Vorschlag für Block TRIADE — CLOSING-TRIADE:</label>
+      <textarea id="feedback-text-14" placeholder="Schreiben Sie hier Ihren Änderungsvorschlag oder Kommentar..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-save" onclick="saveFeedback(14)">Speichern</button>
+        <button class="btn-cancel" onclick="toggleFeedback(14)">Abbrechen</button>
+        <button class="btn-delete" onclick="deleteFeedback(14)" style="display:none" id="delete-btn-14">Löschen</button>
+        <span class="saved-indicator" id="saved-14">✓ Gespeichert</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="relative bg-ink border-t border-white/10 text-white/80">
+    <span class="block-canon">block/footer</span>
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <svg class="h-7 w-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M50 4L87 25v42L50 88 13 67V25z" fill="#d4a843" fill-opacity="0.15" stroke="#d4a843" stroke-width="3"/>
+              <path d="M50 28L67 38v20L50 68 33 58V38z" fill="#d4a843"/>
+            </svg>
+            <span class="text-lg font-extrabold text-white">Biene<span class="text-gold-light">Gold</span></span>
+          </div>
+          <p class="mt-4 text-sm">BieneGold GmbH · seit 2012</p>
+          <p class="mt-1 text-sm">Generalunternehmer mit System</p>
+          <p class="mt-1 text-sm">Berlin und Brandenburg</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wide text-gold-light">Leistungen</h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="/wandverkleidung/" class="hover:text-white">Wandverkleidung</a></li>
+            <li><a href="bienegold_preview_spanndecken_GEN.html" class="hover:text-white">Spanndecken</a></li>
+            <li><a href="/akustik/" class="hover:text-white">Akustik</a></li>
+            <li><a href="/lichtkonzepte/" class="hover:text-white">Lichtkonzepte</a></li>
+            <li><a href="/badsanierung/" class="hover:text-white">Badsanierung</a></li>
+            <li><a href="bienegold_preview_innenausbau_GEN.html" class="hover:text-white">Innenausbau</a></li>
+            <li><a href="/smarthome/" class="hover:text-white">SmartHome</a></li>
+            <li><a href="/infrarot/" class="hover:text-white">Infrarot</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wide text-gold-light">Kontakt</h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>Telefon &amp; WhatsApp: <a href="tel:03052014158" class="hover:text-white">030 52014158</a></li>
+            <li>E-Mail: <a href="mailto:anfrage@bienegold.de" class="hover:text-white">anfrage@bienegold.de</a></li>
+            <li>Erreichbarkeit: Mo&ndash;Fr 09:00&ndash;17:00 Uhr</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wide text-gold-light">Adressen</h3>
+          <ul class="mt-4 space-y-3 text-sm">
+            <li>Rechnungsadresse: Lutherplatz 5, 13585 Berlin</li>
+            <li>Büro: Spandauer Damm 52, 14059 Berlin</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-8 border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm text-white/60">
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <a href="/impressum/" class="hover:text-white">Impressum</a><span aria-hidden="true">·</span>
+          <a href="/datenschutz/" class="hover:text-white">Datenschutz</a><span aria-hidden="true">·</span>
+          <span>© 2026 BieneGold GmbH</span>
+        </div>
+        <p class="text-gold-light/80">Planungssicherheit statt Baustellen-Chaos.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ Mobile Sticky CTA (Anrufen + Anfragen) · nur Mobile · Schnell-Entscheider-Pfad + persistente Mobile-CTA ============ -->
+  <div class="h-16 lg:hidden" aria-hidden="true"></div>
+  <div class="fixed inset-x-0 bottom-0 z-50 lg:hidden border-t border-gold/30 bg-white/95 backdrop-blur px-3 py-2 print:hidden">
+    <span class="block-canon">block/sticky-cta</span>
+    <div class="mx-auto grid max-w-md grid-cols-2 gap-2">
+      <a href="tel:03052014158" class="inline-flex items-center justify-center gap-1.5 rounded-md py-2.5 text-sm font-bold text-tanne ring-1 ring-tanne/40 hover:bg-tanne/5 transition" aria-label="Anrufen"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Anrufen</a>
+      <a href="#kontakt" class="inline-flex items-center justify-center rounded-md bg-gold py-2.5 text-sm font-bold text-ink shadow-sm hover:bg-gold-light transition">Jetzt anfragen</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('burger').addEventListener('click', function () {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+
+  <div class="export-overlay" id="exportOverlay">
+    <div class="export-box">
+      <div class="count" id="exportCount">0</div>
+      <h2>Kommentare bereit</h2>
+      <p>Alle Ihre Änderungsvorschläge in einer Datei. Laden Sie sie herunter und senden Sie sie an Ihr Projektteam.</p>
+      <button class="btn-export" onclick="exportFeedback()">📥 Als Datei herunterladen</button>
+      <button class="btn-export btn-copy" onclick="copyFeedback()">📋 In Zwischenablage kopieren</button>
+      <button class="btn-close-overlay" onclick="closeExportOverlay()">Schließen</button>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var PROJECT='bienegold',PAGE='akustik',PAGE_TITLE='Akustik',STORAGE_KEY='2p-feedback-'+PROJECT;
+    function getAll(){return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}
+    function getPage(){var a=getAll();return a[PAGE]||{};}
+    function savePage(p){var a=getAll();if(Object.keys(p).length===1&&p._title){delete a[PAGE];}else{a[PAGE]=p;}localStorage.setItem(STORAGE_KEY,JSON.stringify(a));}
+    function total(){var a=getAll(),c=0;for(var pg in a){for(var k in a[pg]){if(k!=='_title')c++;}}return c;}
+    function load(){var p=getPage();for(var id in p){if(id==='_title')continue;var e=p[id],t=(typeof e==='object')?e.text:e;var ta=document.getElementById('feedback-text-'+id);var b=document.querySelector('#block-'+id+' .feedback-btn');var db=document.getElementById('delete-btn-'+id);if(ta)ta.value=t;if(b){b.classList.add('has-comment');b.textContent='✏️ Kommentar bearbeiten';}if(db)db.style.display='inline-block';}upd();}
+    window.toggleFeedback=function(id){var pn=document.getElementById('feedback-panel-'+id);pn.classList.toggle('open');if(pn.classList.contains('open'))document.getElementById('feedback-text-'+id).focus();};
+    window.saveFeedback=function(id){var t=document.getElementById('feedback-text-'+id).value.trim();if(!t)return;var bl=document.getElementById('block-'+id);var le=bl?bl.querySelector('.block-label'):null;var label=le?le.textContent:('Block '+id);var p=getPage();p._title=PAGE_TITLE;p[id]={text:t,label:label};savePage(p);var b=document.querySelector('#block-'+id+' .feedback-btn');b.classList.add('has-comment');b.textContent='✏️ Kommentar bearbeiten';document.getElementById('delete-btn-'+id).style.display='inline-block';var ind=document.getElementById('saved-'+id);ind.style.display='flex';setTimeout(function(){ind.style.display='none';},2000);upd();setTimeout(function(){window.toggleFeedback(id);},1200);};
+    window.deleteFeedback=function(id){var p=getPage();delete p[id];savePage(p);document.getElementById('feedback-text-'+id).value='';var b=document.querySelector('#block-'+id+' .feedback-btn');b.classList.remove('has-comment');b.textContent='✏️ Vorschlag';document.getElementById('delete-btn-'+id).style.display='none';upd();window.toggleFeedback(id);};
+    function upd(){var c=total();var el=document.getElementById('feedbackCounter');if(!el)return;if(c>0){el.classList.add('has-feedback');el.innerHTML='📥 Feedback: '+c+' Kommentar'+(c>1?'e':'');}else{el.classList.remove('has-feedback');el.innerHTML='Feedback: 0 Kommentare';}}
+    window.openExportOverlay=function(){var c=total();if(c===0)return;document.getElementById('exportCount').textContent=c;document.getElementById('exportOverlay').classList.add('open');};
+    window.closeExportOverlay=function(){document.getElementById('exportOverlay').classList.remove('open');};
+    function build(){var a=getAll(),tc=total();var x='FEEDBACK — '+PROJECT.toUpperCase()+'\n'+'Datum: '+new Date().toLocaleDateString('de-DE')+'\n'+tc+' Kommentar(e) insgesamt\n==================================================\n\n';for(var pg in a){var pd=a[pg],pt=pd._title||pg;x+='━━━ '+pt+' ━━━\n\n';for(var id in pd){if(id==='_title')continue;var e=pd[id];var ct=(typeof e==='object')?e.text:e;var lb=(typeof e==='object'&&e.label)?e.label:('Block '+id);x+='📌 '+lb+'\n----------------------------------------\n'+ct+'\n\n';}}x+='==================================================\nErstellt am '+new Date().toLocaleString('de-DE')+'\n';return x;}
+    window.exportFeedback=function(){var t=build();var b=new Blob([t],{type:'text/plain;charset=utf-8'});var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='feedback_'+PROJECT+'_'+new Date().toISOString().slice(0,10)+'.txt';a.click();URL.revokeObjectURL(u);window.closeExportOverlay();};
+    window.copyFeedback=function(){var t=build();navigator.clipboard.writeText(t).then(function(){var b=document.querySelector('.btn-copy');var o=b.textContent;b.textContent='✅ Kopiert!';setTimeout(function(){b.textContent=o;},2000);});};
+    load();
+  })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "GeneralContractor",
+      "@id": "https://bienegold.de/#organization",
+      "name": "BieneGold GmbH",
+      "url": "https://bienegold.de/",
+      "telephone": "+49 30 52014158",
+      "email": "anfrage@bienegold.de",
+      "foundingDate": "2012",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Lutherplatz 5",
+        "postalCode": "13585",
+        "addressLocality": "Berlin",
+        "addressCountry": "DE"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Berlin"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Brandenburg"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://bienegold.de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Akustik",
+          "item": "https://bienegold.de/akustik/"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Akustik Berlin",
+      "serviceType": "Akustik Berlin",
+      "url": "https://bienegold.de/akustik/",
+      "provider": {
+        "@id": "https://bienegold.de/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Berlin"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Brandenburg"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hilft eine Akustikdecke wirklich gegen Hall?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Hall entsteht, wenn Schall an harten Oberflächen wiederholt reflektiert wird. Eine Akustikdecke bringt schallabsorbierendes Material an der größten freien Fläche im Raum ein und reduziert die Reflexionen spürbar: Der Raum klingt ruhiger, Sprache wird klarer. Wie stark der Effekt ausfällt, hängt von Raum, Nutzung und Maßnahmenumfang ab, genau dafür planen wir vor Ort."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was kosten Akustikmaßnahmen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Kosten hängen von Raumgröße, Maßnahmenart, Material und Montageaufwand ab. Auf Basis des Aufmaßes erhalten Sie einen Kostenvoranschlag mit einem realistischen Rahmen, transparent und nachvollziehbar. Für eine erste Einschätzung reicht oft ein kurzes Telefonat. Ob und wie der Aufmaß-Termin berechnet wird, besprechen wir dabei offen, bevor Sie sich entscheiden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich Akustik nachträglich in einen bestehenden Raum integrieren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Deckensegel, Wandabsorber und gespannte Akustikdecken lassen sich in vielen Fällen nachträglich montieren, ohne umfangreiche Umbauten und ohne dass Sie ausziehen müssen. Was für Ihren Raum in Frage kommt, zeigt der Blick vor Ort."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist besser: Akustikdecke oder einzelne Schallabsorber?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Eine vollflächige Akustikdecke wirkt in der Regel gleichmäßiger über den ganzen Raum. Deckensegel und Wandabsorber als einzelne Schallabsorber sind flexibler und eignen sich, wenn eine vollflächige Lösung baulich oder gestalterisch nicht in Frage kommt. Oft ist die Kombination beider Ansätze die beste Lösung, abhängig von Raum und Nutzung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist der Unterschied zwischen Raumakustik und Schallschutz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kurz: Raumakustik verbessert den Klang IM Raum, Schallschutz stoppt die Übertragung ZWISCHEN Räumen, etwa durch Wände oder Decken. Für Sie heißt das: Gegen Hall und schlechte Sprachverständlichkeit hilft Raumakustik, unser Kernangebot. Schallschutz- und Trockenbau-Lösungen realisieren wir auf Anfrage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Sind Sie in ganz Berlin und Umgebung tätig?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. BieneGold arbeitet in ganz Berlin und im näheren Brandenburger Umland, für Beratung, Aufmaß und Montage kommen wir zu Ihnen."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <button class="blocktoggle" type="button" onclick="document.body.classList.toggle('show-blocks')" title="Block-Namen ein/aus (Design / Vёrstka)">🔖 Block-Namen</button>
+</body>
+</html>
